@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'beiyun'
             keyPassword 'mm123456'
-            storeFile file('D:\\Android\\Android Project Space\\Workers\\app\\workers.jks')
+            storeFile file('workers.jks')
             storePassword 'mm123456'
         }
     }
