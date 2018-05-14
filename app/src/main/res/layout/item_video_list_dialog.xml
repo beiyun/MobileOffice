@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:focusable="true"
+    android:clickable="true"
+    android:background="?android:selectableItemBackground"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView style="@style/line"
+        android:layout_below="@+id/item_video_list_image"
+        android:layout_marginTop="@dimen/dp_10"/>
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/item_video_list_image"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        app:actualImageScaleType="centerCrop"
+        app:fadeDuration="500"
+        app:failureImageScaleType="centerCrop"
+        app:placeholderImage="@mipmap/placeholderimage"
+        app:placeholderImageScaleType="centerCrop"
+        app:roundBottomEnd="true"
+        app:roundBottomStart="true"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginLeft="@dimen/dp_10"
+        app:roundTopEnd="true"
+        app:roundTopStart="true"
+        app:roundedCornerRadius="@dimen/dp_6"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/item_video_list_image"
+        android:layout_alignBottom="@+id/item_video_list_image"
+        android:layout_alignTop="@+id/item_video_list_image"
+        android:layout_marginStart="@dimen/dp_10"
+        android:orientation="vertical"
+        android:layout_toRightOf="@+id/item_video_list_image"
+        android:layout_marginLeft="@dimen/dp_10">
+
+        <TextView
+            android:id="@+id/item_video_list_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lineSpacingMultiplier="1.12"
+            android:maxLines="1"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_6"
+            android:text="春山空雨后，天气晚来秋"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            android:layout_marginRight="@dimen/dp_10" />
+
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/dp_6"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/item_video_list_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:drawablePadding="@dimen/dp_6"
+                android:drawableStart="@drawable/ic_movie_creation_white_18dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="2.5MB"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/sp_12"
+                android:layout_marginRight="@dimen/dp_16"
+                android:drawableLeft="@drawable/ic_movie_creation_white_18dp" />
+
+            <TextView
+                android:id="@+id/item_video_list_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dp_6"
+                android:drawableStart="@drawable/ic_query_builder_white_24dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="2:34"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/sp_12"
+                android:drawableLeft="@drawable/ic_query_builder_white_24dp" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

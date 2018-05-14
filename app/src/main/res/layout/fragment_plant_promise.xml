@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".fragment.searchfragment.PlantPromiseFragment"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/dp_10"
+        android:paddingBottom="@dimen/dp_10"
+        android:paddingLeft="@dimen/dp_10"
+        android:paddingRight="@dimen/dp_10">
+
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/townName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:focusable="false"
+                app:rightText="@string/xiang"
+                app:titleText="@string/woshi" />
+
+        </LinearLayout>
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/village"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:focusable="false"
+            app:rightText="@string/cunweihui" />
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/villageGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:focusable="false"
+            app:rightText="@string/committ_cunxiaozu" />
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/expectArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:inputType="numberDecimal"
+            app:rightText="@string/mu"
+            app:titleText="@string/committ_yuji" />
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/variety"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:maxLength="10"
+            app:dropDownStringArray="@array/pingzhong"
+            app:rightText="。"
+            app:titleText="@string/zhongzhipinzhong" />
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/year"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:dropDownStringArray="@array/year"
+            app:gravity="center"
+            app:rightText="年烤烟种植相关政策告知书》"
+            app:titleText="《" />
+
+        <com.beiyun.workers.view.FormView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:only_text="我已收到。按照烤烟烧烤工作要求，先做出承诺：" />
+
+
+        <com.beiyun.workers.view.FormView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:only_text="\t\t1.遵守规定品种种植，服从连片规划要求，从规定的育苗基地购买烟苗，不私自撒播、种植、交售非规定品种， 如有违反自愿放弃合同履约资格，并承担由此造成的后，包括合同和生产补助被取消以及非规定品种不予收购等。\n\t\t2.严格合同履约。开磅收购三十天内，如果未交售过一次烟叶，自愿放弃合同履约资格（即取消合同）；如果未完成20&#37;以上（含20&#37;）合同交售任务，自愿调减剩余合同任务数的50&#37;。\n\t\t3.如实申报和签订合同，确保种植面积与合同对应；不虚报面积套取合同、物质和补贴；出现买卖合同，自愿放弃合同履约资格（即取消合同）。\n\t\t如果没有做到以上承诺，导致合同被扣减甚至被取消的，造成苗款损失以及相关补贴被取消直至追责的，本户自愿承担后果。" />
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/signature"
+            android:layout_width="@dimen/dp_100"
+            android:layout_marginTop="@dimen/dp_10"
+            app:placeholderImage="@mipmap/placeholderimage"
+            app:placeholderImageScaleType="centerCrop"
+            android:layout_marginStart="@dimen/dp_6"
+            android:layout_height="@dimen/dp_100"
+            android:layout_marginLeft="@dimen/dp_6" />
+
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/promise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:focusable="false"
+            app:inputType="datePiker"
+            app:titleText="@string/chengnuoshijian" />
+
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>

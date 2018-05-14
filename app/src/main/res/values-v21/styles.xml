@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTransitionBackgroundFadeDuration">600</item>
+        <item name="android:windowContentTransitions">true</item>
+        <!--&lt;!&ndash;是否覆盖执行，其实可以理解成是否同步执行还是顺序执行&ndash;&gt;-->
+        <!--<item name="android:windowAllowEnterTransitionOverlap">false</item>-->
+        <!--<item name="android:windowAllowReturnTransitionOverlap">false</item>-->
+        <!--<item name="android:windowReturnTransition">@transition/activity_exit</item>-->
+        <!--<item name="android:windowEnterTransition">@transition/activity_enter</item>-->
+        <!--&lt;!&ndash;<item name="android:windowExitTransition">@transition/activity_exit</item>&ndash;&gt;-->
+        <!--<item name="android:windowSharedElementEnterTransition">@transition/change_bounds</item>-->
+        <!--<item name="android:windowSharedElementExitTransition">@transition/change_bounds</item>-->
+    </style>
+
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowTransitionBackgroundFadeDuration">600</item>
+        <!--&lt;!&ndash;&lt;!&ndash;是否覆盖执行，其实可以理解成是否同步执行还是顺序执行&ndash;&gt;&ndash;&gt;-->
+        <!--<item name="android:windowAllowEnterTransitionOverlap">false</item>-->
+        <!--<item name="android:windowAllowReturnTransitionOverlap">false</item>-->
+        <!--<item name="android:windowReturnTransition">@transition/activity_exit</item>-->
+        <!--<item name="android:windowEnterTransition">@transition/activity_enter</item>-->
+        <!--&lt;!&ndash;<item name="android:windowExitTransition">@transition/activity_exit</item>&ndash;&gt;-->
+        <!--<item name="android:windowSharedElementEnterTransition">@transition/change_bounds</item>-->
+        <!--<item name="android:windowSharedElementExitTransition">@transition/change_bounds</item>-->
+
+    </style>
+
+
+
+
+
+    <style name="login_textView_style" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
+        <item name="android:labelTextSize">@dimen/sp_12</item>
+        <item name="android:colorControlHighlight">@color/white</item>
+        <item name="android:colorEdgeEffect">@color/white</item>
+        <item name="android:colorActivatedHighlight">@color/white</item>
+        <item name="android:colorAccent">@color/white</item>
+    </style>
+
+
+
+</resources>

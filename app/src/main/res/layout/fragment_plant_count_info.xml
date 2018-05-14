@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.searchfragment.PlantCountInfoFragment">
+
+
+    <LinearLayout
+        style="@style/LinearLayout_Normal_Vertical"
+        android:id="@+id/ll_content"
+        android:paddingTop="@dimen/dp_10"
+        android:paddingBottom="@dimen/dp_10"
+        android:paddingLeft="@dimen/dp_10"
+        android:paddingRight="@dimen/dp_10">
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/year"
+                app:focusable="false"
+                style="@style/text_weight_horizontal"
+                app:titleText="@string/annual" />
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/towns"
+                app:focusable="false"
+                style="@style/text_weight_horizontal"
+                app:titleText="@string/town" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/village"
+                app:focusable="false"
+                style="@style/text_weight_horizontal"
+                app:titleText="@string/villageCommittee" />
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/villageGroup"
+                app:focusable="false"
+                style="@style/text_weight_horizontal"
+                app:titleText="@string/villageGroup" />
+        </LinearLayout>
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/name"
+            app:focusable="false"
+            style="@style/text_match_horizontal"
+            app:titleText="@string/name" />
+
+        <TextView
+            android:layout_marginTop="@dimen/default_margin_10"
+            style="@style/Sectional_Line_TextView"
+            android:drawableStart="@drawable/ic_more_vert_white_24dp"
+            android:text="@string/hetongyuqian"
+            android:drawableLeft="@drawable/ic_more_vert_white_24dp" />
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/variety"
+                app:focusable="false"
+                style="@style/text_weight_horizontal"
+                app:titleText="@string/variety" />
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/sigArea"
+                app:focusable="false"
+                style="@style/text_weight_horizontal"
+                app:titleText="@string/sigArea" />
+        </LinearLayout>
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/sigStrains"
+            app:focusable="false"
+            style="@style/text_match_horizontal"
+            app:titleText="@string/sigStrains" />
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/default_margin_10"
+            style="@style/LinearLayout_Normal_Horizontal">
+
+            <TextView
+                style="@style/Sectional_Line_TextView"
+                android:drawableStart="@drawable/ic_more_vert_white_24dp"
+                android:text="@string/heshiqingkuang"
+                android:drawableLeft="@drawable/ic_more_vert_white_24dp" />
+
+            <Button
+                android:id="@+id/add"
+                style="@style/Form_button"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:visibility="gone"
+                android:text="@string/add" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/default_margin_10"
+            style="@style/LinearLayout_Normal_Horizontal">
+
+            <TextView
+                style="@style/Form_TextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/dikuaimingcheng" />
+
+            <TextView
+                style="@style/Form_TextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/dikuaimianji" />
+
+            <TextView
+                style="@style/Form_TextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/zhushu" />
+
+
+        </LinearLayout>
+
+        <com.beiyun.workers.view.SortStrainLayout
+            android:id="@+id/verification"
+            style="@style/LinearLayout_Normal_Vertical" />
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/totalNum"
+                style="@style/text_weight_horizontal"
+                app:maxLength="6"
+                app:inputType="number"
+                app:titleText="@string/totalStrains" />
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/totalArea"
+                app:inputType="numberDecimal"
+                style="@style/text_weight_horizontal"
+                app:titleText="@string/totalArea" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/mandatoryAmount"
+                style="@style/text_weight_horizontal"
+                app:inputType="numberDecimal"
+                app:titleText="@string/mandatory_purchase" />
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/exportAmount"
+                app:inputType="numberDecimal"
+                style="@style/text_weight_horizontal"
+                app:titleText="@string/exportCount" />
+        </LinearLayout>
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/pointTime"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            style="@style/text_match_horizontal"
+            app:inputType="datePiker"
+            app:titleText="@string/dianzhuriqi" />
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/default_margin_10"
+            style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/villageConfirm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/dp_10"
+    android:id="@+id/search_search_layout"
+    android:paddingEnd="@dimen/dp_10"
+    android:visibility="visible"
+    android:paddingBottom="@dimen/dp_10"
+    android:layout_height="match_parent">
+
+
+    <com.jaredrummler.materialspinner.MaterialSpinner
+        android:id="@+id/search_search_year"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        app:ms_arrow_tint="@color/colorPrimary"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_10"
+        app:ms_hint="年度"
+        app:ms_hint_color="@color/text_gray"/>
+
+
+
+    <android.support.v7.widget.SwitchCompat
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        android:text="详细定位查询"
+
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/search_search_addressLayout_switch"
+        android:paddingStart="24dp"
+        android:checked="false"
+        android:paddingEnd="@dimen/dp_10"
+        android:background="@color/white"
+        android:foreground="?android:selectableItemBackground"
+        android:paddingLeft="24dp"
+        android:paddingRight="@dimen/dp_10" />
+
+
+    <!--<com.beiyun.workers.view.SpinnerLayout-->
+        <!--android:id="@+id/spinnerLayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"/>-->
+
+
+
+
+    <LinearLayout
+        android:id="@+id/search_search_addressLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:orientation="vertical">
+
+        <com.jaredrummler.materialspinner.MaterialSpinner
+            android:id="@+id/search_search_province"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_height="@dimen/dp_48"
+            app:ms_hint="省"
+            android:visibility="gone"
+            app:ms_arrow_tint="@color/colorPrimary"/>
+
+        <com.jaredrummler.materialspinner.MaterialSpinner
+            android:id="@+id/search_search_city"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            app:ms_hint="市"
+            android:visibility="gone"
+            app:ms_arrow_tint="@color/colorPrimary"/>
+
+        <com.jaredrummler.materialspinner.MaterialSpinner
+            android:id="@+id/search_search_county"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:visibility="gone"
+            app:ms_hint="@string/xian"
+            app:ms_arrow_tint="@color/colorPrimary"/>
+
+
+
+        <com.jaredrummler.materialspinner.MaterialSpinner
+            android:id="@+id/search_search_station"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:visibility="gone"
+            app:ms_hint="烟站"
+            app:ms_arrow_tint="@color/colorPrimary"/>
+
+        <com.jaredrummler.materialspinner.MaterialSpinner
+            android:id="@+id/search_search_village"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="@dimen/dp_48"
+            app:ms_hint="村委会"
+            app:ms_arrow_tint="@color/colorPrimary"/>
+
+        <com.jaredrummler.materialspinner.MaterialSpinner
+            android:id="@+id/search_search_village_group"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:visibility="gone"
+            app:ms_hint="村组"
+            app:ms_arrow_tint="@color/colorPrimary"/>
+
+
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/search_search_name"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_width="match_parent"
+        android:hint="姓名"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:background="@color/white"
+        android:textSize="@dimen/sp_14"
+        android:textColor="@color/text_black"
+        android:layout_height="@dimen/dp_48" />
+
+
+
+
+</LinearLayout>

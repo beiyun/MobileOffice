@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bottom_background_color"
+    android:padding="@dimen/dp_10"
+    android:layout_height="match_parent">
+
+    <org.angmarch.views.NiceSpinner
+        android:id="@+id/search_person_category"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        app:arrowTint="@color/colorPrimary"
+        app:textTint="@color/text_black"
+        android:hint="人员类别"/>
+
+
+</LinearLayout>

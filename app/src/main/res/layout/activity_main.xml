@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:id="@+id/main_activity_root"
+    tools:context="com.beiyun.workers.ui.MainActivity">
+
+
+
+    <include layout="@layout/layout_main_drawer" />
+
+   <LinearLayout
+       android:orientation="vertical"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_gravity="end|bottom"
+       android:paddingStart="@dimen/dp_16"
+       android:paddingEnd="@dimen/dp_16"
+       android:paddingTop="@dimen/dp_16">
+
+       <android.support.design.widget.FloatingActionButton
+           android:id="@+id/list_fab"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="bottom|end"
+           android:visibility="gone"
+           android:src="@drawable/ic_arrow_upward_white_24dp"
+           android:layout_marginBottom="@dimen/dp_16"
+           app:pressedTranslationZ="@dimen/dp_4"
+           app:backgroundTint="@color/colorAccent"
+           app:rippleColor="@color/colorPrimary"/>
+
+
+       <android.support.design.widget.FloatingActionButton
+           android:id="@+id/main_search_fab"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@drawable/ic_search_white_24dp"
+           android:layout_marginBottom="@dimen/fab_margin"
+           android:transitionName="@string/main_search_fab"
+           app:backgroundTint="@color/colorPrimary"
+           app:pressedTranslationZ="@dimen/dp_4"
+           app:rippleColor="@color/colorPrimaryDark"
+           tools:targetApi="lollipop" />
+
+
+   </LinearLayout>
+
+
+
+</android.support.design.widget.CoordinatorLayout>

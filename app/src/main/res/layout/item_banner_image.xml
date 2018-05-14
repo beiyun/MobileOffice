@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.drawee.view.SimpleDraweeView
+    android:id="@+id/item_banner_imageview"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:fadeDuration="300"
+    app:placeholderImage="@mipmap/banner1"
+    app:placeholderImageScaleType="centerCrop"
+    app:actualImageScaleType="centerCrop"
+    app:failureImage="@mipmap/placeholderimage"
+    app:failureImageScaleType="centerInside"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" />

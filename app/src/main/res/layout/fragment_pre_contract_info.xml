@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.searchfragment.PreContractInfoFragment">
+
+
+    <LinearLayout 
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/dp_10"
+        android:paddingBottom="@dimen/dp_10"
+        android:paddingLeft="@dimen/dp_10"
+        android:paddingRight="@dimen/dp_10">
+
+        <com.beiyun.workers.view.FormView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:only_text="@string/jiafang" />
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:focusable="false"
+            app:maxLength="10"
+            app:rightText="州（市）烟草专卖局（公司）" />
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/company"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:focusable="false"
+                app:maxLength="20"
+                app:rightText="分公司" />
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/tobaccoPlot"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:focusable="false"
+                app:maxLength="10"
+                app:rightText="烟叶站" />
+
+
+        </LinearLayout>
+
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:focusable="false"
+            app:maxLength="10"
+            app:titleText="@string/yifang" />
+
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/identity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:focusable="false"
+            app:inputType="ID_number"
+            app:maxLength="18"
+            app:titleText="身份证号" />
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/familyAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:focusable="false"
+            app:maxLength="30"
+            app:titleText="家庭住址" />
+
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/householdNo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:focusable="false"
+                app:inputType="number"
+                app:titleText="户口册号" />
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/tel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:focusable="false"
+                app:inputType="phone"
+                app:titleText="联系电话" />
+
+        </LinearLayout>
+
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/plantArea"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:focusable="false"
+                app:inputType="numberDecimal"
+                app:rightText="亩"
+                app:titleText="种植面积" />
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/strainNum"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:focusable="false"
+                app:inputType="numberDecimal"
+                app:rightText="株" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/plantVariety"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:focusable="false"
+                app:maxLength="10"
+                app:titleText="种植品种" />
+
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/purchaseAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:focusable="false"
+                app:inputType="numberDecimal"
+                app:rightText="kg"
+                app:titleText="收购量" />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/mandatoryAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:focusable="false"
+                app:inputType="numberDecimal"
+                app:rightText="kg"
+                app:titleText="其中：指令性量" />
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/exportAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:focusable="false"
+                app:inputType="numberDecimal"
+                app:rightText="kg"
+                app:titleText="出口备货" />
+
+
+        </LinearLayout>
+
+
+        <com.beiyun.workers.view.ExpandableView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin_10"
+            app:Expandable_content="@string/formal_item2"
+            app:Expandable_title="@string/jiafangquanli" />
+
+
+        <com.beiyun.workers.view.ExpandableView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:Expandable_content="@string/formal_item3"
+            app:Expandable_title="@string/yifangquanli" />
+
+
+        <com.beiyun.workers.view.ExpandableView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:Expandable_content="@string/formal_item5"
+            app:Expandable_title="@string/weiyuezeren" />
+
+        <com.beiyun.workers.view.ExpandableView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:Expandable_content="@string/pre_fuze"
+            app:Expandable_title="@string/fuze" />
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/jiaSign"
+            android:layout_marginStart="@dimen/dp_6"
+            android:layout_marginTop="@dimen/dp_10"
+            app:placeholderImageScaleType="centerCrop"
+            app:placeholderImage="@mipmap/placeholderimage"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_100"
+            android:layout_marginLeft="@dimen/dp_6" />
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/jiaTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_alignBottom="@+id/jiaSign"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="bottom"
+            app:focusable="false"
+            app:titleText="@string/sigTime" />
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/yiSign"
+            app:placeholderImageScaleType="centerCrop"
+            android:layout_marginStart="@dimen/dp_6"
+            android:layout_marginTop="@dimen/dp_10"
+            app:placeholderImage="@mipmap/placeholderimage"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_100"
+            android:layout_marginLeft="@dimen/dp_6" />
+
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/yiTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@id/yiSign"
+            app:inputType="datePiker"
+            app:titleText="@string/sigTime" />
+
+
+    </LinearLayout>
+    
+
+</ScrollView>

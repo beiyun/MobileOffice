@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragment.searchfragment.ApplyPlantInfoFragment"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/dp_10"
+        android:paddingBottom="@dimen/dp_10"
+        android:paddingLeft="@dimen/dp_10"
+        android:paddingRight="@dimen/dp_10"
+        android:id="@+id/ll_content"
+        android:orientation="vertical"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/village"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                app:titleText="村委会"
+                app:focusable="false"
+                android:layout_height="wrap_content"/>
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/villageGroup"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                app:titleText="村小组"
+                app:focusable="false"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/name"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                app:titleText="农户姓名"
+                app:focusable="false"
+                android:layout_height="wrap_content"/>
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/accountNumber"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                app:inputType="number"
+                app:titleText="户口册号"
+                app:focusable="false"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <com.beiyun.workers.view.SectionalLine
+            style="@style/Sectional_Line"
+            app:sectional_line_title="申请种植情况"/>
+
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/arableArea"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                app:inputType="numberDecimal"
+                app:titleText="自有耕地"
+                app:rightText="亩，"/>
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/leaseArea"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                app:inputType="numberDecimal"
+                app:titleText="租赁土地"
+                app:rightText="亩，"/>
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/tianArea"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                app:inputType="numberDecimal"
+                app:titleText="其中：田"
+                app:rightText="亩，"/>
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/diArea"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                app:inputType="numberDecimal"
+                app:titleText="地"
+                app:rightText="亩；"/>
+        </LinearLayout>
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/applyArea"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            app:inputType="numberDecimal"
+            app:titleText="本年度申请种植"
+            app:rightText="亩，"/>
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/applyTian"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                app:inputType="numberDecimal"
+                app:titleText="其中：田"
+                app:rightText="亩，"/>
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/applyDi"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                app:inputType="numberDecimal"
+                app:titleText="地"
+                app:rightText="亩。"/>
+        </LinearLayout>
+
+        <com.beiyun.workers.view.SectionalLine
+            style="@style/Sectional_Line"
+            app:sectional_line_title="烟叶种植植保政策"/>
+
+        <com.beiyun.workers.view.FormView
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:only_text="\t\t为防范烟叶生产期间自然灾害风险，依据自愿投保原则，烟农资源购买种植保险，委托中国烟草中公司云南省公司通过公开招标选择承保保险公司，并委托"/>
+
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:maxLength="10"
+            app:rightText="州（市）烟草公司签订烟叶种植保险合同，"/>
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/insureCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:inputType="numberDecimal"
+            app:titleText="每亩缴纳保费"
+            app:rightText="元，保险范围包括冰雹，洪涝，"/>
+
+        <com.beiyun.workers.view.FormView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:only_text="（含）泥石流和风灾，根据烟叶生产不同时期划分不同赔付标准，全损每亩最高赔付1000元，实际赔付金额根据烟叶损失程度计算确定。"/>
+
+        <com.beiyun.workers.view.SectionalLine
+            style="@style/Sectional_Line"
+            app:sectional_line_title="投保意见"/>
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/insureArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:inputType="numberDecimal"
+            app:titleText="根据上述烟叶种植保险政策，本人自愿投保"
+            app:rightText="亩。"/>
+
+
+        <com.beiyun.workers.view.SectionalLine
+            style="@style/Sectional_Line"
+            app:sectional_line_title="农户（乙方）申明"/>
+
+        <com.beiyun.workers.view.FormView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:only_text="一、保证为本人真实意愿、所提供资料属实"/>
+
+        <com.beiyun.workers.view.FormView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:only_text="二、已阅读并同意上述内容"/>
+
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/partyBSignature"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_6"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:layout_width="@dimen/dp_100"
+            app:placeholderImage="@mipmap/placeholderimage"
+            app:placeholderImageScaleType="centerCrop"
+            android:layout_height="@dimen/dp_100" />
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/declareTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:inputType="datePiker"
+            android:layout_marginBottom="@dimen/dp_10"
+            app:titleText="@string/sigTime" />
+
+        <com.beiyun.workers.view.SectionalLine
+            style="@style/Sectional_Line"
+            app:sectional_line_title="烟叶站审核意见"/>
+
+
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/agreeArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:inputType="numberDecimal"
+            app:maxLength="8"
+            app:focusable="false"
+            app:titleText="经审核，同意本年度种植面积"
+            app:rightText="亩，"/>
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/agreeTian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:inputType="numberDecimal"
+                app:maxLength="8"
+                android:layout_weight="1"
+                app:titleText="其中：田烟"
+                app:focusable="false"
+                app:rightText="亩，"/>
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/agreeDi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:inputType="numberDecimal"
+                app:maxLength="8"
+                android:layout_weight="1"
+                app:titleText="地烟"
+                app:focusable="false"
+                app:rightText="亩。"/>
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/agreeVariety"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:focusable="false"
+                app:titleText="种植品种为"/>
+
+        </LinearLayout>
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/auditUnit"
+            android:layout_width="@dimen/dp_100"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_6"
+            app:placeholderImageScaleType="centerCrop"
+            app:placeholderImage="@mipmap/placeholderimage"
+            android:layout_height="@dimen/dp_100"
+            android:layout_marginLeft="@dimen/dp_6" />
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/auditTime"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:focusable="false"
+            app:titleText="@string/sigTime" />
+
+        <com.beiyun.workers.view.SectionalLine
+            style="@style/Sectional_Line"
+            app:sectional_line_title="申请驳回原因"/>
+
+
+
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/rejectedReason_a"
+            android:layout_width="match_parent"
+            app:focusable="false"
+            android:layout_height="wrap_content"/>
+
+
+
+    </LinearLayout>
+
+
+
+
+</ScrollView>

@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'beiyun'
+            keyPassword 'mm123456'
+            storeFile file('D:\\Android\\Android Project Space\\Workers\\app\\workers.jks')
+            storePassword 'mm123456'
+        }
+    }
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+    defaultConfig {
+        applicationId "com.beiyun.workers"
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        signingConfig signingConfigs.config
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable false
+            jniDebuggable false
+            signingConfig signingConfigs.config
+            zipAlignEnabled true
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    implementation project(':slidemenu')
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.github.beiyun:ProjectHelper:1.1.3'
+    implementation 'com.github.dmytrodanylyk.android-process-button:library:1.0.4'
+    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
+    implementation 'com.nightonke:boommenu:2.1.1'
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'info.hoang8f:fbutton:1.0.5'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.36'
+    implementation 'com.facebook.fresco:fresco:1.8.1'
+    implementation 'com.youth.banner:banner:1.4.10'
+    implementation 'com.getkeepsafe.taptargetview:taptargetview:1.11.0'
+    implementation 'com.sdsmdg.tastytoast:tastytoast:0.1.1'
+    implementation 'cn.jzvd:jiaozivideoplayer:6.2.9'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.jaeger.statusbarutil:library:1.4.0'
+    implementation 'com.github.bumptech.glide:glide:4.6.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+    implementation 'me.weyye.hipermission:library:1.0.7'
+    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+    implementation 'com.github.arcadefire:nice-spinner:1.3.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.7.0'
+    implementation 'com.google.code.gson:gson:2.8.0'
+    implementation 'com.tencent.sonic:sdk:3.0.0'
+    implementation 'com.jaredrummler:material-spinner:1.2.5'
+}

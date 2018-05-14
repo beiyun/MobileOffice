@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:transitionGroup="false"
+    android:id="@+id/content_bottom"
+    android:background="@color/bottom_background_color"
+    android:layout_height="match_parent"
+    android:transitionName="@string/listContentTrans"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.beiyun.workers.ui.MainListDetailActivity"
+    tools:showIn="@layout/activity_main_list_detail"
+    tools:targetApi="lollipop">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/main_list_detail_progress"
+            style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal"
+            android:progressBackgroundTint="@color/bottom_background_color"
+            android:progressTint="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_2" />
+
+
+        <WebView
+            android:id="@+id/main_list_detail_webView"
+            android:layout_width="match_parent"
+            android:background="@color/bottom_background_color"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

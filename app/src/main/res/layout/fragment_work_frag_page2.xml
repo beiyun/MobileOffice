@@ -1,0 +1,118 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="?actionBarSize"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.beiyun.workers.fragment.workfragment.WorkFragPage2">
+
+
+    <LinearLayout
+        android:id="@+id/list_title_layout"
+        android:layout_width="match_parent"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:layout_height="@dimen/dp_48"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@drawable/shape_spinner_bg"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="辅导员名称"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/sp_16" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="状态"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/sp_16" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="完成时间"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/sp_16" />
+
+    </LinearLayout>
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:paddingTop="59dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/contentView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/bottom_background_color"
+        android:paddingTop="@dimen/dp_16"
+        android:visibility="visible"
+        android:layout_alignParentRight="true">
+
+
+
+
+
+        <include layout="@layout/layout_head_frag2" />
+
+    </RelativeLayout>
+
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/contentView_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_edit_white_24dp"
+        android:visibility="invisible"
+        android:layout_alignParentEnd="true"
+        app:backgroundTint="@color/colorAccent"
+        android:layout_marginEnd="@dimen/dp_16"
+        app:elevation="@dimen/dp_4"
+        android:layout_above="@+id/compare_fab"
+        app:fabSize="normal"
+        app:pressedTranslationZ="@dimen/dp_4"
+        app:rippleColor="@color/colorPrimary"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dp_16" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/compare_fab"
+        android:layout_width="wrap_content"
+        android:visibility="invisible"
+        android:layout_margin="@dimen/dp_16"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true" />
+
+
+
+
+</RelativeLayout>

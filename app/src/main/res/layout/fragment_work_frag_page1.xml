@@ -1,0 +1,183 @@
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:focusable="true"
+    android:id="@+id/scrollView_root"
+    android:paddingStart="@dimen/dp_16"
+    android:paddingTop="?actionBarSize"
+    android:paddingEnd="@dimen/dp_16"
+    android:focusableInTouchMode="true"
+    android:background="@color/bottom_background_color"
+    tools:context="com.beiyun.workers.fragment.workfragment.WorkFragPage1">
+
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical">
+
+       <LinearLayout
+           android:id="@+id/textInputLayout"
+           android:layout_marginTop="@dimen/dp_16"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+
+           <TextView
+               android:id="@+id/spinner_title"
+               android:layout_marginBottom="@dimen/dp_10"
+               android:layout_width="match_parent"
+               android:text="@string/action_settings"
+               android:visibility="gone"
+               android:textAppearance="@style/text_input_layout_style"
+               android:layout_height="wrap_content" />
+
+           <AutoCompleteTextView
+               android:id="@+id/spinner"
+               style="@style/dropDownSpinner"
+               android:textSize="@dimen/sp_16"
+               android:textColor="@color/text_black"
+               android:hint="@string/renwurenyuan"
+               android:drawableEnd="@drawable/ic_arrow_drop_down_24dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:drawableRight="@drawable/ic_arrow_drop_down_24dp" />
+
+       </LinearLayout>
+
+
+       <LinearLayout
+           android:id="@+id/completeTime_layout"
+           android:layout_marginTop="@dimen/dp_16"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+
+           <TextView
+               android:id="@+id/completeTime_title"
+               android:layout_marginBottom="@dimen/dp_10"
+               android:layout_width="match_parent"
+               android:text="@string/action_settings"
+               android:visibility="gone"
+               android:textAppearance="@style/text_input_layout_style"
+               android:layout_height="wrap_content" />
+
+           <AutoCompleteTextView
+               android:id="@+id/completeTime"
+               android:layout_width="match_parent"
+               android:hint="@string/wanchengshijian"
+               android:paddingStart="@dimen/dp_10"
+               android:focusable="false"
+               android:textSize="@dimen/sp_16"
+               android:textColor="@color/text_black"
+               android:paddingEnd="@dimen/dp_10"
+               android:background="@drawable/shape_spinner_bg"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+
+
+       <LinearLayout
+           android:id="@+id/workNameLayout"
+           android:layout_marginTop="@dimen/dp_16"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+
+           <TextView
+               android:id="@+id/workNameTitle"
+               android:layout_marginBottom="@dimen/dp_10"
+               android:layout_width="match_parent"
+               android:text="@string/action_settings"
+               android:visibility="gone"
+               android:ellipsize="end"
+               android:maxLines="1"
+               android:textAppearance="@style/text_input_layout_style"
+               android:layout_height="wrap_content" />
+
+           <AutoCompleteTextView
+               android:id="@+id/workName"
+               android:layout_width="match_parent"
+               android:hint="@string/renwumingcheng"
+               android:paddingStart="@dimen/dp_10"
+               android:textSize="@dimen/sp_16"
+               android:maxLength="20"
+               android:maxLines="1"
+               android:marqueeRepeatLimit="10"
+               android:textColor="@color/text_black"
+               android:paddingEnd="@dimen/dp_10"
+               android:background="@drawable/shape_spinner_bg"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+
+
+
+       <LinearLayout
+           android:id="@+id/work_layout"
+           android:layout_marginTop="@dimen/dp_16"
+           android:layout_width="match_parent"
+           android:layout_marginBottom="@dimen/dp_40"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+
+           <TextView
+               android:id="@+id/work_title"
+               android:layout_marginBottom="@dimen/dp_10"
+               android:layout_width="match_parent"
+               android:text="@string/action_settings"
+               android:visibility="gone"
+               android:ellipsize="end"
+               android:maxLines="1"
+               android:textAppearance="@style/text_input_layout_style"
+               android:layout_height="wrap_content" />
+
+
+           <AutoCompleteTextView
+               android:id="@+id/work"
+               android:layout_width="match_parent"
+               android:hint="@string/renwuneirong"
+               android:maxLength="200"
+               android:lineSpacingMultiplier="1.12"
+               android:paddingStart="@dimen/dp_10"
+               android:paddingEnd="@dimen/dp_10"
+               android:paddingTop="@dimen/dp_10"
+               android:paddingBottom="@dimen/dp_10"
+               android:textSize="@dimen/sp_16"
+               android:textColor="@color/text_black"
+               android:background="@drawable/shape_spinner_bg"
+               android:layout_height="wrap_content" />
+
+
+           <com.dd.processbutton.FlatButton
+               android:id="@+id/submit"
+               android:layout_marginTop="@dimen/dp_16"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textSize="@dimen/sp_14"
+               android:visibility="gone"
+               android:textColor="@color/white"
+               android:paddingLeft="@dimen/dp_16"
+               android:paddingRight="@dimen/dp_16"
+               android:text="@string/xiada"
+               android:textStyle="bold"
+               android:drawablePadding="@dimen/dp_16"
+               android:drawableStart="@drawable/ic_cloud_upload_white_24dp"
+               android:layout_gravity="center"
+               app:pb_cornerRadius="@dimen/dp_6"
+               app:pb_colorNormal="@color/colorPrimary"
+               app:pb_colorPressed="@color/colorPrimaryDark"/>
+
+
+       </LinearLayout>
+
+
+
+
+
+   </LinearLayout>
+
+
+
+</android.support.v4.widget.NestedScrollView>

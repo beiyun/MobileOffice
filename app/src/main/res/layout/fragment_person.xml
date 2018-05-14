@@ -1,0 +1,154 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bottom_background_color"
+    tools:context="com.beiyun.workers.fragment.PersonFragment">
+
+    <TextView
+        android:id="@+id/person_account"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_54"
+        android:textSize="@dimen/sp_16"
+        android:gravity="center_vertical"
+        android:drawableStart="@drawable/ic_account_24dp"
+        android:foreground="?selectableItemBackground"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingEnd="@dimen/dp_16"
+        android:background="?android:selectableItemBackground"
+        android:textColor="@color/text_black_dark"
+        android:drawablePadding="@dimen/dp_10"
+        android:text="@string/person_account"
+        android:drawableLeft="@drawable/ic_account_24dp" />
+
+    <TextView
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        style="@style/line"/>
+
+    <TextView
+        android:id="@+id/person_update_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_54"
+        android:textSize="@dimen/sp_16"
+        android:drawablePadding="@dimen/dp_10"
+        android:drawableStart="@drawable/ic_lock_24dp"
+        android:background="?android:selectableItemBackground"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingEnd="@dimen/dp_16"
+        android:textColor="@color/text_black_dark"
+        android:text="@string/mimaxiugai"
+        android:drawableLeft="@drawable/ic_lock_24dp" />
+
+    <TextView
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        style="@style/line"/>
+
+
+    <TextView
+        android:id="@+id/person_sim_card"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_54"
+        android:textSize="@dimen/sp_16"
+        android:gravity="center_vertical"
+        android:drawablePadding="@dimen/dp_10"
+        android:background="?android:selectableItemBackground"
+        android:drawableStart="@drawable/ic_sim_card_24dp"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingEnd="@dimen/dp_16"
+        android:textColor="@color/text_black_dark"
+        android:text="@string/person_banka"
+        android:drawableLeft="@drawable/ic_sim_card_24dp" />
+
+    <TextView
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        style="@style/line"/>
+
+    <TextView
+        android:id="@+id/person_money"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_54"
+        android:textSize="@dimen/sp_16"
+        android:gravity="center_vertical"
+        android:background="?android:selectableItemBackground"
+        android:drawableStart="@drawable/ic_money_24dp"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingEnd="@dimen/dp_16"
+        android:drawablePadding="@dimen/dp_10"
+        android:textColor="@color/text_black_dark"
+        android:text="@string/person_money"
+        android:drawableLeft="@drawable/ic_money_24dp" />
+
+    <TextView
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        style="@style/line"/>
+
+
+    <TextView
+        android:id="@+id/person_opinion"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_54"
+        android:textSize="@dimen/sp_16"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingEnd="@dimen/dp_16"
+        android:drawablePadding="@dimen/dp_10"
+        android:drawableStart="@drawable/ic_assignment_24dp"
+        android:background="?android:selectableItemBackground"
+        android:textColor="@color/text_black_dark"
+        android:text="@string/person_opinion"
+        android:drawableLeft="@drawable/ic_assignment_24dp" />
+
+    <TextView
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        style="@style/line"/>
+
+    <TextView
+        android:id="@+id/person_caches"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_54"
+        android:textSize="@dimen/sp_16"
+        android:drawablePadding="@dimen/dp_10"
+        android:gravity="center_vertical"
+        android:background="?android:selectableItemBackground"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingEnd="@dimen/dp_16"
+        android:drawableStart="@drawable/ic_delete_24dp"
+        android:textColor="@color/text_black_dark"
+        android:text="@string/person_caches"
+        android:drawableLeft="@drawable/ic_delete_24dp" />
+
+    <TextView
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        style="@style/line"/>
+
+
+    <TextView
+        android:id="@+id/person_version"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_54"
+        android:textSize="@dimen/sp_16"
+        android:gravity="center_vertical"
+        android:drawablePadding="@dimen/dp_10"
+        android:background="?android:selectableItemBackground"
+        android:drawableStart="@drawable/ic_update_24dp"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingEnd="@dimen/dp_16"
+        android:textColor="@color/text_black_dark"
+        android:text="@string/person_version"
+        android:drawableLeft="@drawable/ic_update_24dp" />
+
+
+
+
+
+
+
+</LinearLayout>

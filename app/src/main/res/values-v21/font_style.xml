@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Base.Toolbar.Title" parent="Base.TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="Nc.Theme.Base.Toolbar.subTitle" parent="Base.TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="Nc.Theme.Text.Title" parent="Base.TextAppearance.AppCompat.Title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="Nc.Theme.Text.subTitle" parent="Base.TextAppearance.AppCompat.Title">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+    <style name="Nc.Theme.Text.subTitle.Black" parent="Base.TextAppearance.AppCompat.Title">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+
+    <style name="Nc.Theme.Text.Larger" parent="Base.TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="Nc.Theme.Text.Normal" parent="Base.TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Nc.Theme.Text.Normal.Bold" parent="Base.TextAppearance.AppCompat.Title">
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Nc.Theme.Text.Small" parent="Base.TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
+
+</resources>

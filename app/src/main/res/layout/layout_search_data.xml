@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:padding="@dimen/dp_10"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/search_data_startTime"
+        android:textSize="@dimen/sp_14"
+        android:text="起始时间"
+        android:textColor="@color/text_black"
+        android:gravity="start|center_vertical"
+        android:background="@color/white"
+        android:paddingStart="24dp"
+        android:foreground="?android:selectableItemBackground"
+        android:paddingEnd="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48" />
+
+    <TextView
+        android:id="@+id/search_data_endtTime"
+        android:layout_marginTop="@dimen/dp_10"
+        android:textSize="@dimen/sp_14"
+        android:text="终止时间"
+        android:foreground="?android:selectableItemBackground"
+        android:textColor="@color/text_black"
+        android:gravity="start|center_vertical"
+        android:background="@color/white"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48" />
+
+
+    <org.angmarch.views.NiceSpinner
+        android:id="@+id/search_data_area"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        app:arrowTint="@color/colorPrimary"
+        app:textTint="@color/text_black"
+        android:hint="区域范围"/>
+
+    <org.angmarch.views.NiceSpinner
+        android:id="@+id/search_data_text"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        app:arrowTint="@color/colorPrimary"
+        app:textTint="@color/text_black"
+        android:hint="汇总内容"/>
+
+
+</LinearLayout>

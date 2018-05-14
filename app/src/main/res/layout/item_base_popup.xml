@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_48"
+    android:text="@string/app_name"
+    android:id="@+id/popup_item"
+    android:textSize="@dimen/sp_16"
+    android:minWidth="150dp"
+    android:background="?android:selectableItemBackground"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:gravity="center_vertical"
+    android:textStyle="normal">
+
+</TextView>

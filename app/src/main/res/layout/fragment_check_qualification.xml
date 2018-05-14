@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragment.searchfragment.PlantQualificationInfoFragment"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        style="@style/LinearLayout_Normal_Vertical"
+        android:paddingTop="@dimen/dp_10"
+        android:paddingBottom="@dimen/dp_10"
+        android:paddingStart="@dimen/dp_10"
+        android:paddingEnd="@dimen/dp_10">
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/towns"
+                style="@style/text_weight_horizontal"
+                app:focusable="false"
+                app:titleText="@string/town" />
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/village"
+                style="@style/text_weight_horizontal"
+                app:focusable="false"
+                app:titleText="@string/villageCommittee" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/villageGroup"
+                style="@style/text_weight_horizontal"
+                app:focusable="false"
+                app:titleText="@string/villageGroup" />
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/name"
+                style="@style/text_weight_horizontal"
+                app:focusable="false"
+                app:titleText="@string/name" />
+        </LinearLayout>
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/aid"
+            style="@style/text_match_horizontal"
+            app:focusable="false"
+            app:titleText="@string/shenqingshoulidanbianhao" />
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/applyArea"
+            style="@style/text_match_horizontal"
+            app:focusable="false"
+            app:inputType="numberDecimal"
+            app:titleText="@string/shenqingmianjiheji" />
+
+        <LinearLayout
+            android:id="@+id/grow_info_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/LinearLayout_Normal_Horizontal"
+                android:layout_marginTop="@dimen/default_margin_10">
+
+                <TextView
+                    style="@style/Sectional_Line_TextView"
+                    android:text="@string/zhongyanxinxi" />
+
+                <Button
+                    android:id="@+id/add"
+                    style="@style/Form_button"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:text="@string/add" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/LinearLayout_Normal_Horizontal"
+                android:layout_marginTop="@dimen/default_margin_10">
+
+                <TextView
+                    style="@style/Form_TextView"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/dikuaimingcheng" />
+
+                <TextView
+                    style="@style/Form_TextView"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="面积" />
+
+                <TextView
+                    style="@style/Form_TextView"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="片区编号" />
+
+                <TextView
+                    style="@style/Form_TextView"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="前茬" />
+
+                <TextView
+                    style="@style/Form_TextView"
+                    android:layout_width="0dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <com.beiyun.workers.view.GrowTobaccoInfoFormLayout
+                android:id="@+id/growInfoForm"
+                style="@style/LinearLayout_Normal_Vertical" />
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/arableArea"
+                style="@style/text_weight_horizontal"
+                app:inputType="numberDecimal"
+                app:titleText="@string/ziyoutudi" />
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/leaseArea"
+                style="@style/text_weight_horizontal"
+                app:inputType="numberDecimal"
+                app:titleText="@string/zulintudi" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/preceding_qualification"
+                android:visibility="gone"
+                style="@style/text_weight_horizontal"
+                app:titleText="@string/qianchai" />
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/previousArea"
+                style="@style/text_weight_horizontal"
+                app:inputType="numberDecimal"
+                app:titleText="@string/wangnianzhongyanmianji" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/combineArea"
+                style="@style/text_weight_horizontal"
+                app:inputType="numberDecimal"
+                app:titleText="@string/zhangliangmainji" />
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/labour"
+                style="@style/text_weight_horizontal"
+                app:focusable="false"
+                app:inputType="number"
+                app:maxLength="2"
+                app:titleText="@string/laodongli" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/executionRate"
+                style="@style/text_weight_horizontal"
+                app:inputType="numberDecimal"
+                app:rightText="%"
+                app:titleText="@string/wangnianhetonglvyue" />
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/level"
+                style="@style/text_weight_horizontal"
+                app:dropDownStringArray="@array/tech_level_type"
+                app:titleText="@string/jishushuiping" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/barnNumber"
+                style="@style/text_weight_horizontal"
+                app:inputType="number"
+                app:maxLength="2"
+                app:rightText="座"
+                app:titleText="@string/kaofang" />
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/denseBarn"
+                style="@style/text_weight_horizontal"
+                app:inputType="number"
+                app:maxLength="2"
+                app:rightText="座"
+                app:titleText="@string/mijikaofang" />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/capacity"
+                style="@style/text_weight_horizontal"
+                app:inputType="numberDecimal"
+                app:rightText="@string/mu"
+                app:titleText="@string/hongkaonengli" />
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/projectSituation"
+                style="@style/text_weight_horizontal"
+                app:maxLength="20"
+                app:titleText="@string/yannonggongcheng" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginBottom="@dimen/dp_40"
+            style="@style/LinearLayout_Normal_Horizontal">
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/certificate"
+                style="@style/text_weight_horizontal"
+                app:dropDownStringArray="@array/certificate_type"
+                app:focusable="false"
+                app:titleText="@string/zhiyeyannongzige" />
+
+            <com.beiyun.workers.view.FormView
+                android:id="@+id/evaluationDegree"
+                style="@style/text_weight_horizontal"
+                app:dropDownStringArray="@array/eval_level_type"
+                app:focusable="false"
+                app:titleText="@string/wangnianpingjiadengji" />
+        </LinearLayout>
+
+      
+    </LinearLayout>
+
+
+
+
+</ScrollView> 

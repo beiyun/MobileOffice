@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:background="?android:selectableItemBackground"
+    android:focusable="true"
+    android:clickable="true"
+    android:elevation="@dimen/dp_2"
+    android:paddingLeft="@dimen/dp_16"
+    android:paddingRight="@dimen/dp_16"
+    android:layout_height="wrap_content"
+    tools:targetApi="lollipop">
+
+    <TextView
+        android:id="@+id/item_main_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp_16"
+        android:layout_marginBottom="@dimen/dp_16"
+        android:maxLines="3"
+        android:transitionName="@string/listContentTrans"
+        android:textStyle="normal"
+        android:ellipsize="end"
+        android:layout_alignTop="@+id/item_main_image"
+        android:layout_toStartOf="@+id/item_main_image"
+        android:textColor="@color/text_black"
+        android:lineSpacingMultiplier="1.15"
+        android:text="方老款费立刻熟练度看爱上对士大夫撒旦法水电熟练度看爱上对士大夫撒旦法水电就风景色开代理费"
+        tools:targetApi="lollipop"
+        android:layout_toLeftOf="@+id/item_main_image" />
+
+
+    <RelativeLayout
+        android:id="@+id/item_main_bottomLayout"
+        android:layout_below="@+id/item_main_title"
+        android:layout_marginBottom="@dimen/dp_16"
+        android:layout_toStartOf="@+id/item_main_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_toLeftOf="@+id/item_main_image">
+
+        <TextView
+            android:id="@+id/item_main_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:transitionName="@string/main_trans_author"
+            android:textSize="@dimen/sp_12"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:textColor="@color/text_gray"
+            android:text="洛阳建业书刊"
+            tools:targetApi="lollipop" />
+
+
+        <ImageView
+            android:id="@+id/item_main_fire"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp_16"
+            android:src="@drawable/ic_whatshot_red_500_18dp"
+            android:layout_toEndOf="@+id/item_main_author"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_toRightOf="@+id/item_main_author" />
+
+
+
+        <TextView
+            android:id="@+id/item_main_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_12"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/item_main_fire"
+            android:gravity="center"
+            android:textColor="@color/text_gray"
+            android:text="1112热度"
+            android:layout_toRightOf="@+id/item_main_fire" />
+
+
+
+    </RelativeLayout>
+
+
+
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/item_main_image"
+        android:layout_width="104dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_height="80dp"
+        android:layout_marginTop="@dimen/dp_16"
+        fresco:roundBottomEnd="true"
+        android:layout_marginBottom="@dimen/dp_16"
+        fresco:roundBottomStart="true"
+        android:elevation="@dimen/dp_2"
+        fresco:roundTopStart="true"
+        fresco:roundTopEnd="true"
+        android:transitionName="@string/main_trans_image"
+        fresco:roundedCornerRadius="@dimen/dp_6"
+        fresco:placeholderImage="@mipmap/placeholderimage"
+        tools:targetApi="lollipop"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="@dimen/dp_16" />
+
+
+
+    <TextView style="@style/line" android:layout_alignParentBottom="true"/>
+
+
+
+</RelativeLayout>

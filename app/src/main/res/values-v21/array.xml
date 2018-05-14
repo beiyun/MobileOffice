@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="PreContractAdapter_titles">
+        <item>甲方的权利和义务</item>
+        <item>乙方的权利和义务</item>
+        <item>违约责任</item>
+        <item>附则</item>
+    </array>
+
+    <string-array name="tgCheck_integrityCheckItem1" formatted="false">
+        <item>A.实际种烟面积不低于合同预签面积且种植品种符合规定(20分)</item>
+        <item>B.种植规定品种但实际种植面积小于合同预签面积的5&#37;以内,合同面积被调整5&#37;以内(15分)</item>
+        <item>C.种植规定品种但实际种植面积小于合同预签订面积5&#37;以上,合同面积被调整5&#37;以上(10分)</item>
+    </string-array>
+    <integer-array name="tgCheck_integrityCheckValue1">
+        <item>20</item>
+        <item>15</item>
+        <item>10</item>
+    </integer-array>
+    <string-array name="tgCheck_integrityCheckItem2" formatted="false">
+        <item>A.按时完成合同约定的烟叶交售数量,约时定点履约达100&#37;(15分)</item>
+        <item>B.未按时完成合同约定的烟叶交售数量,约时定点履约率达95&#37;以上(10分)</item>
+        <item>C.未按时完成合同约定的烟叶交售数量,约时定点履约率达95&#37;以下(5分)</item>
+    </string-array>
+    <integer-array name="tgCheck_integrityCheckValue2">
+        <item>15</item>
+        <item>10</item>
+        <item>5</item>
+    </integer-array>
+    <array name="tgCheck_integrityCheckItem3">
+        <item>A.积极参加烟草部门开展的各类生产技术培训,并能将培训技术落实、运用到生产实际中(10分)</item>
+        <item>B.参加烟草部门开展的生产技术培训不积极,培训的技术落实、运用率不高(8分)</item>
+        <item>C.偶尔参加烟草部门开展的各类生产技术培训,不能将培训的技术较好的运用到生产实际中(5分)</item>
+    </array>
+    <string-array name="tgCheck_integrityCheckItem4">
+        <item>A.接收专业化服务3项及以上(10分)</item>
+        <item>B.接收专业化服务2项(8分)</item>
+        <item>C.接收专业化服务2项以下(5分)</item>
+    </string-array>
+    <integer-array name="tgCheck_integrityCheckValue3">
+        <item>10</item>
+        <item>8</item>
+        <item>5</item>
+    </integer-array>
+    <string-array name="tgCheck_prodLevelItem1">
+        <item>A.能够按照技术标准要求在规定时间内完成烟叶生产环节操作(12分)</item>
+        <item>B.有一两个技术环节执行不到位或未按时间要求完成(10分)</item>
+        <item>C.大部分生产环节要求执行不到位或未按时间要求完成(5分)</item>
+    </string-array>
+    <integer-array name="tgCheck_prodLevelValue1">
+        <item>12</item>
+        <item>10</item>
+        <item>5</item>
+    </integer-array>
+    <string-array name="tgCheck_prodLevelItem2" formatted="false">
+        <item>A.烟叶交售均价、亩均收入高于烟站平均水平5&#37;以上(10分)</item>
+        <item>B.烟叶交售均价、亩均收入不低于烟站平均水平的3&#37;,但不超过5&#37;(8分)</item>
+        <item>C.烟叶交售均价、亩均收入低于烟站平均说3&#37;以下(6分)</item>
+    </string-array>
+    <integer-array name="tgCheck_prodLevelValue2">
+        <item>10</item>
+        <item>8</item>
+        <item>6</item>
+    </integer-array>
+
+    <string-array name="tgCheck_capacityCheck3" formatted="false">
+        <item>A.100&#37;按照规划要求种植(8分)</item>
+        <item>B.大部分种植的款按规划要求种植且不低于合同预签订面积的70&#37;(5分)</item>
+        <item>C.大部分种植地块不按规划要求种植，规划种植地块内种植面积低于合同签订面积的70&#37;(4分)</item>
+    </string-array>
+
+    <integer-array name="tgCheck_capacityCheckValue3">
+        <item>8</item>
+        <item>5</item>
+        <item>4</item>
+    </integer-array>
+
+    <string-array name="tgCheck_capacityCheck1">
+        <item>A.能够辐射带动5户以上烟农科学种烟(3分)</item>
+        <item>B.能够辐射带动1到5户以烟农科学种烟(2分)</item>
+        <item>C.未能辐射影响其他烟农学种烟(1分)</item>
+    </string-array>
+    <string-array name="tgCheck_capacityCheck2">
+        <item>A.近3年年均种植面积8亩及以上(3分)</item>
+        <item>B.近3年年均种植面积5~8亩(2分)</item>
+        <item>C.近3年年均种植面积5亩以下(1分)</item>
+    </string-array>
+
+    <string-array name="tgCheck_capacityCheck4" formatted="false">
+        <item>A.种植收入占家庭收入60&#37;以上(3分)</item>
+        <item>B.种植收入占家庭收入40&#37;到60&#37;(2分)</item>
+        <item>C.种烟收入占家庭收入40&#37;以下(1分)</item>
+    </string-array>
+    <string-array name="tgCheck_capacityCheck5">
+        <item>A.种烟年限5年以上且今后3年内还计划种烟(3分)</item>
+        <item>B.种烟年限3年以上且今后年内还计划种烟(2分)</item>
+        <item>C.种烟年限2年，且还未决定今后是否种烟(1分)</item>
+    </string-array>
+    <string-array name="tgCheck_capacityCheck6">
+        <item>A.有1座以上烤烟调制有2个及以上劳动力(3分)</item>
+        <item>B.有1座烘烤调制设施，有2个及以上劳动力(2分)</item>
+        <item>C.无烘烤调制设施，劳动力缺乏(1分)</item>
+    </string-array>
+    <integer-array name="tgCheck_capacityCheckValue">
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+    </integer-array>
+
+    <string-array name="dissent_type">
+        <item>资格审核</item>
+        <item>合同预签</item>
+        <item>清塘点株</item>
+        <item>合同变更</item>
+    </string-array>
+    <string-array name="tech_level_type">
+        <item>高</item>
+        <item>中</item>
+        <item>低</item>
+    </string-array>
+    <string-array name="eval_level_type">
+        <item>优</item>
+        <item>良</item>
+        <item>差</item>
+    </string-array>
+    <string-array name="sex_type">
+        <item>男</item>
+        <item>女</item>
+    </string-array>
+
+    <string-array name="sex">
+        <item>男</item>
+        <item>女</item>
+    </string-array>
+
+    <string-array name="edu_type">
+        <item>小学</item>
+        <item>初中</item>
+        <item>高中(职高)</item>
+        <item>大专</item>
+        <item>本科</item>
+        <item>本科以上</item>
+    </string-array>
+
+    <string-array name="edu">
+        <item>小学</item>
+        <item>初中</item>
+        <item>高中(职高)</item>
+        <item>大专</item>
+        <item>本科</item>
+        <item>本科以上</item>
+    </string-array>
+
+
+    <string-array name="certificate_type">
+        <item>有</item>
+        <item>无</item>
+    </string-array>
+    <string-array name="tianyan_type">
+        <item>田地</item>
+        <item>山地</item>
+    </string-array>
+    <string-array name="year">
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+    </string-array>
+
+    <string-array name="pingzhong">
+        <item>云87</item>
+        <item>NC102</item>
+        <item>云97</item>
+        <item>红大</item>
+        <item>K326</item>
+    </string-array>
+
+    <string-array name="pingzhong1">
+        <item>云87</item>
+        <item>NC102</item>
+        <item>云97</item>
+        <item>红大</item>
+        <item>K326</item>
+    </string-array>
+
+    <string-array name="yewumukuai">
+        <item>种植申请</item>
+        <item>资格审查</item>
+        <item>异议处理</item>
+        <item>合同预签</item>
+        <item>清塘点株</item>
+        <item>合同发放</item>
+    </string-array>
+
+    <string-array name="yes_no">
+        <item>自有</item>
+        <item>租赁</item>
+    </string-array>
+
+    <string-array name="sheshileixing1">
+        <item>烟水工程</item>
+        <item>机耕路</item>
+        <item>烟叶调制设施</item>
+        <item>农业机械</item>
+    </string-array>
+
+    <string-array name="sheshileixing2">
+        <item>水池</item>
+        <item>水窖</item>
+        <item>管网</item>
+        <item>沟渠</item>
+        <item>提灌站</item>
+        <item>塘坝</item>
+        <item>机耕路</item>
+        <item>烟夹和散叶分风板</item>
+        <item>密集烤房</item>
+        <item>机械</item>
+        <item>育苗设施</item>
+        <item>土地治理</item>
+    </string-array>
+
+    <string-array name="zaiyongqingkuang">
+        <item>烟草在用</item>
+        <item>大农业在用</item>
+        <item>正常闲置</item>
+        <item>损坏较轻(30%以内)</item>
+        <item>损毁中等(30%-60%)</item>
+        <item>报废(60%以上)</item>
+    </string-array>
+
+    <string-array name="cured_tobacco_home_list">
+        <item>烤烟协议</item>
+        <item>烤房预约</item>
+        <item>烘烤点收费统计表</item>
+        <item>准采入炉</item>
+        <item>烘烤损失调节表</item>
+        <item>补偿登记表</item>
+        <item>烤烟记录</item>
+        <item>烤烟质量评估表</item>
+    </string-array>
+
+    <string-array name="buy_tobacco_home_list">
+        <item>预约通知</item>
+        <item>收购协议</item>
+        <item>预约通知单</item>
+        <item>收购登记表</item>
+        <item>过磅等候单</item>
+        <item>收购过程单</item>
+        <item>烟叶初分等级单</item>
+        <item>烟叶定级单</item>
+    </string-array>
+
+
+    <string-array name="cured_pact_jiaFang">
+        <item>石林县鹿路烤烟技术服务专业合作社</item>
+        <item>石林县华叶烤烟技术服务专业合作社</item>
+        <item>石林县润叶烤烟技术服务专业合作社</item>
+        <item>石林县丰叶烤烟技术服务专业合作社</item>
+        <item>石林县云叶烤烟技术服务专业合作社</item>
+        <item>石林县和叶烤烟技术服务专业合作社</item>
+        <item>石林县佳叶烤烟技术服务专业合作社</item>
+        <item>石林县金叶烤烟技术服务专业合作社</item>
+    </string-array>
+
+    <string-array name="years">
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+    </string-array>
+
+    <string-array name="kg_or_ganshu">
+        <item>kg</item>
+        <item>竿</item>
+    </string-array>
+
+    <string-array name="jiekuanyongtu">
+        <item>种植</item>
+        <item>养殖</item>
+    </string-array>
+
+    <array name="bianganqingkuang">
+        <item>合理</item>
+        <item>混部位</item>
+        <item>混色</item>
+        <item>过密</item>
+        <item>过稀</item>
+    </array>
+
+
+    <array name="xianyanyesuzhi">
+        <item>未熟</item>
+        <item>适熟</item>
+        <item>过熟</item>
+    </array>
+
+    <array name="hunyinzhuangkuang">
+        <item>未婚</item>
+        <item>已婚</item>
+        <item>离异</item>
+    </array>
+
+    <array name="fenjifangshi">
+        <item>站点一体化</item>
+        <item>集中分级</item>
+        <item>工厂一体化</item>
+    </array>
+
+
+    <array name="shougoujianyan1">
+        <item>合格</item>
+        <item>不合格(退回)</item>
+    </array>
+
+
+    <array name="shougoujianyan2">
+        <item>合格</item>
+        <item>不合格(返工)</item>
+    </array>
+
+
+    <array name="dinjileixing">
+        <item>交售</item>
+        <item>交退</item>
+    </array>
+
+
+    <array name="xiadarenqun">
+        <item>全部</item>
+        <item>筛选</item>
+    </array>
+
+    <array name="tearcherType">
+        <item>生产辅导员</item>
+        <item>助收员</item>
+    </array>
+
+
+
+</resources>

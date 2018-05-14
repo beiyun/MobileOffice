@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet xmlns:tools="http://schemas.android.com/tools"
+    android:transitionOrdering="sequential"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:targetApi="lollipop">
+
+    <explode
+        android:duration="500"
+        android:fadingMode="fade_in"
+        android:interpolator="@android:interpolator/accelerate_decelerate"
+        android:slideEdge="top">
+
+    </explode>
+
+    <slide android:duration="500" android:slideEdge="end">
+
+        <targets android:targetId="@id/search_search_layout"/>
+
+    </slide>
+
+
+
+
+
+
+</transitionSet>
+
+

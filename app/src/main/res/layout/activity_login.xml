@@ -1,0 +1,222 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/login_rootView"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:focusable="true"
+    android:fitsSystemWindows="true"
+    android:focusableInTouchMode="true"
+    tools:context="com.beiyun.workers.ui.LoginActivity">
+
+    <LinearLayout
+        android:id="@+id/content_layout"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:fitsSystemWindows="true"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"/>
+
+    <LinearLayout
+        android:id="@+id/covert_layout"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/dp_40"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_180"
+            android:contentDescription="@string/action_sign_in"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/splashimage"
+            android:layout_marginLeft="@dimen/dp_20" />
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/userName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prompt_email"
+                android:inputType="text"
+                android:maxLength="16"
+                android:maxLines="1"
+                android:drawablePadding="@dimen/dp_10"
+                android:paddingLeft="@dimen/dp_10"
+                android:paddingRight="@dimen/dp_10"
+                app:theme="@style/login_textView_style"
+                android:textSize="@dimen/sp_16"
+                android:textColorHint="@color/colorAccent"
+                android:drawableStart="@drawable/ic_person_white_24dp"
+                android:textColor="@android:color/white"
+                android:imeActionId="@+id/userName"
+                android:imeOptions="actionNext"
+                android:singleLine="true"
+                tools:ignore="InvalidImeActionId"
+                android:drawableLeft="@drawable/ic_person_white_24dp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prompt_password"
+                android:drawableStart="@drawable/ic_lock_white_24dp"
+                android:imeActionId="@+id/login"
+                android:textSize="@dimen/sp_16"
+                app:theme="@style/login_textView_style"
+                android:paddingLeft="@dimen/dp_10"
+                android:paddingRight="@dimen/dp_10"
+                android:textColorHint="@color/colorAccent"
+                android:imeActionLabel="@string/action_sign_in_short"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:textColor="@android:color/white"
+                android:maxLines="1"
+                android:maxLength="16"
+                android:drawablePadding="@dimen/dp_10"
+                android:singleLine="true"
+                tools:ignore="InvalidImeActionId"
+                android:drawableLeft="@drawable/ic_lock_white_24dp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:fitsSystemWindows="true"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_16">
+
+            <com.dd.processbutton.FlatButton
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/white"
+                app:pb_colorNormal="@color/colorWarning"
+                app:pb_colorPressed="@color/colorWarningDark"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:text="注册"
+                android:transitionName="@string/appTransName"
+                android:onClick="signUp"
+                android:id="@+id/sign_up"
+                android:textStyle="bold"
+                app:pb_cornerRadius="@dimen/dp_6"
+                android:layout_marginRight="@dimen/dp_16" />
+
+
+            <com.dd.processbutton.FlatButton
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/white"
+                app:pb_colorNormal="@color/ColorButtonNormal"
+                app:pb_colorPressed="@color/colorButtonPressed"
+                android:text="@string/action_sign_in"
+                android:transitionName="@string/appTransName"
+                android:id="@+id/sign_in_button"
+                android:textStyle="bold"
+                app:pb_cornerRadius="@dimen/dp_6"
+                tools:targetApi="lollipop" />
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/switchLayout"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_16"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:transitionName= "@string/appTransName"
+                android:foreground="?selectableItemBackground"
+                android:background="@drawable/selector_default_bg"
+                android:onClick="forgetPassword"
+                android:textStyle="italic"
+                android:text="@string/wangjimima"
+                tools:targetApi="lollipop" />
+
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/signSwitch"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:checked="false"
+                app:buttonTint="@color/light_gray"
+                app:thumbTint="@color/colorWarning"
+                app:trackTintMode="multiply"
+                app:trackTint="@color/colorPrimaryDark"
+                android:text="@string/privateSign"
+                android:padding="@dimen/dp_16"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/dp_16"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_16" />
+
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:gravity="bottom|center_horizontal"
+            android:lineSpacingExtra="@dimen/dp_4"
+            android:textSize="@dimen/sp_12"
+            android:textColor="@android:color/white"
+            android:text="@string/banben"/>
+
+
+
+    </LinearLayout>
+
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>

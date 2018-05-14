@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="FormView">
+
+        <attr name="gravity">
+            <flag name="center" value="1"/>
+            <flag name="bottom" value="2"/>
+            <flag name="top" value="3"/>
+            <flag name="left" value="4"/>
+            <flag name="right" value="5"/>
+        </attr>
+        <attr name="editText" format="string" />
+        <attr name="titleText" format="string" />
+        //当作textView 来用
+        <attr name="only_text" format="string" />
+        <attr name="hint" format="string" />
+        <attr name="inputType">
+            <flag name="text" value="1" />
+            <flag name="number" value="2" />
+            <flag name="phone" value="3" />
+            <flag name="ID_number" value="4" />
+            <flag name="Card_No" value="5" />
+            <flag name="password" value="6" />
+            <flag name="datePiker" value="7" />
+            <flag name="numberDecimal" value="8" />
+            <flag name="timePiker" value="9" />
+        </attr>
+        <attr name="maxLength" format="integer" />
+        <attr name="rightText" format="string" />
+        <attr name="rightTextColor" format="color" />
+        <attr name="onlyTextColor" format="color" />
+        <attr name="titleTextColor" format="color" />
+        <attr name="focusable" format="boolean" />
+        <attr name="nullAble" format="boolean"/>
+        <attr name="editBackground" format="reference" />
+        <attr name="dropDownStringArray" format="reference" />
+    </declare-styleable>
+
+
+    <declare-styleable name="DateTimePickerEditText">
+
+        <attr name="hourEditTextIdName" format="string" />
+        <attr name="minEditTextIdName" format="string" />
+        <attr name="isTimeBiggerThan" format="string" />
+
+        <attr name="DateTimePickerShowStyle">
+
+            <flag name="DatePicker" value="0x1" />
+
+            <flag name="TimePicker" value="0x2" />
+
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="ClipPhotoImageView">
+
+        //左上角半径
+        <attr name="nc_left_top_radius" format="dimension" />
+        //右上角半径
+        <attr name="nc_right_top_radius" format="dimension" />
+        //左下角半径
+        <attr name="nc_left_bottom_radius" format="dimension" />
+        //右下角半径
+        <attr name="nc_right_bottom_radius" format="dimension" />
+        //整体半径
+        <attr name="nc_corner_radius" format="dimension" />
+        //点击该view跳转照相功能或者取照片
+        <attr name="nc_take_photo_mode">
+            <flag name="GIVEN_CHOICE" value="0" />
+            <flag name="FROM_CAMERA" value="1" />
+            <flag name="FROM_LOCAL" value="2" />
+            <flag name="ID_NUMBER" value="3" />
+        </attr>
+
+        //切边宽度
+        <attr name="nc_border_width" format="dimension" />
+        //切边颜色
+        <attr name="nc_border_color" format="color" />
+        //是否为圆
+        <attr name="nc_oval" format="boolean" />
+        //缩放类型
+        <attr name="nc_scaleType">
+            <flag name="MATRIX" value="0" />
+            <flag name="FIT_XY" value="1" />
+            <flag name="FIT_START" value="2" />
+            <flag name="FIT_CENTER" value="3" />
+            <flag name="FIT_END" value="4" />
+            <flag name="CENTER" value="5" />
+            <flag name="CENTER_CROP" value="6" />
+            <flag name="CENTER_INSIDE" value="7" />
+        </attr>
+
+    </declare-styleable>
+
+
+    <declare-styleable name="ClipPhotoLayout">
+
+        <attr name="text" format="string" />
+
+        <attr name="photoMode">
+            <flag name="GIVEN_CHOICE" value="0" />
+            <flag name="FROM_CAMERA" value="1" />
+            <flag name="FROM_LOCAL" value="2" />
+            <flag name="ID_NUMBER" value="3" />
+        </attr>
+
+        //缩放类型
+        <attr name="scaleType">
+            <flag name="MATRIX" value="0" />
+            <flag name="FIT_XY" value="1" />
+            <flag name="FIT_START" value="2" />
+            <flag name="FIT_CENTER" value="3" />
+            <flag name="FIT_END" value="4" />
+            <flag name="CENTER" value="5" />
+            <flag name="CENTER_CROP" value="6" />
+            <flag name="CENTER_INSIDE" value="7" />
+        </attr>
+
+
+
+    </declare-styleable>
+
+
+    <declare-styleable name="SectionalLine">
+        <attr name="sectional_line_title" format="string" />
+    </declare-styleable>
+
+
+    <declare-styleable name="SignView">
+        <attr name="signText" format="string" />
+        <attr name="buttonText" format="string" />
+        <attr name="remote" format="boolean"/>
+        <attr name="signType">
+            <flag name="none" value="0" />
+            <flag name="sign" value="1" />
+            <flag name="fingerPrint" value="2" />
+            <flag name="validate" value="3"/>
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="ExpandableView">
+        <attr name="Expandable_title" format="string" />
+        <attr name="Expandable_content" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomRatingBar">
+        <attr name="numStars" format="integer" />
+        <attr name="tabText" format="string" />
+    </declare-styleable>
+
+
+    <declare-styleable name="CustomRadioButtonLayout">
+        <attr name="choiceArray" format="reference" />
+        <attr name="values" format="reference" />
+        <attr name="textViewTitle" format="string" />
+    </declare-styleable>
+
+
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+    </declare-styleable>
+
+
+    <declare-styleable name="SearchView">
+        <attr name="searchHint" format="string"  />
+        <attr name="showBtnLayout" format="boolean" />
+    </declare-styleable>
+
+
+    <declare-styleable name="NumberProgressBar">
+        <attr name="progress_current" format="integer"/>
+        <attr name="progress_max" format="integer"/>
+
+        <attr name="progress_unreached_color" format="color"/>
+        <attr name="progress_reached_color" format="color"/>
+
+        <attr name="progress_reached_bar_height" format="dimension"/>
+        <attr name="progress_unreached_bar_height" format="dimension"/>
+
+        <attr name="progress_text_size" format="dimension"/>
+        <attr name="progress_text_color" format="color"/>
+
+        <attr name="progress_text_offset" format="dimension"/>
+
+        <attr name="progress_text_visibility" format="enum">
+            <enum name="visible" value="0"/>
+            <enum name="invisible" value="1"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="Themes">
+        <attr name="numberProgressBarStyle" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="AddImageView">
+        <attr name="AddImageView_add_image_able" format="boolean"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="CountEditText">
+        <attr name="CountEditText_count" format="integer"/>
+        <attr name="CountEditText_textSize" format="dimension"/>
+        <attr name="CountEditText_textColor" format="color"/>
+        <attr name="CountEditText_hint" format="string"/>
+    </declare-styleable>
+
+</resources>

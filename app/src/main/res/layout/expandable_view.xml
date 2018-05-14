@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:id="@+id/expandable_title_layout"
+        android:layout_width="match_parent"
+        android:background="?android:selectableItemBackground"
+        android:layout_height="wrap_content">
+
+        <com.beiyun.workers.view.SectionalLine
+            android:id="@+id/expandable_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/expandable_pointer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_arrow_drop_down_24dp"
+            android:scaleType="centerCrop"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"/>
+
+    </RelativeLayout>
+
+    <LinearLayout style="@style/LinearLayout_Normal_Horizontal">
+
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/expandable_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

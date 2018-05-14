@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:paddingStart="@dimen/dp_10"
+    android:paddingEnd="@dimen/dp_10"
+    android:paddingTop="@dimen/dp_10"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <org.angmarch.views.NiceSpinner
+        android:id="@+id/search_plant_category"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        app:arrowTint="@color/colorPrimary"
+        app:arrowDrawable="@drawable/arrow"
+        app:textTint="@color/text_black"
+        android:hint="选择查询模块"/>
+
+
+
+
+
+
+
+</LinearLayout>

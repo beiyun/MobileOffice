@@ -1,0 +1,802 @@
+<resources>
+    <string name="app_name">烟草职工移动办公</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">用户名/手机号</string>
+    <string name="prompt_password">密码</string>
+    <string name="action_sign_in">登录</string>
+    <string name="action_sign_in_short">登录</string>
+    <string name="error_invalid_email">用户名不符合规则</string>
+    <string name="error_invalid_password">密码太短了</string>
+    <string name="error_incorrect_password">密码错误</string>
+    <string name="error_field_required">用户名不能为空</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="banben">版权归中商宏图科技有限公司所有\n版本号：1.0</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="person_msg">人员信息</string>
+    <string name="person_msg_detail">查询相关人员基本信息</string>
+    <string name="base_build">基础设施</string>
+    <string name="base_build_detail">查询基础设施相关信息</string>
+    <string name="check_work">工作考核</string>
+    <string name="check_work_detail">查询查询工作考核相关信息</string>
+    <string name="plant">种植情况</string>
+    <string name="plant_detail">查询烟农种植相关信息</string>
+    <string name="public_msg">公示信息</string>
+    <string name="public_msg_detail">查询公示相关信息</string>
+    <string name="data_analysis">数据分析</string>
+    <string name="data_analysis_detail">查询数据分析信息</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">显示昵称</string>
+    <string name="pref_default_display_name">display your name</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string name="pref_title_system_sync_settings">系统设置</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">通知</string>
+
+    <string name="pref_title_new_message_notifications">新消息通知</string>
+
+    <string name="pref_title_ringtone">铃声</string>
+    <string name="pref_ringtone_silent">静音</string>
+
+    <string name="pref_title_vibrate">震动</string>
+    <string name="wangjimima">忘记密码？</string>
+    <string name="publicSign">公网登录</string>
+    <string name="privateSign">专网登录</string>
+    <string name="banner">banner</string>
+    <string name="redu">热度</string>
+    <string name="btn_trance_name">btn</string>
+    <string name="title_activity_main_list_detail">MainListDetailActivity</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
+    <string name="action_settings">Settings</string>
+    <string name="main_trans_image">mainListTitleImage</string>
+    <string name="main_trans_author">mainListauthor</string>
+    <string name="title_activity_message_detail">MessageDetailActivity</string>
+    <string name="messageTransImageName">messageTransImageName</string>
+    <string name="appBarTransName">AppBarTransName</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="completeTime">设定任务完成时间：</string>
+    <string name="renwurenyuan">执行任务人员设定</string>
+    <string name="wanchengshijian">完成时间设定</string>
+    <string name="renwumingcheng">任务名称设定</string>
+    <string name="renwuneirong">任务内容设定</string>
+    <string name="xiada">下达</string>
+    <string name="chaxunriqisheding">查询日期设定</string>
+    <string name="chaxunrenyuan">查询任务名称设定</string>
+    <string name="addVideoTitle">添加视频标题</string>
+    <string name="add_subTitle">添加副标题</string>
+    <string name="textContent">文本内容</string>
+    <string name="video_text3">1000字以内（选填）</string>
+    <string name="video_text2">30字以内（选填）</string>
+    <string name="video_text1">15字以内（必填）</string>
+    <string name="video_text">添加文本</string>
+    <string name="video_text4">添加视频</string>
+    <string name="video_text5">本地视频</string>
+    <string name="video_text6">录制视频</string>
+    <string name="video_text7">视频预览</string>
+    <string name="videoImage">videoImage</string>
+    <string name="person_account">账户管理</string>
+    <string name="mimaxiugai">密码修改</string>
+    <string name="person_banka">申请办卡</string>
+    <string name="person_money">金融服务</string>
+    <string name="person_opinion">意见反馈</string>
+    <string name="person_caches">清除缓存</string>
+    <string name="person_version">检查更新</string>
+    <string name="main_search_fab">searchBtn</string>
+    <string name="sheshileixing">设施类型</string>
+    <string name="work_name_set">任务名称设定：</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="searchPersonInfo">查人员信息</string>
+    <string name="searchPlantInfo">查种植情况</string>
+    <string name="searchWorkInfo">查工作考核</string>
+    <string name="searchPublicInfo">查公示信息</string>
+    <string name="searchInfrastructureInfo">查基础设施</string>
+    <string name="searchDataInfo">查数据分析</string>
+    <string name="annual">年&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;度</string>
+    <string name="town">乡&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;镇</string>
+    <string name="name">姓&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;名</string>
+    <string name="sex">性&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;别</string>
+    <string name="villageCommittee">村&#160;&#160;委&#160;&#160;会</string>
+    <string name="villageGroup">村&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;组</string>
+    <string name="yannongxingming">烟农姓名(合作社名称)</string>
+    <string name="qiandinghetongxinxi">签订合同信息</string>
+    <string name="xianyouhetongbianhao">现有合同编号</string>
+    <string name="plantArea">种植面积(亩)</string>
+    <string name="purchaseCount">收&#160;&#160;购&#160;&#160;量(kg)</string>
+    <string name="exportCount">出口备货(Kg)</string>
+    <string name="mandatory_purchase">指令性收购(Kg)</string>
+    <string name="biangengdikuaixinxi">变更地块信息</string>
+    <string name="yantianbianhao">烟田编号</string>
+    <string name="muchanshu">亩产数</string>
+    <string name="biangengyuanyin">变更原因</string>
+    <string name="delete">删除</string>
+    <string name="yannongzhiwen">烟农指纹</string>
+    <string name="tiqu">签名</string>
+    <string name="checkTime">核实日期</string>
+    <string name="yanzhanshenheyijian">烟站审核意见</string>
+    <string name="signature">签字</string>
+    <string name="sigTime">签字时间</string>
+    <string name="riqi">日期</string>
+    <string name="xianjuyijian">县局意见</string>
+    <string name="contractNo">合同编号</string>
+    <string name="sellNo">交售折编号</string>
+    <string name="yannongqianming">烟农签名</string>
+    <string name="hetongyuqian">合同预签</string>
+    <string name="variety">品&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;种</string>
+    <string name="sigArea">合同面积</string>
+    <string name="sigStrains">合同株数</string>
+    <string name="totalStrains">株数合计</string>
+    <string name="totalArea">面积合计</string>
+    <string name="dianzhuriqi">点株日期</string>
+    <string name="cunzuqueren">村组确认</string>
+    <string name="heshiqingkuang">核实情况</string>
+    <string name="dikuaimingcheng">地块名称</string>
+    <string name="dikuaimianji">地块面积</string>
+    <string name="zhushu">株数</string>
+    <string name="dissentType">异议类别</string>
+    <string name="farmerName">烟农姓名</string>
+    <string name="yijianjilu">意见记录</string>
+    <string name="cunzuyijian">村组意见</string>
+    <string name="fudaoyuanyijian">辅导员意见</string>
+    <string name="shenqingshoulidanbianhao">申请受理单编号</string>
+    <string name="shenqingmianjiheji">申请面积合计(亩)</string>
+    <string name="ziyoutudi">自有土地面积(亩)</string>
+    <string name="zulintudi">租赁土地面积(亩)</string>
+    <string name="zhangliangmainji">丈量面积合计(亩)</string>
+    <string name="wangnianhetonglvyue">往年合同履约率</string>
+    <string name="jishushuiping">技术水平</string>
+    <string name="laodongli">劳动力(人)</string>
+    <string name="kaofang">烤房</string>
+    <string name="hongkaonengli">烘烤能力</string>
+    <string name="guapianzhigongyijian">挂片职工意见</string>
+    <string name="zhanzhangyiian">烟站站长意见</string>
+    <string name="zhidaoneirong">指导内容</string>
+    <string name="yannongpingjia">烟农评价(每项20分)</string>
+    <string name="yannongpingjia_1">1.乐于接受其指导</string>
+    <string name="yannongpingjia_2">2.对于种烟有帮助</string>
+    <string name="yannongpingjia_3">3.处理好烟农关系</string>
+    <string name="yannongpingjia_4">4.烟农中有号召力</string>
+    <string name="yannongpingjia_5">5.公平公正有威望</string>
+    <string name="yannongpingjia_6">6.其他</string>
+    <string name="add">添加</string>
+    <string name="score">分&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;数</string>
+    <string name="foudingxiang">否定项：</string>
+    <string name="foudingxiang_content">出现不到烟叶收购种植合同约定烟点交售烟叶，私自跨区域交售烟叶、套购倒卖烟用物资、倒买倒卖烟叶行为的，恶意举报、不执行交售流程，辱骂收购人员影响交售行为的，其信用评级直接评定为“差”。</string>
+    <string name="chengxinlijisixiang_title">1.诚信力及思想观念(55分)</string>
+    <string name="totalScore">总&#160;&#160;分&#160;&#160;数</string>
+    <string name="yuedugongzuo">月度工作业绩评价(权重0.6)</string>
+    <string name="yuedugongzuo_1">环节工作完成情况(50分)</string>
+    <string name="yuedugongzuo_2">痕迹资料(20分)</string>
+    <string name="yuedugongzuo_3">工作协调能力(15分)</string>
+    <string name="yuedugongzuo_4">工作纪律(15分)</string>
+    <string name="xiaoji">小计</string>
+    <string name="influenceeval">影响力评价(权重0.2)</string>
+    <string name="influenceeval_1">乐于接受其指导(20分)</string>
+    <string name="influenceeval_2">对于种烟有帮助(20分)</string>
+    <string name="influenceeval_3">处理好烟农关系(20分)</string>
+    <string name="influenceeval_4">烟农中有号召力(20分)</string>
+    <string name="influenceeval_5">公平公正有威望(20分)</string>
+    <string name="capacityeval">工作潜力(权重0.2)</string>
+    <string name="capacityeval_1">连续服务年限(10分)</string>
+    <string name="capacityeval_2">学历(10分)</string>
+    <string name="capacityeval_3">专业化服务技能(10分)</string>
+    <string name="capacityeval_4">技能持证情况(10分)</string>
+    <string name="capacityeval_5">指导区域户均种植面积(10分)</string>
+    <string name="capacityeval_6">指导区域合同调整情况(10分)</string>
+    <string name="capacityeval_7">指导区域交售数量完成情况(10分)</string>
+    <string name="capacityeval_8">指导区域交售烟叶均价(10分)</string>
+    <string name="capacityeval_9">指导区域上等烟比例(10分)</string>
+    <string name="capacityeval_10">指导区域亩均收入(10分)</string>
+    <string name="prodLink">生产环节</string>
+    <string name="prodLink_1">春备耕(2分)</string>
+    <string name="prodLink_2">按时移栽(2分)</string>
+    <string name="prodLink_3">平衡施肥(2分)</string>
+    <string name="prodLink_4">接膜提沟培土(2分)</string>
+    <string name="prodLink_5">封顶打杈(2分)</string>
+    <string name="prodLink_6">优化烟叶结构(2分)</string>
+    <string name="note">备注</string>
+    <string name="integrityCheck">一、诚信力及思想观念(55分)</string>
+    <string name="integrityCheck_item1">1.种植面积及品种</string>
+    <string name="integrityCheck_item2">2.合同履约率</string>
+    <string name="integrityCheck_item3">3.参加培训及技术应用</string>
+    <string name="integrityCheck_item4">4.接收专业化服务</string>
+    <string name="prodLevel">二.生产水平(22分)</string>
+    <string name="prodLevel_item1">1.各生产环节完成情况</string>
+    <string name="prodLevel_item2">2.收入水平</string>
+    <string name="capacityCheck">三.影响力及发展潜力(23分)</string>
+    <string name="capacityCheck_item1">1.辐射带动能力</string>
+    <string name="capacityCheck_item2">2.种植规模</string>
+    <string name="capacityCheck_item3">3.种植规划</string>
+    <string name="capacityCheck_item4">4.种植烟农收入占比</string>
+    <string name="capacityCheck_item5">5.种烟潜力</string>
+    <string name="capacityCheck_item6">6.设施设备</string>
+    <string name="plusesItem">加分项(5分)</string>
+    <string name="plusesItem_content">积极主动监督举报签订空、假合同，套购倒卖烟用物资、倒买倒卖烟叶等行为，且举报属实的！</string>
+    <string name="content">内&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;容</string>
+    <string name="start">开&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;始</string>
+    <string name="end">持&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;续</string>
+    <string name="position">位&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;置</string>
+    <string name="actor">参&#160;&#160;与&#160;&#160;者</string>
+    <string name="remind">提&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;醒</string>
+    <string name="newsNotice">消息提示</string>
+    <string name="shockNotice">震动提示</string>
+    <string name="yannongfuwuxitong">烟农服务系统</string>
+    <string name="gongsiwangzhi">公司网址</string>
+    <string name="gongsiwangzhi_content">www.zhongshanghongtu.com</string>
+    <string name="kefurexian">客服热线</string>
+    <string name="kefurexian_tel">010&#8211;87167607</string>
+    <string name="weixingongzhonghao">微信公众号</string>
+    <string name="weixingongzhonghao_content">zhongshangyancao</string>
+    <string name="mianzeshengming">免责声明</string>
+    <string name="kefu">工作时间:周一至周五9:00&#8211;17:00(法定节假日除外)</string>
+    <string name="feedback_hint">请在此写下您的宝贵意见和建议&#8230;&#8230;&#8230;</string>
+    <string name="chooseAll">全选</string>
+    <string name="cancelAll">全部取消</string>
+    <string name="upload">上传</string>
+    <string name="jinriricheng">今日日程</string>
+    <string name="create">新建</string>
+    <string name="userName">用&#160;&#160;户&#160;&#160;名</string>
+    <string name="psd">密&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;码</string>
+    <string name="rePsd">确认密码</string>
+    <string name="realName">真实姓名</string>
+    <string name="identity">身份证号</string>
+    <string name="tel">手&#160;&#160;机&#160;&#160;号</string>
+    <string name="unitName">单位名称</string>
+    <string name="employee">挂钩职工</string>
+    <string name="manageGroup">所管村组</string>
+    <string name="familyAddress">家庭住址</string>
+    <string name="userName_hint">请输入用户名</string>
+    <string name="psd_hint">请输入8到16位,字母、数字或下划线组合</string>
+    <string name="rePsd_hint">请再次输入密码</string>
+    <string name="tel_hint">仅支持联通手机号</string>
+    <string name="miss_identity_hint">请输入用户名或账号</string>
+    <string name="miss_tel_hint">请输入注册时的手机号</string>
+    <string name="miss_verify_hint">验证码</string>
+    <string name="get">签名</string>
+    <string name="nextSkip">下一步</string>
+    <string name="newPsd_hint">请输入新密码</string>
+    <string name="reNewPsd_hint">请确认新密码</string>
+    <string name="register">用户注册</string>
+    <string name="miss_password">忘记密码</string>
+    <string name="education">宣传教育</string>
+    <string name="tongzhidongtai">通知动态详情</string>
+    <string name="tg_production_scroe">烟农生产各个环节评分</string>
+    <string name="gongzuojingdu">工作进度</string>
+    <string name="yiwangchgnmokuai">工作进度(已完成)</string>
+    <string name="weiwanchengmokuai">工作进度(未完成)</string>
+    <string name="formal_contract">正式合同</string>
+    <string name="reset_password">重置密码</string>
+    <string name="tg_basic_info">烟农基本信息</string>
+    <string name="hint_not_psd">两次密码输入不一致</string>
+    <string name="hint_userName_empty">用户名不能为空</string>
+    <string name="hint_realName_empty">真实姓名不能为空</string>
+    <string name="hint_realName_illegal">真实姓名不符合规则</string>
+    <string name="hint_psd_empty">密码不能为空</string>
+    <string name="hint_psd_illegal">密码必须是8到16位,字母、数字或下划线组合</string>
+    <string name="hint_rePsd_empty">请再次输入密码</string>
+    <string name="hint_identity_empty">身份证号不能为空</string>
+    <string name="hint_identity_illegal">身份证号不合法</string>
+    <string name="hint_tel_empty">手机号不能为空</string>
+    <string name="hint_tel_illegal">手机号不合法或不是联通号码</string>
+    <string name="hint_unit_empty">单位名称不能为空</string>
+    <string name="hint_employee_empty">挂钩职工不能为空</string>
+    <string name="hint_committee_empty">村委会不能为空</string>
+    <string name="hint_group_empty">村组不能为空</string>
+    <string name="xuanzecunzu">选择村组</string>
+    <string name="xuanzecunweihui">选择村委会</string>
+    <string name="hint_verify_empty">请输入验证码</string>
+    <string name="hint_verify_error">验证码不正确,请重新输入</string>
+    <string name="hint_verify_out">验证码已过期</string>
+    <string name="hint_account_empty">请输入用户名或账号</string>
+    <string name="hint_account_change">信息已更改,请重新获取验证码</string>
+    <string name="hint_search">请输入搜索内容</string>
+    <string name="zhongzhizhushu">种植株数(株)</string>
+    <string name="jiafang">甲&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;方</string>
+    <string name="yifang">乙&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;方</string>
+    <string name="jindgdu">经&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;度</string>
+    <string name="weidua">纬&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;度</string>
+    <string name="mushua">亩&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;数</string>
+    <string name="tiaoyanleixing">田烟类型</string>
+    <string name="caozuo">操&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;作</string>
+    <string name="hukoucehao">户口册号</string>
+    <string name="lianxidianhua">联系电话</string>
+    <string name="kaihuyinghang">开户银行</string>
+    <string name="yinhangzhanghao">银行账号</string>
+    <string name="lishuyanzhan">隶属烟站</string>
+    <string name="formal_item1">\t\t为确保烟叶生产平稳发展，保障优质烟叶有效供给，依据《中华人民共和国烟草专卖法》及《中华人民共和国烟草专卖法实施条例》、《中华人民共和国合同法》及国家烟草专卖局《烟叶种植收购合同管理暂行办法》的有关规定，甲乙双方本着和平、互利、自愿的原则。协商签订如下合同：</string>
+    <string name="formal_item3">\n\t\t1.具备种植优质烟叶的土地、劳力、资金及烟叶调制设备等条件，积极发展适度规模种植。\n\t\t2.服从区域烟田规划安排，按照以烟为主的要求，合理进行轮作。\n\t\t3.将甲方提供的生产投入补贴全部用于烟叶生产，不挪作他用。使用甲方统一组织培育的烟苗进行栽种，不自留、自繁衍烟草种子，不私自育苗，不使用未在烟草上登记的农药及降低烟叶品质的化肥等化学品。\n\t\t4.按照甲方提出的技术标准、技术方案和田间处理不适用烟叶的要求进行各环节的烟叶生产。\n\t\t5.不使用不满16周岁的未成年人（童工）。</string>
+    <string name="formal_item2">\n\t\t1.根据市场需求和优质烟叶生产要求,知道乙方选择适宜地块，合理进行轮作，发展适度规模种植。\n\t\t2.向乙方有偿（或无偿）提供烟叶生产扶持。扶持项目、补贴标准、兑现时间、兑现方式由甲方按照上级烟草公司有关规定并结合生产实际制定。\n\t\t3.向乙方提供技术指导、技术培训和技术咨询服务。\n\t\t4.指导乙方做好不适用烟叶田间处理工作，经验收合格后，及时兑现优化烟叶结构补贴，验收不合格的不予兑现补贴。\n\t\t5.按照合同约定收购量组织烟叶收购，无计划、无合同、计划外、合同外烟叶不予收购。</string>
+    <string name="formal_item4">\n\t\t1.本合同由云南省烟草专卖局同意监制，州（市）烟草公司烟叶工作站加盖烟叶种植收购合同专用章后生效。\n\t\t2.本合同为一本通，凭此合同种植、交售烟叶、领取烟叶交售款和供应商烟用物资，查询相关信息。\n\t\t3.本合同不准伪造、涂改、损坏、撕页，不准租借、转让或买卖，违者一律视为无效。\n\t\t4.种烟农户应妥善保管本合同，如有遗失，应持有效证明向甲方挂失，甲方经审查确认后，方可补发新合同，同时注销原合同。\n\t\t5.本合同所指为烤烟型烟叶。\n\t\t6.年度烟叶收购价格由烟叶工作站张榜公布。\n\t\t7.本合同信息不得擅自更改，若有变动，须书面确认并连同档案同时修改。\n\t\t注：烟叶生长期间自然灾害保险待省局（公司）明确政策后再增加到合同相应条款中。</string>
+    <string name="formal_item5">\n\t\t1.甲方未履行本合同规定的相关条款，乙方有权举报。（举报电话：0871–63137842）\n\t\t2.甲方不履行合同约定条款造成乙方经济损失的，视情节轻重返还甲方生产投入补贴。\n\t\t3.乙方由于人为因素不履行合同约定条款造成甲方经济损失的，视情节轻重返还甲方生产投入补贴。\n\t\t4.乙方未按甲方要求在田间处理不适用烟叶、未完成合同约定收购量及上等烟数量的，甲方按规定不兑现不采烤烟叶补贴。\n\t\t5.乙方在合同约定交售时间内未完成合同签订收购量，甲方可根据实际合同完成情况进行调整或解除。\n\t\t6.乙方无正当理由，连续两年违约弃种，甲方将不再与之签订合同。</string>
+    <string name="formal_item6">\n\t\t1.本合同不得随意变更和解除。若遇自然灾害等不可抗力致使不能履行合同的，经双方协商同意，可以解除本合同。\n\t\t2.本合同自双方签订之日起生效。未尽事宜经甲乙双方协商，可在其他约定事项中注明。</string>
+    <string name="formal_item7">1\t下等烟叶收购重点保障出口备货计划,收购等级为</string>
+    <string name="pre_fuze">\n\t\t1.烟叶生产产前投入补贴项目、补贴标准、兑现办法及其他补贴条款等，以移栽核实面积后正式签订合同为准。\n\t\t2.本预签合同自双方签订之日起生效，到移栽核实面积后正式签订合同之日终止。</string>
+    <string name="yaoyuezhuyaorenwu">要约主要任务</string>
+    <string name="zhongyandikuai">种烟地块</string>
+    <string name="mushu">亩数</string>
+    <string name="zhongzhipinzhong">种植品种</string>
+    <string name="qianding">签订</string>
+    <string name="diyicitiaozheng">第一次调整</string>
+    <string name="diercitiaozheng">第二次调整</string>
+    <string name="heji">合&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;计</string>
+    <string name="jiafangquanli">甲方权利和义务</string>
+    <string name="yifangquanli">乙方权利和义务</string>
+    <string name="yannongxuzhi">烟农须知</string>
+    <string name="weiyuezeren">违约责任</string>
+    <string name="fuze">附则</string>
+    <string name="buchongtiaokuan">补充条款</string>
+    <string name="shengchanfuchibutie">生产扶持补贴</string>
+    <string name="fuchibutie">扶持补贴</string>
+    <string name="fuchixiangmu">扶持项目</string>
+    <string name="butiebiaozhun">补贴标准</string>
+    <string name="duixianfangshi">兑现方式</string>
+    <string name="yifangqianzi">乙方签字</string>
+    <string name="jiafangqianzi">甲方签字</string>
+    <string name="shougoushiduan">收购时段</string>
+    <string name="shougoudidian">收购地点</string>
+    <string name="age">年&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;龄</string>
+    <string name="education_title">学&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;历</string>
+    <string name="familyMember">家庭人口</string>
+    <string name="identity_pos">身份证(正面)</string>
+    <string name="identity_opp">身份证(反面)</string>
+    <string name="home_first">户口本首页</string>
+    <string name="zhongyanxinxi">种烟信息</string>
+    <string name="yannongbianhao">烟农编号</string>
+    <string name="gengdimianji">耕地面积</string>
+    <string name="zulinmianji">租赁面积</string>
+    <string name="qianchai">前&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;茬</string>
+    <string name="mu">亩</string>
+    <string name="wangnianzhongyanmianji">往年种烟面积</string>
+    <string name="jinnianzhongyanheji">当年种烟合计</string>
+    <string name="tianyanmianji">田烟面积</string>
+    <string name="diyanmianji">地烟面积</string>
+    <string name="zhilingxing">指令性量</string>
+    <string name="qizhongchukoubeihuo">其中出口备货</string>
+    <string name="kg">kg</string>
+    <string name="dikuaixinxi">地块信息</string>
+    <string name="jingdu">经度</string>
+    <string name="weidu">纬度</string>
+    <string name="zuo">座</string>
+    <string name="percent">%</string>
+    <string name="kaofangshebeishuliang">烤房设备数量</string>
+    <string name="mijikaofang">密集烤房</string>
+    <string name="rongliang">容量</string>
+    <string name="zhongzhijishu">种植技术水平</string>
+    <string name="zhiyeyannongzige">职业烟农资格证</string>
+    <string name="wangnianpingjiadengji">往年评价等级</string>
+    <string name="yannonggongcheng">烟农工程配套情况</string>
+    <string name="wangnianhetonglvyuelv">往年合同履约率</string>
+    <string name="yannongdangan">烟农档案</string>
+    <string name="sushualicai">速刷理财</string>
+    <string name="check_update">检查更新</string>
+    <string name="ID">ID:</string>
+    <string name="yannongzhaopian">烟农照片</string>
+    <string name="dispose_title">异议类别</string>
+    <string name="illegal_fingerprint">指纹不匹配</string>
+    <string name="verify_fingerprint">请校验指纹</string>
+    <string name="out_of_range_data">数值不在合理范围内</string>
+    <string name="identity_digit">0123456789Xx</string>
+    <string name="psd_digit">0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM_</string>
+    <string name="data_not_full">数据不完整</string>
+    <string name="send_code">验证码已发送</string>
+    <string name="hint_register">正在注册</string>
+    <string name="searching">正在查询</string>
+    <string name="zanwushuju">暂无数据</string>
+    <string name="chaxunchenggong">查询成功</string>
+    <string name="woshi">我是</string>
+    <string name="chengnuoshijian">承诺时间</string>
+    <string name="xiang">乡(街道办)</string>
+    <string name="cunweihui">村委会</string>
+    <string name="committ_cunxiaozu">村小组烤烟</string>
+    <string name="committ_yuji">种植户,预计种植面积</string>
+    <string name="zhengzaigengxin">正在更新</string>
+    <string name="quxiaogengxin">取消更新</string>
+    <string name="tobacco_notification_placeholder_text_template">您的验证码为:%1$s,请在30分钟内填写,如非本人操作可以忽略。【中商宏图】</string>
+    <string name="suoshuquyu">所属区域</string>
+    <string name="xian">县</string>
+    <string name="xiangzhen">乡镇</string>
+    <string name="cunxiaozu">村小组</string>
+    <string name="jianshezhuti">建设主体</string>
+    <string name="zhidingfuzeren">指定负责人</string>
+    <string name="gonguzodanwei">工作单位</string>
+    <string name="xiangmubianhao">项目编号</string>
+    <string name="jianshedidian">建设地点</string>
+    <string name="gpsshuju">GPS数据</string>
+    <string name="zaiyongqingkuang">在用状况</string>
+    <string name="shigongdanwei">施工单位</string>
+    <string name="shouyimianji">受益面积</string>
+    <string name="ronglianglifangmi">容量(立方米)</string>
+    <string name="jiansheneirong">建设内容</string>
+    <string name="guandaocaizhi">管道材质、规格、长度</string>
+    <string name="gouzhizhuti">购置主体</string>
+    <string name="zhuangyanqijuleixing">装烟器具类型</string>
+    <string name="gongyingshang">供应商</string>
+    <string name="kaofangshebeigongyingchangjia">烤房设备供应厂家</string>
+    <string name="jianzaoguige">建造规格</string>
+    <string name="gouzhishuliang">购置数量</string>
+    <string name="gouzhishijian">购置时间</string>
+    <string name="nongjimingcheng">农机名称</string>
+    <string name="pinpaixinghao">品牌型号</string>
+    <string name="shengchanqiye">生产企业</string>
+    <string name="gonglv">功率</string>
+    <string name="chuchanghegehao">出厂合格号</string>
+    <string name="fadongjihao">发动机号</string>
+    <string name="jijiahao">机架号</string>
+    <string name="zuoyexiaolv">作业效率</string>
+    <string name="shigonggonghuodanwei">施工(供货)单位</string>
+    <string name="jianshemianji">建设面积</string>
+    <string name="yumiaomianji">育苗面积</string>
+    <string name="kegongdatianyizaimianji">可供大田移栽面积</string>
+    <string name="zongzaojia">总造价/购置金额(元)</string>
+    <string name="butiezijin">补贴资金(元)</string>
+    <string name="kaigongshijian">开工时间</string>
+    <string name="jungongshijian">竣工时间</string>
+    <string name="guanhuzerenren">管护责任人</string>
+    <string name="zhaopianshangchuan">照片上传(最多四张)</string>
+    <string name="jichusheshi">基础设施</string>
+    <string name="gongzuorenwuguanli">工作任务管理</string>
+    <string name="zuzhijigoudaima">组织机构代码</string>
+    <string name="gouquhint">1、沟渠类型：主干渠、支渠Ⅰ型、支渠Ⅱ型、排洪渠、倒虹吸、输水隧洞、其他；2、沟渠断面规格；3、沟渠结构：双面立模浇筑、浆砌石衬砌、其他；4、沟渠长度（米）</string>
+    <string name="tiguanzhanhint">泵房面积、扬程、电机功率及泵水流量和管材类型及规格、长度</string>
+    <string name="tangbahint">泵房面积、扬程、电机功率及泵水流量和管材类型及规格、长度</string>
+    <string name="yumiaosheshi">育苗小棚__棚，规格(cm):__*__*__,间距(cm):__,行距(cm):__。</string>
+    <string name="renwuxiada">任务下达</string>
+    <string name="jiezhiriqi">截止日期</string>
+    <string name="defen">得分</string>
+    <string name="caozuo1">操作</string>
+    <string name="tijiao">提交</string>
+    <string name="chakan">查看</string>
+    <string name="renwubiaoti">任务标题：</string>
+    <string name="renwuxiada1">任务下达：</string>
+    <string name="rewuneirong">任务内容：</string>
+    <string name="renwujianbao">任务简报：</string>
+    <string name="fujianliebiao">附件列表：</string>
+    <string name="jiezhiriqi1">截止日期：</string>
+    <string name="tianjiawenjian">添加文件</string>
+    <string name="shujubuwanzhen">数据不完整无法上传到服务器，但您可以将数据保存到本地，以供您以后继续编辑使用。</string>
+    <string name="baocundaobendi">保存到本地</string>
+    <string name="xiacizaishuo">下次再说</string>
+    <string name="xinmima">新&#160;&#160;密&#160;&#160;码</string>
+    <string name="xinxibuwanzheng">信息不完整，无法上传，请将信息补充完整再上传</string>
+    <string name="yunnanshengnoncunxinyongshe">云南省农村信用社</string>
+    <string name="gongzuorenwuxiangqing">工作任务详情</string>
+    <string name="kaoyanyuyue">烤烟预约</string>
+    <string name="shougouyuyue">收购预约</string>
+    <string name="kaoyanxieyi">烤烟协议</string>
+    <string name="kaofangyuyue">烤房预约</string>
+    <string name="tongjibiao">烘烤点收费统计表</string>
+    <string name="zhuncairulu">准采入炉</string>
+    <string name="hongkaosunshitiaojiebiao">烘烤损失调节表</string>
+    <string name="buchangdengjibiao">补偿登记表</string>
+    <string name="kaoyanjillu">烤烟记录</string>
+    <string name="kaoyanzhiliangpinggubiao">烤烟质量评估表</string>
+    <string name="kaoyanxieyineirong1">\t\t为积极推行烟叶专业化烘烤，提升烟叶烘烤水平和烟叶质量，依照《中华人民共和国 合同法》、《中华人民共和国烟草专卖法》及其他有关法律、法规，遵循平等、自愿、公 平和诚信的原则，经甲、乙双方平等协商，就2016年烟叶专业化烘烤事宜达成一致 意见，签订本协议。
+        \n一、协议内容
+        \n\t\t1、专业化烘烤运行模式： 乙方自愿开展烤烟专业化烘烤工作，及时做好烘烤所需 的柴、电及各项配套设施设备的提供筹备工作；并按照甲方要求的烟叶成熟采收标 准采摘、编烟、装烟、出烟等，按时向甲方支付烘烤费用。甲方负责水、电、煤等物资 的采购缴费，确定烟叶成熟采收标准、烘烤收费方式及收费标准、聘用烘烤专职人员 将乙方按照要求装入烤房的烟叶烤干。
+        \n\t\t2、烤房装烟标准：四台密集烤房装烟不少于3500公斤，不多于4600公斤。
+        </string>
+    <string name="shoufeibiaozhun">
+        \t\t3、收费标准：(请点击选择对应项)
+    </string>
+    <string name="shoufeibiaozhun1">1180元/炉（包含水、电、煤及服务费）</string>
+    <string name="shoufeibiaozhun2">600元/炉（包含水、电及服务费）</string>
+    <string name="kaoyanxieyineirong2">
+        \t\t4、收费方式：烘烤前乙方必须按上述收费标准向甲方支付烘烤费用。
+        \n二、甲方的权利和义务
+        \n\t\t1、组织落实专业化、商品化烘烤场地及相关烘烤设施。
+        \n\t\t2、按专业化、商品化烘烤要求，聘用专业化烘烤专职人员，并对烘烤专职人员进行安 全操作管理及专业化烘烤管理，确保专业化烘烤服务质量。
+        \n\t\t3、负责记录烟叶烘烤全过程技术参数，对烤房烟叶入炉情况进行登记。
+        \n\t\t4、负责督促指导乙方按烟叶成熟标准采收、编、装烟叶。
+        \n\t\t5、负责对烤房设施设备的使用情况进行登记，并将烤房设施设备的损毁情况及时告知乙方。
+        \n\t\t6、向乙方按协议价收取烘烤服务费。
+        \n三、乙方的权利和义务
+        \n\t\t1、乙方需严格按照甲方要求的优质烟叶成熟采收标准进行采摘、编烟、装烟，禁止 无效和无烘烤价值烟叶入炉烘烤。若甲方对乙方烟叶的采收、编烟、装烟提出异议， 认为其不适宜烘烤，但乙方仍坚持让甲方烘烤的，乙方必须在烘烤前签订甲方免责协议书。
+        \n\t\t2、乙方需按时足量保证烘烤所需的柴，并确保烤房用电及各项烤房配套设施设备正 常完整无缺，保证烤房及烘烤工作的正常运转。如因烘烤物资不及时到位造成的损失由 乙方自行承担。
+        \n\t\t3、乙方对专业化烘烤有意见和建议的，由村委会收集汇总后统一与甲方协调，不得因个 人原因影响专业化烘烤的正常运转。
+        \n\t\t4、乙方必须按协议要求及时足额向甲方支付烘烤费用。
+        \n四、违约责任
+        \n\t\t1、因乙方采摘不当、乙方未确保烤房用电及各项烤房配套设施设备正常运转、自然因素 等原因导致烟叶烤坏的，甲方不负任何责任，不予以赔偿。
+        \n\t\t2、因采摘病叶、未熟烟叶、过熟烟叶、老憨烟等低劣品质烟叶造成烟叶烤坏的，有甲方免 责协议书的，甲方不负任何责任，不予以赔偿；无甲方免责协议书的，甲乙双方按照鉴定 情况各负其责。
+        \n五、争议的解决方式
+        \n\t\t因履行本协议发生争议，双方应本着友好的态度协商解决，协商不成的，可通过以下2个 方式予以解决。
+        \n\t\t1、烤坏烟叶责任鉴定：由甲乙双方、村委会、村小组、烟叶站为临时性机构，发生烤坏烟 叶时临时组成，每次组成人数为大于等于5人（为单数）。
+        \n\t\t2、甲乙双方未能履行条款或者拒不承担相应责任的，由司法程序介入解决。
+        \n六、协议生效 本协议自甲、乙双方签字盖章（手印）之日起生效，烘烤结束后自动失效。
+        \n七、附则
+        \n\t\t1、本协议不得随意变更和解除，若遇不可抗力的自然灾害致使不能履行，经双方协商达 成一致意见，并经当地乡（镇）人民政府、街道办事处同意后，可以变更协议有关内容。
+        \n\t\t2、本协议未尽事宜经甲乙双方协商，可另行补充签订，补充协议与本协议具有同等法律 效力。
+        \n\t\t3、本协议一式两份，甲乙双方各执一份。
+    </string>
+    <string name="yanyezuncairuluzheng">烟叶准采入炉证</string>
+    <string name="rulushijian">入炉时间</string>
+    <string name="hongkaojishi">烘烤技师</string>
+    <string name="yanyezhan">烟叶站</string>
+    <string name="rulu1">烤烟种植户：</string>
+    <string name="rulu2">\t\t经本人到田间查看，你户位于</string>
+    <string name="rulu3">地块部位烟叶</string>
+    <string name="rulu4">已达到采收标准，请于</string>
+    <string name="yue">月</string>
+    <string name="rulu5">日前按照烟叶成熟度</string>
+    <string name="rulu6">标准进行采摘</string>
+    <string name="rulu7">片/株，并当日编竿入炉。</string>
+    <string name="xianyanyesuzhi">鲜烟叶素质</string>
+    <string name="bianganqingkuang">编竿情况</string>
+    <string name="zhenggaiqingkuang">整改情况:</string>
+    <string name="xianchanghongkaoguanliyuan">现场烘烤管理员</string>
+    <string name="yannongqianzi">烟农签字</string>
+    <string name="qianzishijian">签字时间</string>
+    <string name="kaofangbianhao">烤房编号</string>
+    <string name="yanyezhongliang">烟叶重量或竿数</string>
+    <string name="kaohouyanyezhongliang">烤后烟叶重量(kg)</string>
+    <string name="buwei">部位</string>
+    <string name="kaohouyanyejibenqingkuang">烤烟后烟叶基本情况:</string>
+    <string name="kaohuaiyuanyinfenxi">烤坏原因分析:</string>
+    <string name="peifuzerenren">赔付责任人及其标准:</string>
+    <string name="zhilingpingdingzuqianzi">质量评定组签字确认</string>
+    <string name="hezuosheqianzi">合作社、烘烤专业队代表签字</string>
+    <string name="yannongxingming1">烟农姓名</string>
+    <string name="buchangxinxi">补偿信息</string>
+    <string name="kaohuaiyanyezhongliang">烤坏烟叶重量(kg)</string>
+    <string name="buchangjine">补偿金额(元)</string>
+    <string name="hongkaozhuanyeduiqianzi">烘烤专业队签字</string>
+    <string name="dengjititle">年烟石林县烟叶专业化烘烤损失补偿登记表</string>
+    <string name="tongjititle">年烟石林县烟叶专业化烘烤点收费统计表</string>
+    <string name="hongkaodian">烘烤点</string>
+    <string name="xianyanyezhongliang">鲜烟叶重量(kg)</string>
+    <string name="shouqufeiyong">收取烟叶烘烤费用(元)</string>
+    <string name="chulushijian">出炉时间</string>
+    <string name="shoukuanshijian">收款时间</string>
+    <string name="beizhu">备注:</string>
+    <string name="shoukuanrenqianzi">收款人签字</string>
+    <string name="pinggutitle">鲜烟叶素质评价及烤后质量预估表</string>
+    <string name="kaofangqun">烤房群</string>
+    <string name="pingguxiangqing">评估详情</string>
+    <string name="xianyesuzhibili">鲜叶素质比例:</string>
+    <string name="weishu">未熟</string>
+    <string name="baifenhao">%</string>
+    <string name="shishu">适熟</string>
+    <string name="guoshu">过熟</string>
+    <string name="bushiyongyanye">不适用烟叶</string>
+    <string name="xianyanyezonghepingjia">鲜烟叶综合素质评价:</string>
+    <string name="zhiliangpinggu">因鲜烟叶因素烤后烟叶质量评估:</string>
+    <string name="hongkaoxianchangguanliyuan">烘烤现场管理员</string>
+    <string name="notetitle">年烟石林县烟叶专业化烘烤操作记录表</string>
+    <string name="cunhongkaodian">村(烘烤点)</string>
+    <string name="yanyepinzhong">烟叶品种</string>
+    <string name="hongkaoganshu">烘烤竿数</string>
+    <string name="jiluxiangqing">记录详情</string>
+    <string name="guanchariqi">观察日期</string>
+    <string name="guanchashijian">观察时间</string>
+    <string name="wendu">温度</string>
+    <string name="shidu">湿度</string>
+    <string name="yanyebianhuaqingkuang">烟叶变化情况:</string>
+    <string name="hongkaocaozuorenqianzi">烘烤操作人签字</string>
+    <string name="benyexinxi">本页信息不可重复上传</string>
+    <string name="chaxunzaishangchuan">请先查询出烟农后再编辑上传</string>
+    <string name="kaoyanxieyititle">年烟石林县烟叶专业化烘烤服务协议</string>
+    <string name="tiaojietitle">年烟石林县烟叶专业化烘烤损失调节表</string>
+    <string name="yannongqianzibukeweikong">烟农签字不可为空</string>
+    <string name="huiyandai">惠烟贷</string>
+    <string name="huiyandaishenqingbiao">云南省信用联社惠烟贷</string>
+    <string name="jiekuanrenqingkuang">借款人情况</string>
+    <string name="shendaiqingkuang">申贷情况</string>
+    <string name="zhongzhiqingkuang">种植情况</string>
+    <string name="shougouxieyi">收购协议</string>
+    <string name="yuyuetongzhidan">预约通知单</string>
+    <string name="shougoudengjibiao">收购登记表</string>
+    <string name="guobangdenghoudan">过磅等候单</string>
+    <string name="shougouguochengdan">收购过程单</string>
+    <string name="yanyechufendengjidan">烟叶初分等级单</string>
+    <string name="yanyedingjidan">烟叶定级单</string>
+    <string name="cunzu">村组</string>
+    <string name="guzhongshuliang">估重数量(kg)</string>
+    <string name="jizhongfenjididian">集中分级地点</string>
+    <string name="jizhongfenjishiduan">集中分级时段：</string>
+    <string name="yanyejiaoshoudidian">烟叶交售地点</string>
+    <string name="yuyuejiaoshoushiduan">预约交售时段：</string>
+    <string name="yuyueyuanqianzi">预约员签字</string>
+    <string name="yanyeshougouzhan">烟叶收购站(点)</string>
+    <string name="shougouriqi">收购日期</string>
+    <string name="fenjifangshi">分级方式</string>
+    <string name="yannonghetonghao">烟农合同号</string>
+    <string name="yuyuedanbianhao">预约单编号</string>
+    <string name="yuyueyuan">预约员(姓名)</string>
+    <string name="fenjiduizhang">分级队长验证青杂、水分</string>
+    <string name="fenjiduizhangqianzi">分级队长签字</string>
+    <string name="fenjishunxuhao">分级顺序号</string>
+    <string name="hao">号</string>
+    <string name="fenjizu">分级组</string>
+    <string name="zu">组</string>
+    <string name="fenjitai">分级台</string>
+    <string name="fenjizuzhang">分级组长检验纯度</string>
+    <string name="yanjiyuan">验级员检验纯度</string>
+    <string name="fenjizuzhangqianzi">分级组长签字</string>
+    <string name="yanjiyuanqianzi">验级员签字</string>
+    <string name="chufendnegji">初分等级</string>
+    <string name="yanyeshougoudian">烟叶收购点</string>
+    <string name="yankuangbianhao">烟筐编号</string>
+    <string name="dengji">等级</string>
+    <string name="jiaohao">叫\t\t号</string>
+    <string name="hetongshougouliang">合同收购量</string>
+    <string name="dengjixiangqing">登记详情</string>
+    <string name="yujishuliang">预计数量</string>
+    <string name="yuyueriqi">预约日期</string>
+    <string name="yuyueshiduan">预约时段</string>
+    <string name="yuyueyuanxingming">预约员姓名</string>
+    <string name="fenjizuzhangqianbukeweikong">分级组长签字不可为空</string>
+    <string name="fenjiduizhangqianzibukeweikong">分级队长签字不可为空</string>
+    <string name="yanjiyuanqianzibukeweikong">验级员签字不可为空</string>
+    <string name="caozuorenqianzibukeweikong">操作人签字不可为空</string>
+    <string name="vpdn">Vpdn操作说明</string>
+    <string name="vpdn_title">本文档适用于删除vpdn设置和没有进行vpdn设置的用户</string>
+    <string name="vpdn_setting">
+        \t\t1、设置-->全部设置-->更多-->移动网络-->接入点名称(APN)-->点击菜单新建。
+        \n\t\t2、名称：VPN；APN：private.vpdn.yn；用户名：联系各自协管员；密码：a12345；其他内容默认即可。
+        \n\t\t3、点击保存。</string>
+    <string name="vpdn_notice">使用本应用的时候需要打开数据流量，切换内网流量(如下图所示):</string>
+    <string name="yannongguanli">烟农管理</string>
+    <string name="tongzhiguanli">通知管理</string>
+    <string name="xinjiantongzhi">新建通知</string>
+    <string name="yuyuetongzhi">预约通知</string>
+    <string name="tiaozhinengli">调制能力(亩)</string>
+    <string name="fudaoyuanleibie">请选择注册类型</string>
+    <string name="lvzhixinyong">履职信用评价(权重0.6)</string>
+    <string name="linajiezilv">廉洁自律</string>
+    <string name="anquanweisheng_25">安全卫生(25分)</string>
+    <string name="gongzuojilv_20">工作纪律(20分)</string>
+    <string name="zhizelvxing_55">职责履行(55分)</string>
+    <string name="gongzuoqianlipingjia">工作潜力评价(权重0.3)</string>
+    <string name="nianling_15">年龄(15分)</string>
+    <string name="xueli_20">学历(20分)</string>
+    <string name="zhuanxingjineng_25">专项技能(25分)</string>
+    <string name="danrenjishuyuannianxian_15">担任生产技术员年限(15分)</string>
+    <string name="danrenzhushouyuannianxian_25">担任助收员年限(25分)</string>
+    <string name="yiyishenqing">异议申请</string>
+    <string name="yiyineirong">写出异议内容</string>
+    <string name="lianxifangshi">联系方式</string>
+    <string name="huoqu">获取</string>
+    <string name="appTransName">AppTransName</string>
+    <string name="listContentTrans">listContentTrans</string>
+    <string name="noData">没有数据</string>
+
+</resources>

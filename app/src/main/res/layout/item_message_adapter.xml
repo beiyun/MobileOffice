@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:focusable="true"
+    android:clickable="true"
+    android:background="?android:selectableItemBackground"
+    android:layout_height="wrap_content">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/item_message_image"
+        android:layout_width="@dimen/dp_72"
+        android:layout_height="@dimen/dp_72"
+        android:layout_margin="@dimen/dp_16"
+        android:transitionName="@string/messageTransImageName"
+        app:roundAsCircle="true"
+        app:placeholderImage="@mipmap/placeholderimage"
+        tools:targetApi="lollipop" />
+
+
+    <TextView
+        android:id="@+id/item_message_title"
+        android:layout_width="match_parent"
+        android:layout_alignTop="@+id/item_message_image"
+        android:textColor="@color/text_black"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:textSize="@dimen/sp_16"
+        android:transitionName="@string/listContentTrans"
+        android:layout_toEndOf="@+id/item_message_image"
+        android:text="伊莱克斯的机房里看似简单弗兰克斯加大幅收代理费控件了卡萨丁就发到是大富科技哎亏了是打飞机"
+        android:layout_height="wrap_content"
+        tools:targetApi="lollipop"
+        android:layout_marginRight="@dimen/dp_16"
+        android:layout_toRightOf="@+id/item_message_image" />
+
+    <TextView
+        android:id="@+id/item_message_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/item_message_image"
+        android:textSize="@dimen/sp_12"
+        android:drawablePadding="@dimen/dp_10"
+        android:textColor="@color/text_half_gray"
+        android:text="5天前"
+        android:drawableStart="@drawable/ic_message_black_18dp"
+        android:layout_below="@+id/item_message_title"
+        android:layout_marginBottom="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_16"
+        android:drawableLeft="@drawable/ic_message_black_18dp" />
+
+
+    <TextView style="@style/line"
+        android:layout_below="@+id/item_message_date"
+        android:layout_alignStart="@id/item_message_image"
+        android:layout_alignLeft="@id/item_message_image" />
+
+
+</RelativeLayout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/video_preView_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_16"
+            android:drawableStart="@drawable/ic_more_vert_white_24dp"
+            android:gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_6"
+            android:text="@string/video_text7"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            android:drawableLeft="@drawable/ic_more_vert_white_24dp"
+            android:layout_marginLeft="@dimen/dp_6" />
+
+
+        <cn.jzvd.JZVideoPlayerStandard
+            android:id="@+id/video_preView"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:layout_height="256dp"/>
+
+
+        <TextView
+            android:id="@+id/fragment_view_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lineSpacingMultiplier="1.12"
+            android:maxLines="1"
+            android:layout_marginStart="@dimen/dp_16"
+            android:drawableStart="@drawable/ic_title_24dp"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="春山空雨后，天气晚来秋"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:drawableLeft="@drawable/ic_title_24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_180"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/fragment_view_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dp_6"
+                android:drawableStart="@drawable/ic_movie_creation_white_18dp"
+                android:ellipsize="end"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/sp_12"
+                android:drawableLeft="@drawable/ic_movie_creation_white_18dp"
+                android:layout_marginRight="@dimen/dp_16" />
+
+            <TextView
+                android:id="@+id/fragment_view_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dp_6"
+                android:drawableStart="@drawable/ic_query_builder_white_24dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/sp_12"
+                android:drawableLeft="@drawable/ic_query_builder_white_24dp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>
