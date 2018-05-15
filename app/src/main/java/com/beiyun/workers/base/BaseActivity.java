@@ -1,43 +1,32 @@
 package com.beiyun.workers.base;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.CheckResult;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.ChangeBounds;
-import android.transition.ChangeImageTransform;
 import android.transition.Explode;
 import android.transition.Fade;
 import android.transition.Slide;
-import android.transition.Transition;
 import android.transition.TransitionSet;
 import android.transition.Visibility;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewAnimationUtils;
 import android.view.ViewTreeObserver;
 import android.widget.Toast;
 
-import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.afollestad.materialdialogs.util.DialogUtils;
 import com.beiyun.library.util.Logs;
 import com.beiyun.workers.entity.ViewCircular;
 import com.beiyun.workers.interf.OnFragmentInteractionListener;
 import com.sdsmdg.tastytoast.TastyToast;
-
-import me.zhanghai.android.materialprogressbar.MaterialProgressBar;
 
 /**
  * Created by beiyun on 2018/3/28.
@@ -191,8 +180,11 @@ public class BaseActivity extends AppCompatActivity implements OnFragmentInterac
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == android.R.id.home){
+            Logs.e("BaseActivity onOptionsItemSelected:" + "item.getid == home");
             ActivityCompat.finishAfterTransition(this);
         }
+
+        Logs.e("BaseActivity onOptionsItemSelected:" + "");
         return super.onOptionsItemSelected(item);
     }
 

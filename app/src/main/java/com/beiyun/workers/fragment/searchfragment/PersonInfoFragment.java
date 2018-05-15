@@ -4,7 +4,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +11,10 @@ import android.widget.LinearLayout;
 
 import com.beiyun.library.anot.Subscribe;
 import com.beiyun.library.util.Events;
-
+import com.beiyun.library.util.Views;
 import com.beiyun.workers.R;
 import com.beiyun.workers.base.BaseSearchFragment;
-import com.beiyun.workers.base.BaseWorkPageFragment;
 import com.beiyun.workers.constant.AppUrl;
-import com.beiyun.workers.entity.Instructor;
 import com.beiyun.workers.entity.TGBasicInfoEntity;
 import com.beiyun.workers.interf.IFromView;
 import com.beiyun.workers.view.CountEditText;
@@ -229,7 +226,7 @@ public class PersonInfoFragment extends BaseSearchFragment {
 
         }
 
-        com.beiyun.library.util.Views.disableControl();
+        Views.disableControl(getView());
     }
 
 

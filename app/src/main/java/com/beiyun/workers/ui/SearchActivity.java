@@ -48,6 +48,7 @@ import com.beiyun.workers.entity.CheckQualificationBean;
 import com.beiyun.workers.entity.FormalContractBean;
 import com.beiyun.workers.entity.PreContractBean;
 import com.beiyun.workers.entity.SearchPlantEntity;
+import com.beiyun.workers.entity.SearchPublicEntity;
 import com.beiyun.workers.entity.SortAndCountEntity;
 import com.beiyun.workers.entity.TGBasicInfoEntity;
 import com.beiyun.workers.entity.TGLetterOfCommitmentBean;
@@ -61,8 +62,6 @@ import com.beiyun.workers.utils.GsonUtil;
 import com.beiyun.workers.utils.TestSimpleDataUtil;
 import com.beiyun.workers.view.DatePikerDialog;
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.reflect.TypeToken;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.nightonke.boommenu.BoomButtons.ButtonPlaceEnum;
@@ -333,8 +332,6 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
     }
 
     private void resetUI() {
-        AddressSelector.clearAddressMap();
-        TransitionManager.beginDelayedTransition(searchAddressLayout);
         searchAddressLayoutSwitch.setChecked(false);
         searchProvince.setVisibility(View.GONE);
         searchCity.setVisibility(View.GONE);
@@ -674,6 +671,33 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
     }
 
     private void setPublicData() {
+        AppRequests.getPlantInfo(plantCategory.getSelectedIndex()+1,Times.getYear(),currentPage, new ResponseTCallBack<BaseInfo<ArrayList<SearchPublicEntity>>>() {
+            @Override
+            public void onFailure(IOException e) {
+                Logs.e("SearchActivity onFailure:" + ""+e.getMessage());
+
+            }
+
+            @Override
+            protected void onSuccess(BaseInfo<ArrayList<SearchPublicEntity>> data) {
+                if(data.getResultCode() != 100 ){
+                    toastError(data.getReason());
+                    return;
+                }
+                ArrayList<SearchPublicEntity> publicEntities = data.getData().getList();
+                if(publicEntities == null || publicEntities.isEmpty()){
+                    toastError("没有数据");
+                    return;
+                }
+
+
+                Logs.e("SearchActivity onSuccess:" + data);
+
+
+
+            }
+        });
+
         if (searchPublicAdapter == null) {
             searchPublicAdapter = new SearchPublicAdapter(TestSimpleDataUtil.getSearchPublicData());
             searchPublicAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {

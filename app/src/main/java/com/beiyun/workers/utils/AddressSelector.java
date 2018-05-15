@@ -5,10 +5,8 @@ import android.os.Build;
 import android.transition.TransitionManager;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import com.beiyun.library.util.Logs;
 
-import com.beiyun.workers.R;
+import com.beiyun.library.util.Logs;
 import com.beiyun.workers.constant.AppUrl;
 import com.beiyun.workers.entity.Address;
 import com.beiyun.workers.okhttp.OkHttpUtils;
@@ -16,8 +14,6 @@ import com.beiyun.workers.okhttp.callback.BaseInfo;
 import com.beiyun.workers.okhttp.callback.ResponseTCallBack;
 import com.beiyun.workers.view.SpinnerLayout;
 import com.jaredrummler.materialspinner.MaterialSpinner;
-
-import org.angmarch.views.NiceSpinner;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -38,6 +34,7 @@ public class AddressSelector {
     private AddressSelector(ViewGroup viewGroup,MaterialSpinner[] spinners) {
         this.spinners = spinners;
         this.viewGroup = viewGroup;
+        loadAddress(1,"");
 
     }
 
@@ -75,16 +72,9 @@ public class AddressSelector {
 
 
     public static void attachSpinners(ViewGroup viewGroup,MaterialSpinner... spinner){
-        if(selector == null){
-            synchronized (AddressSelector.class){
-                if(selector == null){
-                    selector = new AddressSelector(viewGroup,spinner);
-                }
-            }
-        }
-
+        new AddressSelector(viewGroup,spinner);
         clearAddressMap();
-        selector.loadAddress(1,"");
+
     }
 
     public static void attachSpinners(SpinnerLayout spinnerLayout){
