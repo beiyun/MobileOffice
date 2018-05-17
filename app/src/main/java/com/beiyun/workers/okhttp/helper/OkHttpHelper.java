@@ -53,6 +53,7 @@ public class OkHttpHelper {
     private void execute(Request request) {
         final OkHttpClient client = OkHttpManager.getInstance().getOkHttpClient();
         Log.d(TAG, "execute: ");
+        Logs.e("okHttp url = "+request.url());
         if (request == null) {
             return;
         }

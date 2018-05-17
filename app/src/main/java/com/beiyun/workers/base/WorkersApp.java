@@ -3,6 +3,7 @@ package com.beiyun.workers.base;
 import android.app.Application;
 
 import com.beiyun.library.base.ProjectHelper;
+import com.beiyun.workers.okhttp.OkHttpManager;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
 /**
@@ -16,5 +17,6 @@ public class WorkersApp extends Application {
         super.onCreate();
         ProjectHelper.init(this);
         Fresco.initialize(this);
+        OkHttpManager.initClient(OkHttpManager.defaultClient());
     }
 }

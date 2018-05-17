@@ -259,6 +259,12 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
                     .listener(new OnBMClickListener() {
                         @Override
                         public void onBoomButtonClick(int index) {
+
+                            if(index == 2 || index == 4 || index == 5){
+                                toast("正在开发中...");
+                                return;
+                            }
+
                             String text = null;
                             resetUI();
                             showSearchPage(index);
@@ -609,10 +615,11 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
                         break;
                     case SEARCH_INFRASTRUCTURE:
                         //todo
-                        setPersonData();
+//                        setPersonData();
+
                         break;
                     case SEARCH_DATA:
-                        setPlantData();
+//                        setPlantData();
                         break;
                     default:
                 }
@@ -675,11 +682,21 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
             @Override
             public void onFailure(IOException e) {
                 Logs.e("SearchActivity onFailure:" + ""+e.getMessage());
+                if(searchRefreshLayout.isRefreshing()){
+                    searchRefreshLayout.setRefreshing(false);
+                }
+
 
             }
 
             @Override
             protected void onSuccess(BaseInfo<ArrayList<SearchPublicEntity>> data) {
+
+                if(searchRefreshLayout.isRefreshing()){
+                    searchRefreshLayout.setRefreshing(false);
+                }
+
+
                 if(data.getResultCode() != 100 ){
                     toastError(data.getReason());
                     return;
@@ -737,15 +754,24 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
             @Override
             public void onFailure(IOException e) {
                 Logs.e("getplantInfo onFailure >>"+e.getMessage());
+                if(searchRefreshLayout.isRefreshing()){
+                    searchRefreshLayout.setRefreshing(false);
+                }
+
             }
 
             @Override
             protected void onSuccess(BaseInfo data) {
+                if(searchRefreshLayout.isRefreshing()){
+                    searchRefreshLayout.setRefreshing(false);
+                }
+
                 if(data == null || data.getResultCode() != 100){
                     assert data != null;
                     toastError(data.getReason());
                     return;
                 }
+
 
                 totalSize = data.getData().total;
                 Logs.e("getplantInfo success >>" +data.getData().getList());
