@@ -62,10 +62,10 @@ public class AppUrl {
 
     public AppUrl(boolean publicNet) {
         if(publicNet){
-            BASE_URL = PUBLIC_IP+"/tobacco/";
+            BASE_URL = PUBLIC_IP+"tobacco/";
             BASE_IMAGE_URL = PUBLIC_IP+"imageweb/";
         }else{
-            BASE_URL = PRIVATE_IP+"/tobacco/";
+            BASE_URL = PRIVATE_IP+"tobacco/";
             BASE_IMAGE_URL = PRIVATE_IP+"imageweb/";
         }
 

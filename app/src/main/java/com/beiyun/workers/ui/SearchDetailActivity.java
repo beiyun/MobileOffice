@@ -19,13 +19,17 @@ import com.beiyun.workers.R;
 import com.beiyun.workers.base.BaseActivity;
 import com.beiyun.workers.entity.ApplyAcceptEntity;
 import com.beiyun.workers.entity.CheckQualificationBean;
+import com.beiyun.workers.entity.CuredPactEntity;
 import com.beiyun.workers.entity.FormalContractBean;
+import com.beiyun.workers.entity.NoticeEntity;
 import com.beiyun.workers.entity.PreContractBean;
 import com.beiyun.workers.entity.SortAndCountEntity;
 import com.beiyun.workers.entity.TGBasicInfoEntity;
 import com.beiyun.workers.entity.TGLetterOfCommitmentBean;
 import com.beiyun.workers.fragment.PersonFragment;
 import com.beiyun.workers.fragment.searchfragment.ApplyPlantInfoFragment;
+import com.beiyun.workers.fragment.searchfragment.BuyNoticeFragment;
+import com.beiyun.workers.fragment.searchfragment.CurePactFragment;
 import com.beiyun.workers.fragment.searchfragment.PersonInfoFragment;
 import com.beiyun.workers.fragment.searchfragment.PlantContractInfoFragment;
 import com.beiyun.workers.fragment.searchfragment.PlantCountInfoFragment;
@@ -58,6 +62,8 @@ public class SearchDetailActivity extends BaseActivity {
     private TGLetterOfCommitmentBean plantPromiseEntity;
     private SortAndCountEntity plantCountEntity;
     private CheckQualificationBean plantQualificationEntity;
+    private CuredPactEntity curedPactEntity;
+    private NoticeEntity noticeEntity;
     private ActionBar actionBar;
 
     @Override
@@ -127,6 +133,21 @@ public class SearchDetailActivity extends BaseActivity {
         plantApplyEntity = entity;
         Logs.e(entity.toString());
     }
+
+
+    @Subscribe
+    public void onReceive(CuredPactEntity entity){
+        curedPactEntity = entity;
+        Logs.e(entity.toString());
+    }
+
+
+    @Subscribe
+    public void onReceive(NoticeEntity entity){
+        noticeEntity = entity;
+        Logs.e(entity.toString());
+    }
+
 
 
     public Toolbar getToolbar() {
@@ -210,8 +231,14 @@ public class SearchDetailActivity extends BaseActivity {
                 showFragment(new PlantContractInfoFragment());
                 break;
             case SearchType.SEARCH_CURE_RESERVATION:
+                Events.post(curedPactEntity);
+                actionBar.setTitle("烤烟协议");
+                showFragment(new CurePactFragment());
                 break;
             case SearchType.SEARCH_BUY_RESERVATION:
+                Events.post(noticeEntity);
+                actionBar.setTitle("预约通知单");
+                showFragment(new BuyNoticeFragment());
                 break;
             case SearchType.SEARCH_WORK:
                 break;

@@ -45,7 +45,9 @@ import com.beiyun.workers.adapter.SearchPublicAdapter;
 import com.beiyun.workers.base.BaseActivity;
 import com.beiyun.workers.entity.ApplyAcceptEntity;
 import com.beiyun.workers.entity.CheckQualificationBean;
+import com.beiyun.workers.entity.CuredPactEntity;
 import com.beiyun.workers.entity.FormalContractBean;
+import com.beiyun.workers.entity.NoticeEntity;
 import com.beiyun.workers.entity.PreContractBean;
 import com.beiyun.workers.entity.SearchPlantEntity;
 import com.beiyun.workers.entity.SearchPublicEntity;
@@ -164,6 +166,8 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
     private ArrayList<PreContractBean> preContractBeans;
     private ArrayList<SortAndCountEntity> sortAndCountEntities;
     private ArrayList<FormalContractBean> formalContractBeans;
+    private ArrayList<CuredPactEntity> curedPactEntities;
+    private ArrayList<NoticeEntity> noticeEntities;
     private int totalSize;
 
 
@@ -260,7 +264,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
                         @Override
                         public void onBoomButtonClick(int index) {
 
-                            if(index == 2 || index == 4 || index == 5){
+                            if(index == 2 || index == 5){
                                 toast("正在开发中...");
                                 return;
                             }
@@ -615,7 +619,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
                         break;
                     case SEARCH_INFRASTRUCTURE:
                         //todo
-//                        setPersonData();
+                        setInfrastructureData();
 
                         break;
                     case SEARCH_DATA:
@@ -626,6 +630,16 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
             }
 
         });
+    }
+
+
+    //基础设施
+    private void setInfrastructureData() {
+
+        final int type = infrastructureCategory.getSelectedIndex()+1;
+        String s = years.get(searchYear.getSelectedIndex());
+
+
     }
 
 
@@ -912,8 +926,46 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
 
                         break;
                     case 7:
+                        ArrayList<CuredPactEntity> curedPactEntities = GsonUtil.parseJson(data.getData().getList().toString(), new TypeToken<ArrayList<CuredPactEntity>>() {
+                        });
+                        if(curedPactEntities != null && curedPactEntities.size() != 0){
+                            for (CuredPactEntity bean:
+                                    curedPactEntities) {
+                                SearchPlantEntity entity = setUpSearchPlantEntities(bean.getName(), bean.getFarmerTel());
+                                searchPlantEntities.add(entity);
+                            }
+                        }else{
+                            toastError("没有数据");
+                        }
+
+                        if(SearchActivity.this.curedPactEntities == null || currentPage == 1){
+                            SearchActivity.this.curedPactEntities = curedPactEntities;
+                        }else{
+                            SearchActivity.this.curedPactEntities.addAll(curedPactEntities);
+                        }
+
+                        initPlantAdapter(searchPlantEntities);
                         break;
                     case 8:
+                        ArrayList<NoticeEntity> noticeEntities = GsonUtil.parseJson(data.getData().getList().toString(), new TypeToken<ArrayList<NoticeEntity>>() {
+                        });
+                        if(noticeEntities != null && noticeEntities.size() != 0){
+                            for (NoticeEntity bean:
+                                    noticeEntities) {
+                                SearchPlantEntity entity = setUpSearchPlantEntities(bean.getName(), bean.getPhone());
+                                searchPlantEntities.add(entity);
+                            }
+                        }else{
+                            toastError("没有数据");
+                        }
+
+                        if(SearchActivity.this.noticeEntities == null || currentPage == 1){
+                            SearchActivity.this.noticeEntities = noticeEntities;
+                        }else{
+                            SearchActivity.this.noticeEntities.addAll(noticeEntities);
+                        }
+
+                        initPlantAdapter(searchPlantEntities);
                         break;
                         default:
 
@@ -982,8 +1034,12 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
                            goToSearchDetailActivity(SearchType.SEARCH_PLANT_CONTRACT);
                            break;
                        case CURE_RESERVATION:
+                           Events.post(curedPactEntities.get(position));
+                           goToSearchDetailActivity(SearchType.SEARCH_CURE_RESERVATION);
                            break;
                        case BUY_RESERVATION:
+                           Events.post(noticeEntities.get(position));
+                           goToSearchDetailActivity(SearchType.SEARCH_BUY_RESERVATION);
                            break;
                        default:
                    }
