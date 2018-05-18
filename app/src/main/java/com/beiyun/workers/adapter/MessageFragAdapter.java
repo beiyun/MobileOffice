@@ -1,8 +1,10 @@
 package com.beiyun.workers.adapter;
 
+import android.net.Uri;
 import android.support.annotation.Nullable;
 
 import com.beiyun.workers.R;
+import com.beiyun.workers.constant.AppUrl;
 import com.beiyun.workers.entity.MessageEntity;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -23,8 +25,8 @@ public class MessageFragAdapter extends BaseQuickAdapter<MessageEntity,BaseViewH
     @Override
     protected void convert(BaseViewHolder helper, MessageEntity item) {
         helper.setText(R.id.item_message_title,item.getTitle());
-        helper.setText(R.id.item_message_date,item.getDate());
+        helper.setText(R.id.item_message_date,item.getAuditTime());
         SimpleDraweeView image = helper.getView(R.id.item_message_image);
-        image.setImageURI(UriUtil.getUriForResourceId(item.getImageRes()));
+        image.setImageURI(Uri.parse(AppUrl.get().BASE_IMAGE_URL + item.getImg()));
     }
 }

@@ -13,8 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.beiyun.library.util.Events;
+import com.beiyun.workers.okhttp.callback.BaseInfo;
+import com.beiyun.workers.okhttp.callback.ResponseTCallBack;
 import com.beiyun.workers.ui.MessageDetailActivity;
 import com.beiyun.workers.R;
+import com.beiyun.workers.utils.AppRequests;
 import com.beiyun.workers.utils.TestSimpleDataUtil;
 import com.beiyun.workers.adapter.MessageFragAdapter;
 import com.beiyun.workers.base.BaseFragment;
@@ -23,6 +26,7 @@ import com.beiyun.workers.utils.MainFabControl;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.facebook.drawee.view.SimpleDraweeView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +39,8 @@ public class MessageFragment extends BaseFragment implements SwipeRefreshLayout.
     private RecyclerView rv;
     private SwipeRefreshLayout refreshLayout;
     private MessageFragAdapter mAdapter;
+    private int currentPage = 1;
+    private int totalSize;
 
     public MessageFragment() {
         // Required empty public constructor
@@ -83,8 +89,8 @@ public class MessageFragment extends BaseFragment implements SwipeRefreshLayout.
     }
 
     private int itemPosition = -1;
-    private void initAdapter() {
-        mAdapter = new MessageFragAdapter(getData());
+    private void initAdapter(final List<MessageEntity> entities) {
+        mAdapter = new MessageFragAdapter(entities);
         mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
@@ -100,17 +106,17 @@ public class MessageFragment extends BaseFragment implements SwipeRefreshLayout.
         mAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
             public void onLoadMoreRequested() {
-              rv.postDelayed(new Runnable() {
+              rv.post(new Runnable() {
                   @Override
                   public void run() {
-                      if(mAdapter.getItemCount()> 100){
+                      if(mAdapter.getItemCount()> totalSize){
                           mAdapter.loadMoreEnd();
                       } else{
-                          mAdapter.addData(getData());
-                          mAdapter.loadMoreComplete();
+                          currentPage ++;
+                          requestData();
                       }
                   }
-              },1000);
+              });
             }
         },rv);
 
@@ -161,19 +167,53 @@ public class MessageFragment extends BaseFragment implements SwipeRefreshLayout.
         if(mAdapter != null) {
             mAdapter.setEnableLoadMore(false);
         }
-        refreshLayout.postDelayed(new Runnable() {
+        currentPage = 1;
+        requestData();
+    }
+
+    private void requestData() {
+        AppRequests.getMessageInfo(currentPage, new ResponseTCallBack<BaseInfo<ArrayList<MessageEntity>>>() {
             @Override
-            public void run() {
-                if(mAdapter == null){
-                    initRecyclerView();
-                    initAdapter();
-                }else{
-                    mAdapter.setNewData(getData());
-                    mAdapter.setEnableLoadMore(true);
+            public void onFailure(IOException e) {
+                if(refreshLayout.isRefreshing()){
+                    refreshLayout.setRefreshing(false);
                 }
 
-                refreshLayout.setRefreshing(false);
             }
-        },500);
+
+            @Override
+            protected void onSuccess(BaseInfo<ArrayList<MessageEntity>> data) {
+                if(refreshLayout.isRefreshing()){
+                    refreshLayout.setRefreshing(false);
+                }
+                if(data.getResultCode() != 100){
+                    mainActivity.toastError(data.getReason());
+                    return;
+                }
+                ArrayList<MessageEntity> entities = data.getData().getList();
+                if(entities == null || entities.isEmpty()){
+                    mainActivity.toastError("没有数据");
+                    return;
+                }
+
+                totalSize = data.getData().total;
+
+                if(currentPage == 1){
+                    if(mAdapter == null){
+                        initRecyclerView();
+                        initAdapter(entities);
+                    }else{
+                        mAdapter.setNewData(entities);
+                    }
+                    mAdapter.setEnableLoadMore(true);
+                }else{
+                    mAdapter.addData(entities);
+                    mAdapter.loadMoreComplete();
+                }
+
+
+            }
+        });
+
     }
 }

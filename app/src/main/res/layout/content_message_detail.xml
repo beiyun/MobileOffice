@@ -11,10 +11,25 @@
     tools:showIn="@layout/activity_message_detail"
     tools:targetApi="lollipop">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/message_list_detail_progress"
+            style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal"
+            android:progressBackgroundTint="@color/bottom_background_color"
+            android:progressTint="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_2" />
+
+
+        <WebView
+            android:id="@+id/message_list_detail_webView"
+            android:layout_width="match_parent"
+            android:background="@color/bottom_background_color"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

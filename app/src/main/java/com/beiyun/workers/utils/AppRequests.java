@@ -121,6 +121,21 @@ public class AppRequests {
     }
 
 
+    /**
+     * 消息接口
+     * @param page
+     * @param callBack
+     * @param <T>
+     */
+    public static <T> void getMessageInfo(int page,ResponseTCallBack<T> callBack){
+        HashMap<String,String> params = new HashMap<>();
+        User use = (User) Sps.get(User.class);
+        int type = use.getType();
+        params.put("bo.page", String.valueOf(page));
+        params.put("bo.type", String.valueOf(type));
+        params.put("bo.noticeStatus", String.valueOf(2));
+        OkHttpUtils.postQuery(AppUrl.get().MESSAGE,params,callBack);
+    }
 
     private static void setLocalParams(HashMap<String, String> params) {
         User user = (User) Sps.get(User.class);

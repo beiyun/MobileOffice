@@ -28,6 +28,9 @@ public class AppUrl {
     public String ADDRESS;
 
 
+    public String MESSAGE;
+
+
     //查询人员信息
     /**
      *  参数
@@ -78,6 +81,7 @@ public class AppUrl {
          ADDRESS = BASE_URL + "login/login_queryPara.do";
          PERSON_INFO = BASE_URL + "login/login_query.do";
          PLANT_INFO = BASE_URL + "plantingQuery/plantingQuery_query.do";
+         MESSAGE = BASE_URL + "noticeinfo/noticeinfo_search.do";
 
     }
 
