@@ -26,6 +26,7 @@ public abstract class RequestCallBack extends StringCallBack {
             success(object);
         } catch (Exception e) {
             Logs.e("json 解析异常："+e.getMessage());
+            onFailure(new IOException(e.getMessage()));
         }
     }
 

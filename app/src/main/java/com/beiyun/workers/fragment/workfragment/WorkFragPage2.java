@@ -127,7 +127,7 @@ public class WorkFragPage2 extends BaseWorkPageFragment implements SwipeRefreshL
         iniRefreshLayout();
         initRecyclerView();
         initSearchTime();
-        initSearchPerson();
+        initSearchWorkName();
     }
 
     private void iniRefreshLayout() {
@@ -233,29 +233,25 @@ public class WorkFragPage2 extends BaseWorkPageFragment implements SwipeRefreshL
         searchTimeTitle.setText("查询日期设定："+date);
         TransitionManager.beginDelayedTransition(searchTimeLayout);
         searchTimeTitle.setVisibility(View.VISIBLE);
+
+        // TODO: 2018/5/21 根据日期查询任务名称 initSearchWorkName
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    private void initSearchPerson() {
+    private void initSearchWorkName() {
 
         final String[] personItems = new String[]{"全部辅导员","古力娜扎","张学友","周杰伦","安倍晋三","特朗普","艾森豪威尔"
                 ,"麦克阿瑟","李奇微","爱新觉罗.玄烨","泰森","马云","玛丽莲.梦露","MaterialSpinner","WorkFrag"};
 
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(Objects.requireNonNull(getActivity()),R.layout.item_spinner,R.id.item_spinner_text,personItems);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),R.layout.item_spinner,R.id.item_spinner_text,personItems);
         searchWorkName.setAdapter(adapter);
         searchWorkName.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                if(preToLoad()){
-                    TransitionManager.beginDelayedTransition(searchWorkNameLayout);
-                    searchWorkNameTitle.setVisibility(View.VISIBLE);
-                    searchWorkNameTitle.setText(getString(R.string.work_name_set)+personItems[position]);
-                }else{
-                    TastyToast.makeText(getContext(),"请设定查询日期",TastyToast.LENGTH_SHORT,TastyToast.ERROR).show();
-                    searchWorkName.setText(null);
-                }
+                preToLoad();
+                TransitionManager.beginDelayedTransition(searchWorkNameLayout);
+                searchWorkNameTitle.setVisibility(View.VISIBLE);
+                searchWorkNameTitle.setText(getString(R.string.work_name_set)+personItems[position]);
             }
         });
 
@@ -263,6 +259,10 @@ public class WorkFragPage2 extends BaseWorkPageFragment implements SwipeRefreshL
         searchWorkName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(TextUtils.isEmpty(searchTime.getText().toString())){
+                    mainActivity.toastError("请设定查询日期");
+                    return;
+                }
                 searchWorkName.showDropDown();
                 Drawable drawableUp = getResources().getDrawable(R.drawable.ic_arrow_drop_up_24dp);
                 if (drawableUp != null) {
@@ -289,7 +289,8 @@ public class WorkFragPage2 extends BaseWorkPageFragment implements SwipeRefreshL
 
     }
 
-    private boolean preToLoad() {
+    private void preToLoad() {
+        // TODO: 2018/5/21 根据任务名称 查询任务完成情况
         final String time = searchTime.getText().toString();
         String workName = searchWorkName.getText().toString();
         if(!TextUtils.isEmpty(time) && !TextUtils.isEmpty(workName)){
@@ -301,9 +302,7 @@ public class WorkFragPage2 extends BaseWorkPageFragment implements SwipeRefreshL
                     onRefresh();
                 }
             });
-            return true;
         }
-        return false;
     }
 
     private void initViews(View view) {

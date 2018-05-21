@@ -85,6 +85,7 @@ public class LoginActivity extends BaseActivity {
 
         mUserNameView.setText(TestSimpleDataUtil.getUserNumber());
         mPasswordView.setText(TestSimpleDataUtil.getUserPassword());
+
     }
 
 
@@ -103,6 +104,7 @@ public class LoginActivity extends BaseActivity {
     private void initSwitchView() {
         switchCompat = findViewById(R.id.signSwitch);
         switchLayout = findViewById(R.id.switchLayout);
+
         switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
@@ -121,7 +123,11 @@ public class LoginActivity extends BaseActivity {
             }
         });
 
-
+        if(User.getNetType() == 1){
+            switchCompat.setChecked(false);
+        }else{
+            switchCompat.setChecked(true);
+        }
         initXY();
     }
 
@@ -330,8 +336,6 @@ public class LoginActivity extends BaseActivity {
         }
 
         if (cancel) {
-            // There was an error; don't attempt login and focus the first
-            // form field with an error.
             focusView.requestFocus();
         } else {
             //login

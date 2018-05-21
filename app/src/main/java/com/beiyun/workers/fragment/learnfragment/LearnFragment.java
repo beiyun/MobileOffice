@@ -36,24 +36,36 @@ import android.view.animation.ScaleAnimation;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.beiyun.library.anot.Subscribe;
 import com.beiyun.library.util.AppCaches;
 import com.beiyun.library.util.Logs;
 import com.beiyun.library.util.Sizes;
+import com.beiyun.library.util.Sps;
 import com.beiyun.library.util.Times;
 import com.beiyun.library.util.Windows;
 import com.beiyun.workers.R;
 import com.beiyun.workers.adapter.LearnFragViewPagerAdapter;
 import com.beiyun.workers.base.BaseFragment;
+import com.beiyun.workers.entity.LocalVideoEntity;
+import com.beiyun.workers.entity.User;
 import com.beiyun.workers.entity.VideoEntity;
+import com.beiyun.workers.okhttp.callback.RequestCallBack;
+import com.beiyun.workers.okhttp.helper.ResultData;
+import com.beiyun.workers.utils.AppRequests;
 import com.beiyun.workers.view.VideoListDialog;
 import com.dd.processbutton.FlatButton;
 import com.facebook.common.util.UriUtil;
+import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.sdsmdg.tastytoast.TastyToast;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import butterknife.BindView;
@@ -107,6 +119,8 @@ public class LearnFragment extends BaseFragment {
     TextView fragmentViewDuration;
     @BindView(R.id.video_fab_layout)
     LinearLayout videoFabLayout;
+    @BindView(R.id.courseModel)
+    MaterialSpinner courseModel;
     private int cx;
     private int cy;
     private float finalRadius;
@@ -114,6 +128,8 @@ public class LearnFragment extends BaseFragment {
     private String videoPath;
     private boolean showAddLayout = false;
     private int pagePosition;
+    private File videoFile;
+    private MaterialDialog uploadDialog;
 
     public LearnFragment() {
     }
@@ -134,8 +150,27 @@ public class LearnFragment extends BaseFragment {
         initViewPager();
         changeSize(true);
         initTabLayout();
+        initSpinner();
         initXY();
 
+    }
+
+    private void initSpinner() {
+        String[] array = getResources().getStringArray(R.array.courseModel);
+        List<String> strings = Arrays.asList(array);
+        courseModel.setItems(strings);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        com.beiyun.library.util.Events.register(this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        com.beiyun.library.util.Events.unregister(this);
     }
 
     @Override
@@ -269,6 +304,8 @@ public class LearnFragment extends BaseFragment {
                     viewTitle.setText(entity.getTitle());
                 }
 
+                videoFile = new File(entity.getPath());
+
             }
         });
         dialog.show();
@@ -330,9 +367,9 @@ public class LearnFragment extends BaseFragment {
                 viewTitle.setText(imageFileName);
             }
 
-            File file = new File(videoPath);
-            fragmentViewDuration.setText(JZUtils.stringForTime(getDuration(file)));
-            fragmentViewSize.setText(AppCaches.getFormatSize(file.length()));
+            videoFile = new File(videoPath);
+            fragmentViewDuration.setText(JZUtils.stringForTime(getDuration(videoFile)));
+            fragmentViewSize.setText(AppCaches.getFormatSize(videoFile.length()));
 
 
         } catch (Exception e) {
@@ -380,7 +417,65 @@ public class LearnFragment extends BaseFragment {
 
     @OnClick(R.id.video_upload)
     public void onVideoUploadClicked() {
-        toast("视频上传", TastyToast.DEFAULT);
+        String title = viewTitle.getText().toString();
+        if(TextUtils.isEmpty(title)){
+            mainActivity.toastError("标题不能为空");
+            return;
+        }
+        int selectedIndex = courseModel.getSelectedIndex();
+        if(selectedIndex < 0){
+            mainActivity.toastError("请选择视频类型");
+            return;
+        }
+
+        if(videoFile == null){
+            mainActivity.toastError("没有找到要上传的视频");
+            return;
+        }
+        uploadDialog = new MaterialDialog.Builder(mainActivity)
+                .progress(false,100,true)
+                .cancelable(false).content("上传中").build();
+        uploadDialog.show();
+
+        com.beiyun.library.util.Views.disableControl(video_add_layout);
+
+        String courseMode = String.valueOf(selectedIndex + 1);
+        User user = (User) Sps.get(User.class);
+        LocalVideoEntity entity = new LocalVideoEntity();
+        entity.setTitle(title);
+        entity.setIntroduction(videoSubtitle.getText().toString());
+        entity.setContent(videoContent.getText().toString());
+        entity.setEditId(user.getInstructorId());
+        entity.setFileName(videoFile.getName());
+        entity.setVideoFile(videoFile);
+
+
+        AppRequests.uploadVideo(entity, new RequestCallBack() {
+            @Override
+            public void success(ResultData data) {
+                Logs.e(data.toString());
+                mainActivity.toast(data.toString());
+                uploadDialog.dismiss();
+            }
+
+            @Override
+            public void inProgress(float progress, long total, boolean hasDone) {
+                super.inProgress(progress, total, hasDone);
+                Logs.e("progress = "+ progress + "  total = " + total +" hasDone = "+hasDone);
+                com.beiyun.library.util.Events.post(progress);
+            }
+        });
+
+
+    }
+
+
+    @Subscribe
+    public void receive(Float progress){
+        uploadDialog.setProgress((int) (progress*100));
+//        videoSubtitle.setText("total = " + total);
+//        videoContent.setText(" hasDone = "+hasDone);
+
     }
 
 
@@ -400,7 +495,7 @@ public class LearnFragment extends BaseFragment {
                     videoSubtitle.setFocusableInTouchMode(true);
                     videoContent.setFocusableInTouchMode(true);
                     Animator animator = null;
-                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         animator = ViewAnimationUtils.createCircularReveal(video_add_layout, cx, cy, Sizes.dp2px(40), finalRadius);
                         animator.setDuration(600).setInterpolator(new AccelerateDecelerateInterpolator());
                         animator.start();
@@ -423,7 +518,7 @@ public class LearnFragment extends BaseFragment {
                     videoContent.setFocusableInTouchMode(false);
                     changeSize(true);
                     Animator animator = null;
-                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         animator = ViewAnimationUtils.createCircularReveal(video_add_layout, cx, cy, finalRadius, Sizes.dp2px(40));
                         animator.setDuration(600).setInterpolator(new AccelerateDecelerateInterpolator());
                         animator.start();

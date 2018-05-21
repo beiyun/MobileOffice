@@ -33,6 +33,12 @@ public class AppUrl {
 
     public String VIDEO;
 
+    public String VIDEO_UPLOAD;
+
+    public String WORK_UPLOAD;
+
+    public String WORK_QUERY;
+
 
     //查询人员信息
     /**
@@ -86,6 +92,8 @@ public class AppUrl {
          PLANT_INFO = BASE_URL + "plantingQuery/plantingQuery_query.do";
          MESSAGE = BASE_URL + "noticeinfo/noticeinfo_search.do";
          VIDEO = BASE_URL + "course/course_search.do";
+         VIDEO_UPLOAD = BASE_URL + "course/course_upload.do";
+         WORK_UPLOAD = BASE_URL + "taskManage/taskManage_insUpload.do";
 
     }
 

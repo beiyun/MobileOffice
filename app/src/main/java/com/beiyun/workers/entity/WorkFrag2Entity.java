@@ -11,9 +11,20 @@ import com.chad.library.adapter.base.entity.MultiItemEntity;
 public class WorkFrag2Entity extends AbstractExpandableItem<WorkFrag2ExpandReasonEntity> implements MultiItemEntity{
 
     private String name;
+
     private boolean complete;
 
     private String completeTime;
+
+    private String noneCompleteReason;
+
+    public String getNoneCompleteReason() {
+        return noneCompleteReason;
+    }
+
+    public void setNoneCompleteReason(String noneCompleteReason) {
+        this.noneCompleteReason = noneCompleteReason;
+    }
 
     public boolean isComplete() {
         return complete;

@@ -3,12 +3,16 @@ package com.beiyun.workers.utils;
 import com.beiyun.workers.R;
 import com.beiyun.workers.constant.AppUrl;
 import com.beiyun.workers.entity.Address;
+import com.beiyun.workers.entity.LocalVideoEntity;
 import com.beiyun.workers.entity.PersonInfoQueryParams;
 import com.beiyun.workers.entity.TGBasicInfoEntity;
 import com.beiyun.workers.entity.User;
+import com.beiyun.workers.entity.WorkUploadEntity;
+import com.beiyun.workers.okhttp.OkHttpManager;
 import com.beiyun.workers.okhttp.OkHttpUtils;
 import com.beiyun.workers.okhttp.callback.BaseInfo;
 import com.beiyun.workers.okhttp.callback.CallBack;
+import com.beiyun.workers.okhttp.callback.RequestCallBack;
 import com.beiyun.workers.okhttp.callback.ResponseTCallBack;
 import com.beiyun.library.util.Logs;
 import com.beiyun.library.util.Apps;
@@ -171,6 +175,44 @@ public class AppRequests {
     }
 
 
+    /**
+     * 视频上传
+     * @param entity
+     * @param callBack
+     * @param <T>
+     */
+    public static <T> void uploadVideo(LocalVideoEntity entity, RequestCallBack callBack){
+        HashMap<String,String> params = new HashMap<>();
+        params.put("bo.title",entity.getTitle() == null ? "" : entity.getTitle());
+        params.put("bo.introduction",entity.getIntroduction() == null? "" : entity.getIntroduction());
+        params.put("bo.content",entity.getContent() == null? "":entity.getContent());
+        params.put("bo.editId",entity.getEditId() == null? "" :entity.getEditId());
+        params.put("courseModel",entity.getCourseModel()==null?"":entity.getCourseModel());
+        OkHttpManager.post().url(AppUrl.get().VIDEO_UPLOAD).params(params).addFile(entity.getVideoFile(),entity.getFileName(),"files")
+                .build().execute(callBack);
+
+    }
+
+
+    /**
+     * 工作任务下达
+     * @param entity
+     * @param callBack
+     */
+    public static void workSend(WorkUploadEntity entity,RequestCallBack callBack){
+        HashMap<String,String> params = new HashMap<>();
+        params.put("bo.title",entity.getTitle());
+        params.put("bo.degree",entity.getDegree());
+        params.put("bo.endTime",entity.getEndTime());
+        params.put("bo.performRole",entity.getPerformRole());
+        params.put("bo.demand",entity.getDemand());
+        User user = (User) Sps.get(User.class);
+        params.put("bo.assigner", String.valueOf(user.getType()));
+        params.put("bo.editId",user.getInstructorId());
+        OkHttpUtils.postUpload(AppUrl.get().WORK_UPLOAD,params,callBack);
+    }
+
+
     private static void setLocalParams(HashMap<String, String> params) {
         User user = (User) Sps.get(User.class);
         params.put("user.type", String.valueOf(user.getType()));
@@ -192,6 +234,9 @@ public class AppRequests {
             Logs.e("AppRequests getPersonInfo setAddressMap"+e.getMessage());
         }
     }
+
+
+
 
 
     private static void toastSuccess(String msg){

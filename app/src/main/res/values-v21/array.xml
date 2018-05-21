@@ -333,6 +333,16 @@
         <item>助收员</item>
     </array>
 
+    <array name="courseModel">
+        <item>育苗</item>
+        <item>理墒</item>
+        <item>植保</item>
+        <item>大田</item>
+        <item>优化</item>
+        <item>烘烤</item>
+        <item>收购</item>
+        <item>其他</item>
+    </array>
 
 
 </resources>

@@ -224,7 +224,7 @@ public class BaseActivity extends AppCompatActivity implements OnFragmentInterac
         progressDialog = new MaterialDialog.Builder(this)
                 .content("please wait...")
                 .progress(true, 0)
-                .cancelable(false)
+                .cancelable(true)
                 .show();
         return progressDialog;
     }
