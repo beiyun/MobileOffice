@@ -186,7 +186,7 @@
                 app:thumbTint="@color/colorWarning"
                 app:trackTintMode="multiply"
                 app:trackTint="@color/colorPrimaryDark"
-                android:text="@string/privateSign"
+                android:text="@string/publicSign"
                 android:padding="@dimen/dp_16"
                 android:gravity="center"
                 android:layout_marginStart="@dimen/dp_16"

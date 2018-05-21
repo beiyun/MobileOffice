@@ -1,5 +1,6 @@
 package com.beiyun.workers.entity;
 
+import com.beiyun.library.util.Sps;
 import com.beiyun.workers.utils.AppRequests;
 
 import java.util.List;
@@ -36,6 +37,7 @@ public class User {
      * 44代表市职工  45代表县领导  46代表县职工
      */
     private int type;
+
 
 
     public int getType() {
@@ -145,6 +147,25 @@ public class User {
                 '}';
 
 
+    }
+
+
+    /**
+     *
+     * @param type 1表示公网 2表示专网
+     */
+    public static void setNetType(int type){
+        Sps.init().name("User").build().putInt("netType",type);
+    }
+
+
+    /**
+     *
+     * @return 1表示公网 2表示专网  默认为公网
+     */
+    public static int getNetType(){
+        int type = Sps.init().name("User").build().getInt("netType");
+        return type == -1? 1:type;
     }
 
 

@@ -17,6 +17,10 @@ import android.view.ViewGroup;
 
 import com.beiyun.library.util.Events;
 import com.beiyun.workers.R;
+import com.beiyun.workers.entity.MessageEntity;
+import com.beiyun.workers.okhttp.callback.BaseInfo;
+import com.beiyun.workers.okhttp.callback.ResponseTCallBack;
+import com.beiyun.workers.utils.AppRequests;
 import com.beiyun.workers.utils.TestSimpleDataUtil;
 import com.beiyun.workers.ui.VideoActivity;
 import com.beiyun.workers.adapter.LearnPage1Adapter;
@@ -26,6 +30,7 @@ import com.beiyun.workers.utils.MainFabControl;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.facebook.drawee.view.SimpleDraweeView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,6 +50,9 @@ public class LearnFragPage1 extends BaseWorkPageFragment implements SwipeRefresh
     SwipeRefreshLayout mRefreshLayout;
     Unbinder unbinder;
     private LearnPage1Adapter mAdapter;
+    private int currentPage = 1;
+    private int totalSize;
+
 
     public LearnFragPage1() {
         // Required empty public constructor
@@ -78,33 +86,31 @@ public class LearnFragPage1 extends BaseWorkPageFragment implements SwipeRefresh
         mRefreshLayout.post(new Runnable() {
             @Override
             public void run() {
-                mRefreshLayout.setRefreshing(true);
                 onRefresh();
-
+                mRefreshLayout.setRefreshing(true);
             }
         });
-
     }
 
 
 
-    private void initAdapter() {
-        mAdapter = new LearnPage1Adapter(getData());
+    private void initAdapter(ArrayList<LearnPage1Entity> list) {
+        mAdapter = new LearnPage1Adapter(list);
         mPage1Rv.setAdapter(mAdapter);
         mAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
             public void onLoadMoreRequested() {
-                mRefreshLayout.postDelayed(new Runnable() {
+                mRefreshLayout.post(new Runnable() {
                     @Override
                     public void run() {
-                        if(mAdapter.getItemCount() >= 100){
+                        if(mAdapter.getItemCount() >= totalSize){
                             mAdapter.loadMoreEnd();
                         }else{
-                            mAdapter.addData(getData());
-                            mAdapter.loadMoreComplete();
+                            currentPage ++;
+                            requestData();
                         }
                     }
-                },1500);
+                });
             }
         },mPage1Rv);
         mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
@@ -187,20 +193,58 @@ public class LearnFragPage1 extends BaseWorkPageFragment implements SwipeRefresh
 
     @Override
     public void onRefresh() {
-        mRefreshLayout.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if(mAdapter == null){
-                    initRecyclerView();
-                    initAdapter();
-                }else{
-                    mAdapter.setNewData(getData());
-                }
-                mRefreshLayout.setRefreshing(false);
-            }
-        },500);
+        if(mAdapter != null) {
+            mAdapter.setEnableLoadMore(false);
+        }
+        currentPage = 1;
+        requestData();
     }
 
+    private void requestData() {
+        AppRequests.getVideoInfo(currentPage, new ResponseTCallBack<BaseInfo<ArrayList<LearnPage1Entity>>>() {
+            @Override
+            public void onFailure(IOException e) {
+                if(mRefreshLayout.isRefreshing()){
+                    mRefreshLayout.setRefreshing(false);
+                }
+
+            }
+
+            @Override
+            protected void onSuccess(BaseInfo<ArrayList<LearnPage1Entity>> data) {
+                if(mRefreshLayout.isRefreshing()){
+                    mRefreshLayout.setRefreshing(false);
+                }
+                if(data.getResultCode() != 100){
+                    mainActivity.toastError(data.getReason());
+                    return;
+                }
+                ArrayList<LearnPage1Entity> entities = data.getData().getList();
+                if(entities == null || entities.isEmpty()){
+                    mainActivity.toastError("没有数据");
+                    return;
+                }
+
+                totalSize = data.getData().total;
+
+                if(currentPage == 1){
+                    if(mAdapter == null){
+                        initRecyclerView();
+                        initAdapter(entities);
+                    }else{
+                        mAdapter.setNewData(entities);
+                    }
+                    mAdapter.setEnableLoadMore(true);
+                }else{
+                    mAdapter.addData(entities);
+                    mAdapter.loadMoreComplete();
+                }
+
+
+            }
+        });
+
+    }
 
     private int itemPosition = -1;
     @Override

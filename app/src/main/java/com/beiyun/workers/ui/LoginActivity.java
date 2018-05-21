@@ -84,6 +84,7 @@ public class LoginActivity extends BaseActivity {
 
 
         mUserNameView.setText(TestSimpleDataUtil.getUserNumber());
+        mPasswordView.setText(TestSimpleDataUtil.getUserPassword());
     }
 
 
@@ -108,9 +109,12 @@ public class LoginActivity extends BaseActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
                 if(isChecked){
-                    switchCompat.setText(R.string.publicSign);
-                }else {
                     switchCompat.setText(R.string.privateSign);
+                    User.setNetType(2);
+
+                }else {
+                    switchCompat.setText(R.string.publicSign);
+                    User.setNetType(1);
                 }
 
                 changeBackgroundState(isChecked);

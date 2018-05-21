@@ -1,49 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".ui.VideoActivity">
 
-    <com.beiyun.workers.view.MyVideoPlayer
-        android:id="@+id/video_activity_player"
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="256dp"
-        android:fitsSystemWindows="true"
-        android:transitionName="@string/videoImage"
-        tools:targetApi="lollipop" />
+        android:layout_height="wrap_content">
+
+        <com.beiyun.workers.view.MyVideoPlayer
+            android:id="@+id/video_activity_player"
+            android:layout_width="match_parent"
+            android:layout_height="256dp"
+            android:fitsSystemWindows="true"
+            android:transitionName="@string/videoImage"
+            tools:targetApi="lollipop" />
 
 
-    <ImageView
-        android:id="@+id/video_activity_back"
-        android:layout_width="?actionBarSize"
-        android:src="@drawable/ic_chevron_left_white_36dp"
-        android:scaleType="centerInside"
-        android:layout_height="?actionBarSize" />
+        <ImageView
+            android:id="@+id/video_activity_back"
+            android:layout_width="?actionBarSize"
+            android:src="@drawable/ic_chevron_left_white_36dp"
+            android:scaleType="centerInside"
+            android:layout_height="?actionBarSize" />
 
 
+    </FrameLayout>
+
+
+
+    <ProgressBar
+        android:id="@+id/video_list_detail_progress"
+        style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal"
+        android:progressBackgroundTint="@color/bottom_background_color"
+        android:progressTint="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_2" />
 
 
 
     <android.support.v4.widget.NestedScrollView
        android:layout_width="match_parent"
-       android:layout_marginTop="256dp"
        android:layout_height="match_parent">
 
        <LinearLayout
            android:layout_width="match_parent"
            android:orientation="vertical"
-           android:layout_marginStart="@dimen/dp_16"
-           android:layout_marginEnd="@dimen/dp_16"
            android:layout_marginBottom="@dimen/dp_16"
-           android:layout_height="wrap_content">
+           android:layout_height="match_parent">
 
            <TextView
                android:id="@+id/video_activity_title"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:layout_marginTop="16dp"
+               android:layout_marginStart="@dimen/dp_16"
+               android:layout_marginEnd="@dimen/dp_16"
                android:text="title"
                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
@@ -51,6 +67,8 @@
                android:layout_width="match_parent"
                android:layout_marginTop="@dimen/dp_16"
                android:layout_height="wrap_content"
+               android:layout_marginStart="@dimen/dp_16"
+               android:layout_marginEnd="@dimen/dp_16"
                android:orientation="horizontal">
 
                <TextView
@@ -108,12 +126,12 @@
            </LinearLayout>
 
 
-           <TextView
-               android:id="@+id/video_activity_text"
+           <WebView
+               android:id="@+id/video_list_detail_webView"
+               android:layout_marginTop="@dimen/dp_16"
                android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_marginTop="16dp"
-               android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+               android:background="@color/bottom_background_color"
+               android:layout_height="match_parent"/>
 
 
 
@@ -122,4 +140,4 @@
 
    </android.support.v4.widget.NestedScrollView>
 
-</FrameLayout>
+</LinearLayout>

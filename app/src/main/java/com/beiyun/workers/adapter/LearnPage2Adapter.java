@@ -6,6 +6,7 @@ import android.widget.LinearLayout;
 
 import com.beiyun.library.util.Sizes;
 import com.beiyun.workers.R;
+import com.beiyun.workers.constant.AppUrl;
 import com.beiyun.workers.entity.LearnPage2Entity;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -30,7 +31,7 @@ public class LearnPage2Adapter extends BaseQuickAdapter<LearnPage2Entity,BaseVie
                 .setText(R.id.item_learn_page2_upload_date,item.getUploadDate())
                 .setText(R.id.item_learn_page2_video_length,item.getVideoLength());
         SimpleDraweeView simpleDraweeView = helper.getView(R.id.item_learn_page2_image);
-        simpleDraweeView.setImageURI(item.getThumbImageUrl());
+        simpleDraweeView.setImageURI(AppUrl.get().BASE_IMAGE_URL + item.getThumbImageUrl());
 //        simpleDraweeView.setImageURI(UriUtil.getUriForResourceId(item.getImageRes()));
         if(helper.getAdapterPosition() == 0 || helper.getAdapterPosition() ==1){
             CardView cardView = helper.getView(R.id.item_learn_page2_cardView);

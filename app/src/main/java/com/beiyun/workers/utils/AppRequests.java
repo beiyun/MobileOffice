@@ -137,6 +137,40 @@ public class AppRequests {
         OkHttpUtils.postQuery(AppUrl.get().MESSAGE,params,callBack);
     }
 
+
+    /**
+     * 视频接口
+     * @param page
+     * @param callBack
+     * @param <T>
+     */
+    public static <T> void getVideoInfo(int page,ResponseTCallBack<T> callBack){
+        HashMap<String,String> params = new HashMap<>();
+        User use = (User) Sps.get(User.class);
+        int type = use.getType();
+        params.put("bo.page", String.valueOf(page));
+        params.put("bo.courseStatus", String.valueOf(2));
+        OkHttpUtils.postQuery(AppUrl.get().VIDEO,params,callBack);
+    }
+
+
+    /**
+     * 视频接口
+     * @param page
+     * @param callBack
+     * @param <T>
+     */
+    public static <T> void getVideoInfo2(int page,ResponseTCallBack<T> callBack){
+        HashMap<String,String> params = new HashMap<>();
+        User use = (User) Sps.get(User.class);
+        int type = use.getType();
+        params.put("bo.page", String.valueOf(page));
+        params.put("bo.courseStatus", String.valueOf(2));
+        params.put("bo.editId",use.getInstructorId());
+        OkHttpUtils.postQuery(AppUrl.get().VIDEO,params,callBack);
+    }
+
+
     private static void setLocalParams(HashMap<String, String> params) {
         User user = (User) Sps.get(User.class);
         params.put("user.type", String.valueOf(user.getType()));

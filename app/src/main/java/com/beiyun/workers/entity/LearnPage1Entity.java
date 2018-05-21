@@ -6,15 +6,26 @@ package com.beiyun.workers.entity;
  */
 public class LearnPage1Entity {
 
+
     private int imageRes;
+
+    //标题
     private String title;
+    //副标题
     private String subTitle;
+    //播放次数
     private int playTimes;
+    //作者
     private String author;
+    //视频时长
     private String videoLength;
+    //上传日期
     private String uploadDate;
+    //内容
     private String content;
+    //视频路径
     private String videoUrl;
+    //视频缩略图
     private String thumbImageUrl;
 
     public String getThumbImageUrl() {

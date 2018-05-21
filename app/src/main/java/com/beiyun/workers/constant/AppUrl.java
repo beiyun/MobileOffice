@@ -1,6 +1,7 @@
 package com.beiyun.workers.constant;
 
 import com.beiyun.library.base.App;
+import com.beiyun.workers.entity.User;
 
 public class AppUrl {
 
@@ -30,6 +31,8 @@ public class AppUrl {
 
     public String MESSAGE;
 
+    public String VIDEO;
+
 
     //查询人员信息
     /**
@@ -52,7 +55,7 @@ public class AppUrl {
     public String PLANT_INFO;
 
     public static AppUrl get(){
-       return userPublicNet();
+       return User.getNetType() == 1? userPublicNet():usePrivateNet();
     }
 
     public static AppUrl userPublicNet(){
@@ -82,6 +85,7 @@ public class AppUrl {
          PERSON_INFO = BASE_URL + "login/login_query.do";
          PLANT_INFO = BASE_URL + "plantingQuery/plantingQuery_query.do";
          MESSAGE = BASE_URL + "noticeinfo/noticeinfo_search.do";
+         VIDEO = BASE_URL + "course/course_search.do";
 
     }
 
