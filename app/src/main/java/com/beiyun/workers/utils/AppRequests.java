@@ -247,6 +247,24 @@ public class AppRequests {
     }
 
 
+    /**
+     * 意见反馈
+     * @param content
+     * @param callBack
+     */
+    public static void report(String content,RequestCallBack callBack){
+        HashMap<String,String> params = new HashMap<>();
+        User user = (User) Sps.get(User.class);
+        params.put("bo.types", String.valueOf(user.getType()));
+        params.put("bo.linkTel",user.getTel());
+        params.put("bo.userId",user.getInstructorId());
+        params.put("bo.userName",user.getNickname());
+        params.put("bo.identity",user.getIdentity());
+        params.put("bo.backContent",content);
+        OkHttpUtils.postUpload(AppUrl.get().REPORT,params,callBack);
+    }
+
+
     private static void setLocalParams(HashMap<String, String> params) {
         User user = (User) Sps.get(User.class);
         params.put("user.type", String.valueOf(user.getType()));

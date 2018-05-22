@@ -76,7 +76,8 @@
         <activity android:name=".fragment.searchfragment.PreContractInfoFragment" />
         <activity android:name=".fragment.searchfragment.PlantCountInfoFragment" />
         <activity android:name=".fragment.searchfragment.PlantContractInfoFragment" />
-        <activity android:name=".ui.BannerDetailActivity"></activity>
+        <activity android:name=".ui.BannerDetailActivity" />
+        <activity android:name=".ui.ReportActivity"></activity>
     </application>
 
 </manifest>

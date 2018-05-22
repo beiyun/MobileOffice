@@ -52,7 +52,8 @@ public class UpdatePasswordStep1Activity extends BaseActivity {
 
 
     public void nextStep(View view) {
-        if(TextUtils.isEmpty(updatePasswordStep1UserNumber.getText())){
+        String userNumber = updatePasswordStep1UserNumber.getText().toString();
+        if(TextUtils.isEmpty(userNumber)){
             updatePasswordStep1UserNumber.setError("请输入账户名");
             return;
         }
@@ -62,6 +63,7 @@ public class UpdatePasswordStep1Activity extends BaseActivity {
             return;
         }
 
+        com.beiyun.library.util.Events.post(userNumber);
         startActivity(new Intent(this, UpdatePasswordStep2Activity.class), updatePasswordNextStep);
     }
 

@@ -38,7 +38,26 @@ public class User {
      */
     private int type;
 
+    private String identity; // 身份证号
 
+    private String tel; // 联系电话
+
+
+    public void setIdentity(String identity) {
+        this.identity = identity;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public String getIdentity() {
+        return identity;
+    }
+
+    public String getTel() {
+        return tel;
+    }
 
     public int getType() {
         return type;

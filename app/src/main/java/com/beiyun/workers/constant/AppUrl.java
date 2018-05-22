@@ -62,6 +62,12 @@ public class AppUrl {
      */
     public String PLANT_INFO;
 
+
+
+    public String CHECK_VERSION;
+
+    public String REPORT;
+
     public static AppUrl get(){
        return User.getNetType() == 1? userPublicNet():usePrivateNet();
     }
@@ -98,6 +104,8 @@ public class AppUrl {
          WORK_UPLOAD = BASE_URL + "taskManage/taskManage_insUpload.do";
          WORK_QUERY1 = BASE_URL + "taskManage/taskManage_search.do";
          WORK_QUERY2 = BASE_URL + "taskManage/taskManage_queryMessages.do";
+         CHECK_VERSION = BASE_URL + "version/version_checkVersion.do";
+         REPORT = BASE_URL + "feedback/feedback_save.do";
 
     }
 

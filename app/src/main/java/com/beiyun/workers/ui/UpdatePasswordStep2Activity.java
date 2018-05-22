@@ -5,10 +5,12 @@ import android.text.TextUtils;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.alibaba.fastjson.JSONObject;
+import com.beiyun.library.anot.Receiver;
 import com.beiyun.library.util.Logs;
 import com.beiyun.workers.R;
 import com.beiyun.workers.base.BaseActivity;
 import com.beiyun.workers.constant.AppUrl;
+import com.beiyun.workers.entity.User;
 import com.beiyun.workers.okhttp.OkHttpUtils;
 import com.beiyun.workers.okhttp.callback.StringCallBack;
 import com.beiyun.workers.utils.MD5Util;
@@ -21,7 +23,7 @@ import java.util.HashMap;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
+@Receiver
 public class UpdatePasswordStep2Activity extends BaseActivity {
 
     @BindView(R.id.update_password_step2_newPassword)
@@ -30,6 +32,7 @@ public class UpdatePasswordStep2Activity extends BaseActivity {
     MaterialEditText updatePasswordStep2NewPasswordAgain;
     @BindView(R.id.update_password_step2_submit)
     SubmitProcessButton updatePasswordStep2Submit;
+    private String mUserNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +68,7 @@ public class UpdatePasswordStep2Activity extends BaseActivity {
 
         HashMap<String,String> params = new HashMap<>();
         params.put("bo.password", MD5Util.getMD5(pa1));
-        params.put("bo.userNumber","5301260003");
+        params.put("bo.userNumber",mUserNumber);
         OkHttpUtils.getQuery(AppUrl.get().UPDATE_PASSWORD_STEP_2, params, new StringCallBack() {
             @Override
             public void onFailure(IOException e) {
@@ -88,5 +91,9 @@ public class UpdatePasswordStep2Activity extends BaseActivity {
 
             }
         });
+    }
+
+    public void receive(String userNumber){
+        mUserNumber = userNumber;
     }
 }

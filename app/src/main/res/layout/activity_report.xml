@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@color/bottom_background_color"
+    android:padding="@dimen/dp_16"
+    tools:context=".ui.ReportActivity">
+
+
+    <EditText
+        android:id="@+id/backContent"
+        android:layout_width="match_parent"
+        android:textSize="@dimen/sp_16"
+        android:maxLines="200"
+        android:gravity="start|top"
+        android:lineSpacingMultiplier="1.33"
+        android:background="@color/bottom_background_color"
+        android:layout_height="200dp" />
+
+
+    <com.dd.processbutton.FlatButton
+        android:onClick="submit"
+        app:pb_cornerRadius="@dimen/dp_6"
+        android:textSize="@dimen/sp_16"
+        android:textColor="@color/white"
+        android:text="提交反馈"
+        android:layout_marginTop="@dimen/sp_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:pb_colorNormal="@color/colorPrimary"
+        app:pb_colorPressed="@color/colorPrimaryDark"/>
+
+
+
+</LinearLayout>
