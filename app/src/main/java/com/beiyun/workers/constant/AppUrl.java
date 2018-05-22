@@ -37,7 +37,9 @@ public class AppUrl {
 
     public String WORK_UPLOAD;
 
-    public String WORK_QUERY;
+    public String WORK_QUERY1;
+
+    public String WORK_QUERY2;
 
 
     //查询人员信息
@@ -94,6 +96,8 @@ public class AppUrl {
          VIDEO = BASE_URL + "course/course_search.do";
          VIDEO_UPLOAD = BASE_URL + "course/course_upload.do";
          WORK_UPLOAD = BASE_URL + "taskManage/taskManage_insUpload.do";
+         WORK_QUERY1 = BASE_URL + "taskManage/taskManage_search.do";
+         WORK_QUERY2 = BASE_URL + "taskManage/taskManage_queryMessages.do";
 
     }
 

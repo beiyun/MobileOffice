@@ -40,12 +40,17 @@ import com.beiyun.workers.adapter.WorkFragPage2Adapter;
 import com.beiyun.workers.base.BaseWorkPageFragment;
 import com.beiyun.workers.entity.WorkFrag2Entity;
 import com.beiyun.workers.entity.WorkFrag2ExpandReasonEntity;
+import com.beiyun.workers.entity.WorkNameSearchEntity;
+import com.beiyun.workers.okhttp.callback.BaseInfo;
+import com.beiyun.workers.okhttp.callback.ResponseTCallBack;
+import com.beiyun.workers.utils.AppRequests;
 import com.beiyun.workers.utils.MainFabControl;
 import com.beiyun.workers.view.DatePikerDialog;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.sdsmdg.tastytoast.TastyToast;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -78,6 +83,9 @@ public class WorkFragPage2 extends BaseWorkPageFragment implements SwipeRefreshL
     private int cx;
     private int cy;
     private float finalRadius;
+    private ArrayList<WorkNameSearchEntity> workNameEntities;
+    private WorkNameSearchEntity selectedItemEntity;
+    private String selectedDate;
 
 
     public WorkFragPage2() {
@@ -126,8 +134,8 @@ public class WorkFragPage2 extends BaseWorkPageFragment implements SwipeRefreshL
         initXY();
         iniRefreshLayout();
         initRecyclerView();
-        initSearchTime();
         initSearchWorkName();
+        initSearchTime();
     }
 
     private void iniRefreshLayout() {
@@ -139,31 +147,38 @@ public class WorkFragPage2 extends BaseWorkPageFragment implements SwipeRefreshL
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
-        mAdapter = new WorkFragPage2Adapter(getData());
+        mainActivity.attachFab(recyclerView);
+        MainFabControl mainFabControl = new MainFabControl();
+        mainFabControl.controlFab(recyclerView,mListener);
+    }
+
+
+    public void initWorkAdapter(List<WorkFrag2Entity> data){
+        mAdapter = new WorkFragPage2Adapter(getData(data));
         mAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
         mAdapter.setNotDoAnimationCount(5);
         mAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
             public void onLoadMoreRequested() {
-                refreshLayout.postDelayed(new Runnable() {
+                refreshLayout.post(new Runnable() {
                     @Override
                     public void run() {
-                        if(mAdapter.getItemCount() >= 100){
+                        if(mAdapter.getItemCount() >= totalSize){
                             mAdapter.loadMoreEnd();
                         }else{
-                            mAdapter.addData(getData());
-                            mAdapter.loadMoreComplete();
-                            mAdapter.expandAll();
+                           currentPage ++;
+                           loadWorkData();
                         }
                     }
-                },1000);
+                });
 
             }
         },recyclerView);
 
-        mainActivity.attachFab(recyclerView);
-        MainFabControl mainFabControl = new MainFabControl();
-        mainFabControl.controlFab(recyclerView,mListener);
+        recyclerView.setAdapter(mAdapter);
+        mAdapter.expandAll();
+        recyclerView.smoothScrollToPosition(0);
+
     }
 
 
@@ -175,19 +190,18 @@ public class WorkFragPage2 extends BaseWorkPageFragment implements SwipeRefreshL
         }
     }
 
-    private List<MultiItemEntity> getData() {
+    /**
+     * 转化数据
+     * @param entities
+     * @return
+     */
+    private List<MultiItemEntity> getData(List<WorkFrag2Entity> entities) {
 
         List<MultiItemEntity> list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            WorkFrag2Entity entity = new WorkFrag2Entity();
-            if(i%2 == 0){
-                entity.setComplete(true);
-                entity.setCompleteTime("2018-5-21");
-                entity.setName("Material Design");
-            }else{
-                entity.setName("收集种烟信息");
-                entity.setComplete(false);
-                entity.addSubItem(new WorkFrag2ExpandReasonEntity("注册Github账号有半年多的时间，却一直不知道如何将自己做好的项目部署到Github中。看了网上许多的教程，要么一开始就来Git命令行，要么直接就来一堆术语，很少能够真正说中要点，解决我们的烦恼。"));
+        for (int i = 0; i < entities.size(); i++) {
+            WorkFrag2Entity entity = entities.get(i);
+            if(!entity.isComplete()){
+                entity.addSubItem(new WorkFrag2ExpandReasonEntity(entity.getNoneCompleteReason()));
             }
 
             list.add(entity);
@@ -228,30 +242,65 @@ public class WorkFragPage2 extends BaseWorkPageFragment implements SwipeRefreshL
 
     }
 
-    private void setDate(String date) {
+    private void setDate(final String date) {
+        selectedDate = date;
         searchTime.setText(date);
         searchTimeTitle.setText("查询日期设定："+date);
         TransitionManager.beginDelayedTransition(searchTimeLayout);
         searchTimeTitle.setVisibility(View.VISIBLE);
 
+        loadWorkNameData();
+
+    }
+
+    private void loadWorkNameData() {
+        if(selectedDate == null){
+            return;
+        }
+
         // TODO: 2018/5/21 根据日期查询任务名称 initSearchWorkName
+        AppRequests.workNameSearch(selectedDate, new ResponseTCallBack<BaseInfo<ArrayList<WorkNameSearchEntity>>>() {
+            @Override
+            protected void onSuccess(BaseInfo<ArrayList<WorkNameSearchEntity>> data) {
+                if(data.getResultCode() == 100){
+                    workNameEntities = data.getData().getList();
+                    if(workNameEntities == null || workNameEntities.isEmpty()){
+                        return;
+                    }
+
+                    List<String> workNames = new ArrayList<>();
+                    for (WorkNameSearchEntity entity:workNameEntities) {
+                        workNames.add(entity.getTitle());
+                    }
+
+                    ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),R.layout.item_spinner,R.id.item_spinner_text,workNames);
+                    searchWorkName.setAdapter(adapter);
+
+                }else{
+                    mainActivity.toastError(data.getReason());
+                }
+            }
+
+            @Override
+            public void onFailure(IOException e) {
+                Logs.e("load workName failed >>"+e.getMessage());
+
+            }
+        });
     }
 
     private void initSearchWorkName() {
 
-        final String[] personItems = new String[]{"全部辅导员","古力娜扎","张学友","周杰伦","安倍晋三","特朗普","艾森豪威尔"
-                ,"麦克阿瑟","李奇微","爱新觉罗.玄烨","泰森","马云","玛丽莲.梦露","MaterialSpinner","WorkFrag"};
-
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),R.layout.item_spinner,R.id.item_spinner_text,personItems);
-        searchWorkName.setAdapter(adapter);
         searchWorkName.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                preToLoad();
                 TransitionManager.beginDelayedTransition(searchWorkNameLayout);
                 searchWorkNameTitle.setVisibility(View.VISIBLE);
-                searchWorkNameTitle.setText(getString(R.string.work_name_set)+personItems[position]);
+                searchWorkNameTitle.setText(getString(R.string.work_name_set)+searchWorkName.getText().toString());
+                if(workNameEntities != null){
+                    selectedItemEntity = workNameEntities.get(position);
+                }
+                preToLoad();
             }
         });
 
@@ -263,6 +312,12 @@ public class WorkFragPage2 extends BaseWorkPageFragment implements SwipeRefreshL
                     mainActivity.toastError("请设定查询日期");
                     return;
                 }
+
+                if(workNameEntities == null || workNameEntities.isEmpty()){
+                    mainActivity.toastError("没有找到任务名称数据");
+                    return;
+                }
+
                 searchWorkName.showDropDown();
                 Drawable drawableUp = getResources().getDrawable(R.drawable.ic_arrow_drop_up_24dp);
                 if (drawableUp != null) {
@@ -326,32 +381,71 @@ public class WorkFragPage2 extends BaseWorkPageFragment implements SwipeRefreshL
      }
 
     private boolean isFirst = true;
+    private int currentPage = 1;
+    private int totalSize;
     @Override
     public void onRefresh() {
-        recyclerView.postDelayed(new Runnable() {
+
+        currentPage = 1;
+        loadWorkData();
+    }
+
+    private void loadWorkData() {
+        if(selectedItemEntity == null){
+            return;
+        }
+        AppRequests.workSearch(currentPage, selectedItemEntity, new ResponseTCallBack<BaseInfo<ArrayList<WorkFrag2Entity>>>() {
             @Override
-            public void run() {
-                if(isFirst){
-                    recyclerView.setAdapter(mAdapter);
-                    initListTitleLayout();
-                    mAdapter.expandAll();
-                    recyclerView.smoothScrollToPosition(0);
-                    isFirst = false;
-
-                }else{
-                    mAdapter.setNewData(getData());
-                    mAdapter.setNotDoAnimationCount(5);
-                    recyclerView.smoothScrollToPosition(0);
-                    mAdapter.expandAll();
-                }
-
-
+            protected void onSuccess(BaseInfo<ArrayList<WorkFrag2Entity>> data) {
 
                 if(refreshLayout.isRefreshing()){
                     refreshLayout.setRefreshing(false);
                 }
+
+                if(data.getResultCode() != 100){
+                    mainActivity.toastError(data.getReason());
+                    return;
+                }
+
+
+
+                ArrayList<WorkFrag2Entity> entities = data.getData().getList();
+                if(entities == null || entities.isEmpty()){
+                    mainActivity.toastError("数据未找到");
+                    return;
+                }
+
+                totalSize = data.getData().total;
+
+                if(currentPage == 1){
+                    if(mAdapter == null){
+                        initListTitleLayout();
+                        initWorkAdapter(entities);
+                    }else{
+                        mAdapter.setNewData(getData(entities));
+                        mAdapter.setNotDoAnimationCount(5);
+                        recyclerView.smoothScrollToPosition(0);
+                        mAdapter.expandAll();
+                    }
+                }else{
+                    mAdapter.addData(getData(entities));
+                    mAdapter.expandAll();
+                    mAdapter.loadMoreComplete();
+                }
+
             }
-        },500);
+
+            @Override
+            public void onFailure(IOException e) {
+
+                if(refreshLayout.isRefreshing()){
+                    refreshLayout.setRefreshing(false);
+                }
+
+                Logs.e(e.getMessage());
+
+            }
+        });
 
     }
 

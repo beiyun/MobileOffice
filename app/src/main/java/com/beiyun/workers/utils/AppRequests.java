@@ -7,6 +7,7 @@ import com.beiyun.workers.entity.LocalVideoEntity;
 import com.beiyun.workers.entity.PersonInfoQueryParams;
 import com.beiyun.workers.entity.TGBasicInfoEntity;
 import com.beiyun.workers.entity.User;
+import com.beiyun.workers.entity.WorkNameSearchEntity;
 import com.beiyun.workers.entity.WorkUploadEntity;
 import com.beiyun.workers.okhttp.OkHttpManager;
 import com.beiyun.workers.okhttp.OkHttpUtils;
@@ -210,6 +211,39 @@ public class AppRequests {
         params.put("bo.assigner", String.valueOf(user.getType()));
         params.put("bo.editId",user.getInstructorId());
         OkHttpUtils.postUpload(AppUrl.get().WORK_UPLOAD,params,callBack);
+    }
+
+
+    /**
+     * 工作任务名称查询
+     * @param endTime
+     * @param responseTCallBack
+     * @param <T>
+     */
+    public static <T> void workNameSearch(String endTime,ResponseTCallBack<T> responseTCallBack){
+        HashMap<String,String> params = new HashMap<>();
+        User user = (User) Sps.get(User.class);
+        params.put("bo.editId",user.getInstructorId());
+        params.put("bo.endTime",endTime);
+        OkHttpUtils.postQuery(AppUrl.get().WORK_QUERY1,params,responseTCallBack);
+    }
+
+
+    /**
+     * 工作任务完成情况查询
+     * @param page
+     * @param entity
+     * @param callBack
+     * @param <T>
+     */
+    public static <T> void workSearch(int page, WorkNameSearchEntity entity,ResponseTCallBack<T> callBack){
+        HashMap<String,String> params = new HashMap<>();
+        params.put("bo.page", String.valueOf(page));
+        params.put("bo.id",entity.getId());
+        params.put("bo.title",entity.getTitle());
+        params.put("bo.performRole",entity.getPerformRole());
+        OkHttpUtils.postQuery(AppUrl.get().WORK_QUERY2,params,callBack);
+
     }
 
 
