@@ -61,6 +61,7 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 import com.sdsmdg.tastytoast.TastyToast;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Collections;
@@ -454,7 +455,11 @@ public class LearnFragment extends BaseFragment {
             @Override
             public void success(ResultData data) {
                 Logs.e(data.toString());
-                mainActivity.toast(data.toString());
+                if(data.getResultCode() == 100){
+                    mainActivity.toastSuccess("上传完成");
+                }else{
+                    mainActivity.toastError(data.getReason());
+                }
                 uploadDialog.dismiss();
             }
 
@@ -464,7 +469,16 @@ public class LearnFragment extends BaseFragment {
                 Logs.e("progress = "+ progress + "  total = " + total +" hasDone = "+hasDone);
                 com.beiyun.library.util.Events.post(progress);
             }
+
+            @Override
+            public void onFailure(IOException e) {
+                super.onFailure(e);
+                mainActivity.toastError("网络异常");
+                uploadDialog.dismiss();
+            }
         });
+
+
 
 
     }
@@ -473,9 +487,6 @@ public class LearnFragment extends BaseFragment {
     @Subscribe
     public void receive(Float progress){
         uploadDialog.setProgress((int) (progress*100));
-//        videoSubtitle.setText("total = " + total);
-//        videoContent.setText(" hasDone = "+hasDone);
-
     }
 
 

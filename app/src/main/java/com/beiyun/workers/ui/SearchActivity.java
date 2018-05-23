@@ -20,7 +20,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewTreeObserver;
@@ -448,16 +450,12 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
     }
 
     private void initPublicView() {
-        publicType = new MaterialSpinner(this);
+        publicType = (MaterialSpinner) LayoutInflater.from(this).inflate(R.layout.layout_search_public_view,null);
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(-1,-2);
         params.leftMargin = Sizes.dp2px(10);
         params.rightMargin = Sizes.dp2px(10);
         params.topMargin = Sizes.dp2px(10);
         publicType.setLayoutParams(params);
-        publicType.setHint("选择公示类型");
-        publicType.setHintColor(Apps.getColor(R.color.text_gray));
-        publicType.setTextColor(Apps.getColor(R.color.text_black));
-        publicType.setArrowColor(Apps.getColor(R.color.colorPrimary));
         String[] items = {"资格审查","合同预签","清塘点株","合同变更"};
         publicType.setItems(items);
         searchYear.setVisibility(View.VISIBLE);
@@ -670,6 +668,17 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
          int oneType = infrastructureOneType.getSelectedIndex()+1;
          int twoType = infrastructureTwoType.getSelectedIndex() +1;
          int usedType = infrastructureUsed.getSelectedIndex() + 1;
+         if(TextUtils.isEmpty(infrastructureOneType.getText())){
+             oneType = -1;
+         }
+         if(TextUtils.isEmpty(infrastructureTwoType.getText())){
+             twoType = -1;
+         }
+
+         if(TextUtils.isEmpty(infrastructureUsed.getText())){
+             usedType = -1;
+         }
+
          String s = years.get(searchYear.getSelectedIndex());
          AppRequests.getBaseStationInfo(oneType, twoType, usedType, s, currentPage, new ResponseTCallBack<BaseInfo<ArrayList<BaseStationEntity>>>() {
              @Override
@@ -713,7 +722,8 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
                              public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                                  toast("点击了：" + position);
                                  List<BaseStationEntity> entities = adapter.getData();
-                                 Events.post(entities.get(position));
+                                 BaseStationEntity entity = entities.get(position);
+                                 Events.post(entity);
                                  goToSearchDetailActivity(SearchType.SEARCH_INFRASTRUCTURE);
 
                              }
@@ -800,7 +810,11 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
 
     private void setPublicData() {
         String s = years.get(searchYear.getSelectedIndex());
-        AppRequests.getPublicInfo(publicType.getSelectedIndex()+1, Integer.parseInt(s),currentPage, new ResponseTCallBack<BaseInfo<ArrayList<SearchPublicEntity>>>() {
+        int type = publicType.getSelectedIndex() + 1;
+        if(TextUtils.isEmpty(publicType.getText())){
+            type = -1;
+        }
+        AppRequests.getPublicInfo(type, Integer.parseInt(s),currentPage, new ResponseTCallBack<BaseInfo<ArrayList<SearchPublicEntity>>>() {
             @Override
             public void onFailure(IOException e) {
                 Logs.e("SearchActivity onFailure:" + ""+e.getMessage());
@@ -858,7 +872,8 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
                             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                                 toast("点击了：" + position);
                                 List<SearchPublicEntity> list = adapter.getData();
-                                Events.post(list.get(position));
+                                SearchPublicEntity searchPublicEntity = list.get(position);
+                                Events.post(searchPublicEntity);
                                 goToSearchDetailActivity(SearchType.SEARCH_PUBLIC);
                             }
                         });
@@ -879,9 +894,14 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
 
     private void setPlantData() {
         
-        final int type = plantCategory.getSelectedIndex()+1;
+        int type = plantCategory.getSelectedIndex()+1;
         String s = years.get(searchYear.getSelectedIndex());
 
+        if(TextUtils.isEmpty(plantCategory.getText())){
+            type = -1;
+        }
+
+        final int finalType = type;
         AppRequests.getPlantInfo(type, Integer.valueOf(s),currentPage, new ResponseTCallBack<BaseInfo>() {
             @Override
             public void onFailure(IOException e) {
@@ -910,7 +930,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
 
                 List<SearchPlantEntity> searchPlantEntities = new ArrayList<>();
 
-                switch (type){
+                switch (finalType){
                     case 1:
                         ArrayList<TGLetterOfCommitmentBean> commitmentBeans = GsonUtil.parseJson(data.getData().getList().toString(), new TypeToken<ArrayList<TGLetterOfCommitmentBean>>() {
                         });

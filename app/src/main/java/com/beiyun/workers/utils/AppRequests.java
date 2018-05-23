@@ -119,7 +119,7 @@ public class AppRequests {
     public static <T> void  getPlantInfo(int type, int year,int page, ResponseTCallBack<T> callBack){
         HashMap<String,String> params = new HashMap<>();
         setLocalParams(params);
-        params.put("bo.types", String.valueOf(type));
+        params.put("bo.types", type == -1?"":String.valueOf(type));
         params.put("bo.year",String.valueOf(year));
         params.put("bo.page",String.valueOf(page));
         OkHttpUtils.postQuery(AppUrl.get().PLANT_INFO, params,callBack);
@@ -141,7 +141,7 @@ public class AppRequests {
     public static <T> void getPublicInfo(int type, int year,int page,ResponseTCallBack<T> callBack){
         HashMap<String,String> params = new HashMap<>();
         setLocalParams(params);
-        params.put("bo.types", String.valueOf(type));
+        params.put("bo.types", type == -1?"":String.valueOf(type));
         params.put("bo.year",String.valueOf(year));
         params.put("bo.page",String.valueOf(page));
         OkHttpUtils.postQuery(AppUrl.get().PUBLIC_INFO, params,callBack);
@@ -161,9 +161,9 @@ public class AppRequests {
     public static <T> void getBaseStationInfo(int oneType,int twoType,int usedType,String year,int page,ResponseTCallBack<T> callBack){
         HashMap<String,String> params = new HashMap<>();
         setLocalParams1(params);
-        params.put("bo.oneType", String.valueOf(oneType));
-        params.put("bo.secondType", String.valueOf(twoType));
-        params.put("bo.beUsed", String.valueOf(usedType));
+        params.put("bo.oneType", oneType == -1?"":String.valueOf(oneType));
+        params.put("bo.secondType", twoType == -1?"":String.valueOf(twoType));
+        params.put("bo.beUsed", usedType == -1?"":String.valueOf(usedType));
         params.put("bo.year",year);
         params.put("bo.page",String.valueOf(page));
         User user = (User) Sps.get(User.class);

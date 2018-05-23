@@ -245,7 +245,6 @@ public class MainFragment extends BaseFragment implements SwipeRefreshLayout.OnR
         bannerView.setOnBannerListener(new OnBannerListener() {
             @Override
             public void OnBannerClick(int position) {
-                mainActivity.toastSuccess("banner +"+position);
                 Events.post(banners.get(position).getBannerDetailUrl());
                 mainActivity.startActivity(new Intent(mainActivity, BannerDetailActivity.class),bannerView);
             }
