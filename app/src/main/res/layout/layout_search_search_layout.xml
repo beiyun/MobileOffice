@@ -20,6 +20,7 @@
         android:layout_marginTop="@dimen/dp_10"
         android:layout_marginBottom="@dimen/dp_10"
         app:ms_hint="年度"
+        app:ms_text_color="@color/text_black"
         app:ms_hint_color="@color/text_gray"/>
 
 
@@ -40,10 +41,6 @@
         android:paddingRight="@dimen/dp_10" />
 
 
-    <!--<com.beiyun.workers.view.SpinnerLayout-->
-        <!--android:id="@+id/spinnerLayout"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"/>-->
 
 
 
@@ -61,6 +58,8 @@
             android:layout_marginTop="@dimen/dp_10"
             android:layout_height="@dimen/dp_48"
             app:ms_hint="省"
+            app:ms_text_color="@color/text_black"
+            app:ms_hint_color="@color/text_gray"
             android:visibility="gone"
             app:ms_arrow_tint="@color/colorPrimary"/>
 
@@ -71,6 +70,8 @@
             android:layout_height="@dimen/dp_48"
             app:ms_hint="市"
             android:visibility="gone"
+            app:ms_text_color="@color/text_black"
+            app:ms_hint_color="@color/text_gray"
             app:ms_arrow_tint="@color/colorPrimary"/>
 
         <com.jaredrummler.materialspinner.MaterialSpinner
@@ -80,6 +81,8 @@
             android:layout_height="@dimen/dp_48"
             android:visibility="gone"
             app:ms_hint="@string/xian"
+            app:ms_text_color="@color/text_black"
+            app:ms_hint_color="@color/text_gray"
             app:ms_arrow_tint="@color/colorPrimary"/>
 
 
@@ -90,6 +93,8 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_48"
             android:visibility="gone"
+            app:ms_text_color="@color/text_black"
+            app:ms_hint_color="@color/text_gray"
             app:ms_hint="烟站"
             app:ms_arrow_tint="@color/colorPrimary"/>
 
@@ -100,6 +105,8 @@
             android:visibility="gone"
             android:layout_height="@dimen/dp_48"
             app:ms_hint="村委会"
+            app:ms_text_color="@color/text_black"
+            app:ms_hint_color="@color/text_gray"
             app:ms_arrow_tint="@color/colorPrimary"/>
 
         <com.jaredrummler.materialspinner.MaterialSpinner
@@ -108,6 +115,8 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_48"
             android:visibility="gone"
+            app:ms_text_color="@color/text_black"
+            app:ms_hint_color="@color/text_gray"
             app:ms_hint="村组"
             app:ms_arrow_tint="@color/colorPrimary"/>
 

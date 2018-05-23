@@ -127,6 +127,52 @@ public class AppRequests {
 
 
     /**
+     * 查询公示信息
+     * @param type
+     * @param year
+     * @param page
+     * @param callBack
+     * @param <T>
+     *
+     *     bo.page 分页 bo.year 年度  bo.province 省 bo.city 市  bo.county 县  bo.uid 烟站
+     *     bo.village 村委会 bo.villageGroup 村小组 bo.types 公示类型 1资格审查、2合同预签、3清塘点株、4合同变更
+
+     */
+    public static <T> void getPublicInfo(int type, int year,int page,ResponseTCallBack<T> callBack){
+        HashMap<String,String> params = new HashMap<>();
+        setLocalParams(params);
+        params.put("bo.types", String.valueOf(type));
+        params.put("bo.year",String.valueOf(year));
+        params.put("bo.page",String.valueOf(page));
+        OkHttpUtils.postQuery(AppUrl.get().PUBLIC_INFO, params,callBack);
+    }
+
+
+    /**
+     * 查基础设施
+     * @param oneType
+     * @param twoType
+     * @param usedType
+     * @param year
+     * @param page
+     * @param callBack
+     * @param <T>
+     */
+    public static <T> void getBaseStationInfo(int oneType,int twoType,int usedType,String year,int page,ResponseTCallBack<T> callBack){
+        HashMap<String,String> params = new HashMap<>();
+        setLocalParams1(params);
+        params.put("bo.oneType", String.valueOf(oneType));
+        params.put("bo.secondType", String.valueOf(twoType));
+        params.put("bo.beUsed", String.valueOf(usedType));
+        params.put("bo.year",year);
+        params.put("bo.page",String.valueOf(page));
+        User user = (User) Sps.get(User.class);
+        params.put("bo.userId",user.getInstructorId());
+        OkHttpUtils.postQuery(AppUrl.get().BASIC_STATION_INFO,params,callBack);
+    }
+
+
+    /**
      * 消息接口
      * @param page
      * @param callBack
@@ -282,6 +328,29 @@ public class AppRequests {
             params.put("bo.uid",addressMap.get("key3") == null? "" : addressMap.get("key3").getCode());
             params.put("bo.village",addressMap.get("key4") == null? "" : addressMap.get("key4").getName());
             params.put("bo.villageGroup",addressMap.get("key5") == null? "" : addressMap.get("key5").getName());
+        }catch (Exception e){
+            Logs.e("AppRequests getPersonInfo setAddressMap"+e.getMessage());
+        }
+    }
+
+
+    private static void setLocalParams1(HashMap<String, String> params) {
+        User user = (User) Sps.get(User.class);
+        params.put("user.type", String.valueOf(user.getType()));
+        params.put("user.province",user.getProvince());
+        params.put("user.city",user.getCity());
+        params.put("user.county",user.getCounty());
+        params.put("user.uid",user.getUid());
+        params.put("user.id",user.getInstructorId());
+
+        try{
+            HashMap<String, Address> addressMap = AddressSelector.getAddressMap();
+            params.put("bo.provinceCode",addressMap.get("key0")==null? "" : addressMap.get("key0").getName());
+            params.put("bo.cityCode",addressMap.get("key1") == null? "" : addressMap.get("key1").getName());
+            params.put("bo.countyCode",addressMap.get("key2") == null? "" : addressMap.get("key2").getName());
+            params.put("bo.belongId",addressMap.get("key3") == null? "" : addressMap.get("key3").getCode());
+            params.put("bo.villageCode",addressMap.get("key4") == null? "" : addressMap.get("key4").getName());
+            params.put("bo.groupCode",addressMap.get("key5") == null? "" : addressMap.get("key5").getName());
         }catch (Exception e){
             Logs.e("AppRequests getPersonInfo setAddressMap"+e.getMessage());
         }

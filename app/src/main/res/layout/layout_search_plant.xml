@@ -7,14 +7,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent">
 
-    <org.angmarch.views.NiceSpinner
+    <com.jaredrummler.materialspinner.MaterialSpinner
         android:id="@+id/search_plant_category"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_48"
-        app:arrowTint="@color/colorPrimary"
-        app:arrowDrawable="@drawable/arrow"
-        app:textTint="@color/text_black"
-        android:hint="选择查询模块"/>
+        app:ms_hint="选择查询模块"
+        app:ms_text_color="@color/text_black"
+        app:ms_hint_color="@color/text_gray"
+        app:ms_arrow_tint="@color/colorPrimary"/>
 
 
 

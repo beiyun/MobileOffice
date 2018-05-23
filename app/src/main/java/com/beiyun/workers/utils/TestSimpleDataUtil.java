@@ -49,29 +49,14 @@ public class TestSimpleDataUtil {
             "http://jzvd-pic.nathen.cn/jzvd-pic/1bb2ebbe-140d-4e2e-abd2-9e7e564f71ac.png"
     };
 
-    public static final List<String> getPersons(){
-        final List<String> persons = new ArrayList<>();
-        persons.add("职工");
-        persons.add("辅导员");
-        persons.add("烟农");
-        persons.add("非烟农");
-        return persons;
+    public static String[] getPersons(){
+        return new String[]{"职工","辅导员","烟农","非烟农"};
 
     }
 
 
-    public static final List<String> getPlantCategory(){
-        final List<String> plantCategories = new ArrayList<>();
-        plantCategories.add("种植承诺");
-        plantCategories.add("种植申请");
-        plantCategories.add("资格审查");
-        plantCategories.add("预签合同");
-        plantCategories.add("清塘点株");
-        plantCategories.add("种植合同");
-        plantCategories.add("烤烟预约");
-        plantCategories.add("收购预约");
-
-        return plantCategories;
+    public static String[] getPlantCategory(){
+        return new String[]{"种植承诺","种植申请","资格审查","预签合同","清塘点株","种植合同","烤烟预约","收购预约"};
     }
 
 

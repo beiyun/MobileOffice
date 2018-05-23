@@ -262,7 +262,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:background="@color/light_gray"
+                android:background="@color/bottom_background_color"
                 android:layout_height="wrap_content">
                 <com.beiyun.workers.view.FormView
                     android:id="@+id/annual"

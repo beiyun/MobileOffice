@@ -1,18 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:padding="@dimen/dp_10"
+    android:paddingTop="@dimen/dp_10"
+    android:paddingStart="@dimen/dp_10"
+    android:paddingEnd="@dimen/dp_10"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent">
 
 
-    <org.angmarch.views.NiceSpinner
-        android:id="@+id/search_infrastructure_style"
+
+
+    <com.jaredrummler.materialspinner.MaterialSpinner
+        android:id="@+id/search_infrastructure_oneType"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_48"
-        app:arrowTint="@color/colorPrimary"
-        app:textTint="@color/text_black"
-        android:hint="@string/sheshileixing"/>
+        app:ms_arrow_tint="@color/colorPrimary"
+        app:ms_text_color="@color/text_black"
+        app:ms_hint_color="@color/text_gray"
+        app:ms_hint="一级设施类型"/>
+
+
+    <com.jaredrummler.materialspinner.MaterialSpinner
+        android:id="@+id/search_infrastructure_twoType"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        android:layout_marginTop="@dimen/dp_10"
+        app:ms_arrow_tint="@color/colorPrimary"
+        app:ms_text_color="@color/text_black"
+        app:ms_hint="二级设施类型"
+        app:ms_hint_color="@color/text_gray"/>
+
+
+    <com.jaredrummler.materialspinner.MaterialSpinner
+        android:id="@+id/search_infrastructure_used"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        android:layout_marginTop="@dimen/dp_10"
+        app:ms_arrow_tint="@color/colorPrimary"
+        app:ms_text_color="@color/text_black"
+        app:ms_hint_color="@color/text_gray"
+        app:ms_hint="在用情况"/>
+
+
+
+
 
 
 </LinearLayout>

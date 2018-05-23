@@ -6,13 +6,14 @@
     android:padding="@dimen/dp_10"
     android:layout_height="match_parent">
 
-    <org.angmarch.views.NiceSpinner
+    <com.jaredrummler.materialspinner.MaterialSpinner
         android:id="@+id/search_person_category"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_48"
-        app:arrowTint="@color/colorPrimary"
-        app:textTint="@color/text_black"
-        android:hint="人员类别"/>
+        app:ms_text_color="@color/text_black"
+        app:ms_arrow_tint="@color/colorPrimary"
+        app:ms_hint_color="@color/text_gray"
+        app:ms_hint="人员类别"/>
 
 
 </LinearLayout>

@@ -9,6 +9,7 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.annotation.Size;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.transition.TransitionManager;
@@ -39,11 +40,13 @@ import com.beiyun.library.util.Sizes;
 import com.beiyun.library.util.Times;
 import com.beiyun.library.util.Windows;
 import com.beiyun.workers.R;
+import com.beiyun.workers.adapter.SearchBaseStationAdapter;
 import com.beiyun.workers.adapter.SearchPersonAdapter;
 import com.beiyun.workers.adapter.SearchPlantAdapter;
 import com.beiyun.workers.adapter.SearchPublicAdapter;
 import com.beiyun.workers.base.BaseActivity;
 import com.beiyun.workers.entity.ApplyAcceptEntity;
+import com.beiyun.workers.entity.BaseStationEntity;
 import com.beiyun.workers.entity.CheckQualificationBean;
 import com.beiyun.workers.entity.CuredPactEntity;
 import com.beiyun.workers.entity.FormalContractBean;
@@ -73,7 +76,6 @@ import com.nightonke.boommenu.BoomMenuButton;
 import com.nightonke.boommenu.ButtonEnum;
 import com.nightonke.boommenu.Piece.PiecePlaceEnum;
 
-import org.angmarch.views.NiceSpinner;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -138,13 +140,12 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
     private View publicView;
     private View infrastructureView;
     private View dataView;
-    private NiceSpinner plantCategory;
-    private NiceSpinner personCategory;
-    private NiceSpinner infrastructureCategory;
+    private MaterialSpinner plantCategory;
+    private MaterialSpinner personCategory;
     private TextView dataStartTime;
     private TextView dataEndTime;
-    private NiceSpinner dataArea;
-    private NiceSpinner dataText;
+    private MaterialSpinner dataArea;
+    private MaterialSpinner dataText;
     private ActionBar supportActionBar;
     private int pagePosition;
     private SearchPersonAdapter searchPersonAdapter;
@@ -169,6 +170,11 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
     private ArrayList<CuredPactEntity> curedPactEntities;
     private ArrayList<NoticeEntity> noticeEntities;
     private int totalSize;
+    private MaterialSpinner publicType;
+    private MaterialSpinner infrastructureOneType;
+    private MaterialSpinner infrastructureTwoType;
+    private MaterialSpinner infrastructureUsed;
+    private SearchBaseStationAdapter searchBaseStationAdapter;
 
 
     @Override
@@ -399,14 +405,10 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
             dataEndTime = dataView.findViewById(R.id.search_data_endtTime);
             dataArea = dataView.findViewById(R.id.search_data_area);
             dataText = dataView.findViewById(R.id.search_data_text);
-            dataArea.setArrowDrawable(R.drawable.arrow);
-            dataArea.setTintColor(R.color.colorPrimary);
-            dataText.setArrowDrawable(R.drawable.arrow);
-            dataText.setTintColor(R.color.colorPrimary);
             dataStartTime.setOnClickListener(this);
             dataEndTime.setOnClickListener(this);
-            dataArea.attachDataSource(TestSimpleDataUtil.getPlantCategory());
-            dataText.attachDataSource(TestSimpleDataUtil.getPlantCategory());
+            dataArea.setItems(TestSimpleDataUtil.getPlantCategory());
+            dataText.setItems(TestSimpleDataUtil.getPlantCategory());
         }
         searchItemLayout.removeAllViews();
         searchItemLayout.addView(dataView);
@@ -416,19 +418,51 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
     private void initInfrastructureView() {
         if (infrastructureView == null) {
             infrastructureView = Apps.getLayoutInflater().inflate(R.layout.layout_search_infrastructure, null);
-            infrastructureCategory = infrastructureView.findViewById(R.id.search_infrastructure_style);
-            infrastructureCategory.setArrowDrawable(R.drawable.arrow);
-            infrastructureCategory.setTintColor(R.color.colorPrimary);
-            infrastructureCategory.attachDataSource(TestSimpleDataUtil.getPlantCategory());
+
+            infrastructureOneType = infrastructureView.findViewById(R.id.search_infrastructure_oneType);
+            infrastructureTwoType = infrastructureView.findViewById(R.id.search_infrastructure_twoType);
+            infrastructureUsed = infrastructureView.findViewById(R.id.search_infrastructure_used);
+            /**
+             * 一级设施类型(1烟水工程 2机耕路 3烟叶调制设施 4农业机械 5育苗设施)
+             */
+            String[] oneTypes = {"烟水工程","机耕路","烟叶调制设施","农业机械","育苗设施"};
+            /**
+             * 1水池 2水窖 3管网 4沟渠 5堤灌站 6 塘坝 7机耕路 8烟夹和散叶分风板 9密集烤房 10机械 11育苗设施 12土地治理
+             */
+            String[] twoTypes = {"水池","水窖","管网","沟渠","堤灌站","塘坝","机耕路","烟夹和散叶分风板","密集烤房","机械","育苗设施","土地治理"};
+
+            /**
+             * 在用情况(1烟草在用 2大农业在用 3正常闲置 4损坏较轻(30%以内) 5损坏终端(30%-60%) 6报废(60%以上))
+             */
+            String[] usedTypes = {"烟草在用","大农业在用","正常闲置","损坏较轻(30%以内)","损坏终端(30%-60%)","报废(60%以上)"};
+
+            infrastructureOneType.setItems(oneTypes);
+            infrastructureTwoType.setItems(twoTypes);
+            infrastructureUsed.setItems(usedTypes);
+
         }
         searchItemLayout.removeAllViews();
         searchItemLayout.addView(infrastructureView);
         searchName.setVisibility(View.GONE);
+        searchYear.setVisibility(View.VISIBLE);
     }
 
     private void initPublicView() {
+        publicType = new MaterialSpinner(this);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(-1,-2);
+        params.leftMargin = Sizes.dp2px(10);
+        params.rightMargin = Sizes.dp2px(10);
+        params.topMargin = Sizes.dp2px(10);
+        publicType.setLayoutParams(params);
+        publicType.setHint("选择公示类型");
+        publicType.setHintColor(Apps.getColor(R.color.text_gray));
+        publicType.setTextColor(Apps.getColor(R.color.text_black));
+        publicType.setArrowColor(Apps.getColor(R.color.colorPrimary));
+        String[] items = {"资格审查","合同预签","清塘点株","合同变更"};
+        publicType.setItems(items);
         searchYear.setVisibility(View.VISIBLE);
         searchItemLayout.removeAllViews();
+        searchItemLayout.addView(publicType);
         searchName.setVisibility(View.GONE);
     }
 
@@ -437,12 +471,10 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         if (plantView == null) {
             plantView = Apps.getLayoutInflater().inflate(R.layout.layout_search_plant, null);
             plantCategory = plantView.findViewById(R.id.search_plant_category);
-            plantCategory.setArrowDrawable(R.drawable.arrow);
-            plantCategory.setTintColor(R.color.colorPrimary);
-            plantCategory.attachDataSource(TestSimpleDataUtil.getPlantCategory());
-            plantCategory.addOnItemClickListener(new AdapterView.OnItemClickListener() {
+            plantCategory.setItems(TestSimpleDataUtil.getPlantCategory());
+            plantCategory.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
                 @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
                     switch (position) {
                         case 0:
                             plantType = Plant.PLANT_PROMISE;
@@ -472,6 +504,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
                     }
                 }
             });
+
         }
         searchItemLayout.removeAllViews();
         searchItemLayout.addView(plantView);
@@ -483,9 +516,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
             personView = Apps.getLayoutInflater().inflate(R.layout.layout_search_person, null);
             searchName.setVisibility(View.VISIBLE);
             personCategory = personView.findViewById(R.id.search_person_category);
-            personCategory.setArrowDrawable(R.drawable.arrow);
-            personCategory.setTintColor(R.color.colorPrimary);
-            personCategory.attachDataSource(TestSimpleDataUtil.getPersons());
+            personCategory.setItems(TestSimpleDataUtil.getPersons());
 
         }
         searchItemLayout.removeAllViews();
@@ -636,8 +667,85 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
     //基础设施
     private void setInfrastructureData() {
 
-        final int type = infrastructureCategory.getSelectedIndex()+1;
-        String s = years.get(searchYear.getSelectedIndex());
+         int oneType = infrastructureOneType.getSelectedIndex()+1;
+         int twoType = infrastructureTwoType.getSelectedIndex() +1;
+         int usedType = infrastructureUsed.getSelectedIndex() + 1;
+         String s = years.get(searchYear.getSelectedIndex());
+         AppRequests.getBaseStationInfo(oneType, twoType, usedType, s, currentPage, new ResponseTCallBack<BaseInfo<ArrayList<BaseStationEntity>>>() {
+             @Override
+             protected void onSuccess(BaseInfo<ArrayList<BaseStationEntity>> data) {
+                 if(searchRefreshLayout.isRefreshing()){
+                     searchRefreshLayout.setRefreshing(false);
+                 }
+                 if(data.getResultCode() != 100 ){
+                     toastError(data.getReason());
+                     return;
+                 }
+                 ArrayList<BaseStationEntity> baseStationEntities = data.getData().getList();
+                 if(baseStationEntities == null || baseStationEntities.isEmpty()){
+                     toastError("没有数据");
+                     return;
+                 }
+
+                 totalSize = data.getData().total;
+
+                 if(currentPage == 1){
+                     if (searchBaseStationAdapter == null) {
+                         searchBaseStationAdapter = new SearchBaseStationAdapter(baseStationEntities);
+                         searchBaseStationAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
+                             @Override
+                             public void onLoadMoreRequested() {
+                                 searchRefreshLayout.post(new Runnable() {
+                                     @Override
+                                     public void run() {
+                                         if (searchBaseStationAdapter.getItemCount() < totalSize) {
+                                             currentPage ++;
+                                             setPublicData();
+                                         } else {
+                                             searchBaseStationAdapter.loadMoreEnd();
+                                         }
+                                     }
+                                 });
+                             }
+                         }, searchList);
+                         searchBaseStationAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+                             @Override
+                             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                                 toast("点击了：" + position);
+                                 List<BaseStationEntity> entities = adapter.getData();
+                                 Events.post(entities.get(position));
+                                 goToSearchDetailActivity(SearchType.SEARCH_INFRASTRUCTURE);
+
+                             }
+                         });
+                         searchList.setAdapter(searchBaseStationAdapter);
+                     } else {
+                         searchBaseStationAdapter.setNewData(baseStationEntities);
+                     }
+                 }else{
+                     searchBaseStationAdapter.addData(baseStationEntities);
+                     searchBaseStationAdapter.loadMoreComplete();
+                 }
+
+
+
+
+
+
+
+             }
+
+             @Override
+             public void onFailure(IOException e) {
+                 if(searchRefreshLayout.isRefreshing()){
+                     searchRefreshLayout.setRefreshing(false);
+                 }
+
+             }
+         });
+
+
+
 
 
     }
@@ -665,9 +773,8 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
                 searchHeaderLayout.addView(getHeaderTextView("公示时间"));
                 break;
             case SEARCH_INFRASTRUCTURE:
-                searchHeaderLayout.addView(getHeaderTextView("INFRAST1"));
-                searchHeaderLayout.addView(getHeaderTextView("INFRAST2"));
-                searchHeaderLayout.addView(getHeaderTextView("INFRAST3"));
+                searchHeaderLayout.addView(getHeaderTextView("指定负责人"));
+                searchHeaderLayout.addView(getHeaderTextView("联系电话"));
                 break;
             case SEARCH_DATA:
                 searchHeaderLayout.addView(getHeaderTextView("SEARCH_DATA1"));
@@ -692,7 +799,8 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
     }
 
     private void setPublicData() {
-        AppRequests.getPlantInfo(plantCategory.getSelectedIndex()+1,Times.getYear(),currentPage, new ResponseTCallBack<BaseInfo<ArrayList<SearchPublicEntity>>>() {
+        String s = years.get(searchYear.getSelectedIndex());
+        AppRequests.getPublicInfo(publicType.getSelectedIndex()+1, Integer.parseInt(s),currentPage, new ResponseTCallBack<BaseInfo<ArrayList<SearchPublicEntity>>>() {
             @Override
             public void onFailure(IOException e) {
                 Logs.e("SearchActivity onFailure:" + ""+e.getMessage());
@@ -704,7 +812,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
             }
 
             @Override
-            protected void onSuccess(BaseInfo<ArrayList<SearchPublicEntity>> data) {
+            protected void onSuccess(final BaseInfo<ArrayList<SearchPublicEntity>> data) {
 
                 if(searchRefreshLayout.isRefreshing()){
                     searchRefreshLayout.setRefreshing(false);
@@ -721,42 +829,52 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
                     return;
                 }
 
+                totalSize = data.getData().total;
+
 
                 Logs.e("SearchActivity onSuccess:" + data);
 
-
+                if(currentPage == 1){
+                    if (searchPublicAdapter == null) {
+                        searchPublicAdapter = new SearchPublicAdapter(publicEntities);
+                        searchPublicAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
+                            @Override
+                            public void onLoadMoreRequested() {
+                                searchRefreshLayout.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        if (searchPublicAdapter.getItemCount() < totalSize) {
+                                            currentPage ++;
+                                            setPublicData();
+                                        } else {
+                                            searchPublicAdapter.loadMoreEnd();
+                                        }
+                                    }
+                                });
+                            }
+                        }, searchList);
+                        searchPublicAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                                toast("点击了：" + position);
+                                List<SearchPublicEntity> list = adapter.getData();
+                                Events.post(list.get(position));
+                                goToSearchDetailActivity(SearchType.SEARCH_PUBLIC);
+                            }
+                        });
+                        searchList.setAdapter(searchPublicAdapter);
+                    } else {
+                        searchPublicAdapter.setNewData(publicEntities);
+                    }
+                }else{
+                    searchPublicAdapter.addData(publicEntities);
+                    searchPublicAdapter.loadMoreComplete();
+                }
 
             }
         });
 
-        if (searchPublicAdapter == null) {
-            searchPublicAdapter = new SearchPublicAdapter(TestSimpleDataUtil.getSearchPublicData());
-            searchPublicAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
-                @Override
-                public void onLoadMoreRequested() {
-                    searchRefreshLayout.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (searchPublicAdapter.getItemCount() <= 100) {
-                                searchPublicAdapter.addData(TestSimpleDataUtil.getSearchPublicData());
-                                searchPublicAdapter.loadMoreComplete();
-                            } else {
-                                searchPublicAdapter.loadMoreEnd();
-                            }
-                        }
-                    }, 500);
-                }
-            }, searchList);
-            searchPublicAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-                @Override
-                public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                    toast("点击了：" + position);
-                }
-            });
-        } else {
-            searchPublicAdapter.setNewData(TestSimpleDataUtil.getSearchPublicData());
-        }
-        searchList.setAdapter(searchPublicAdapter);
+
     }
 
     private void setPlantData() {
@@ -1118,7 +1236,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
                     @Override
                     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                         toast("点击了：" + position);
-                        Events.post(data.get(position));
+                        Events.post(adapter.getData().get(position));
                         goToSearchDetailActivity(SearchType.SEARCH_PERSON);
                     }
                 });

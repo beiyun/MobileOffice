@@ -63,6 +63,19 @@ public class AppUrl {
     public String PLANT_INFO;
 
 
+    /**
+     * bo.page 分页 bo.year 年度  bo.province 省 bo.city 市  bo.county 县  bo.uid 烟站 bo.village 村委会
+     * bo.villageGroup 村小组 bo.types 公示类型 1资格审查、2合同预签、3清塘点株、4合同变更
+
+     */
+    public String PUBLIC_INFO;
+
+    /**
+     *
+     */
+    public String BASIC_STATION_INFO;
+
+
 
     public String CHECK_VERSION;
 
@@ -106,6 +119,8 @@ public class AppUrl {
          WORK_QUERY2 = BASE_URL + "taskManage/taskManage_queryMessages.do";
          CHECK_VERSION = BASE_URL + "version/version_checkVersion.do";
          REPORT = BASE_URL + "feedback/feedback_save.do";
+         PUBLIC_INFO = BASE_URL + "dissentdeal/dissentdeal_queryPublicityImage.do";
+         BASIC_STATION_INFO = BASE_URL + "facility/facility_search.do";
 
     }
 

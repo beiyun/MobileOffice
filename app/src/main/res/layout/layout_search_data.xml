@@ -33,23 +33,25 @@
         android:layout_height="@dimen/dp_48" />
 
 
-    <org.angmarch.views.NiceSpinner
+    <com.jaredrummler.materialspinner.MaterialSpinner
         android:id="@+id/search_data_area"
         android:layout_marginTop="@dimen/dp_10"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_48"
-        app:arrowTint="@color/colorPrimary"
-        app:textTint="@color/text_black"
-        android:hint="区域范围"/>
+        app:ms_text_color="@color/text_black"
+        app:ms_arrow_tint="@color/colorPrimary"
+        app:ms_hint_color="@color/text_gray"
+        app:ms_hint="区域范围"/>
 
-    <org.angmarch.views.NiceSpinner
+    <com.jaredrummler.materialspinner.MaterialSpinner
         android:id="@+id/search_data_text"
         android:layout_marginTop="@dimen/dp_10"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_48"
-        app:arrowTint="@color/colorPrimary"
-        app:textTint="@color/text_black"
-        android:hint="汇总内容"/>
+        app:ms_text_color="@color/text_black"
+        app:ms_arrow_tint="@color/colorPrimary"
+        app:ms_hint_color="@color/text_gray"
+        app:ms_hint="汇总内容"/>
 
 
 </LinearLayout>

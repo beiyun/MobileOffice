@@ -182,7 +182,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:checked="false"
-                app:buttonTint="@color/light_gray"
+                app:buttonTint="@color/text_gray"
                 app:thumbTint="@color/colorWarning"
                 app:trackTintMode="multiply"
                 app:trackTint="@color/colorPrimaryDark"
