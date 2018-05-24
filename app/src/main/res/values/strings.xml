@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">烟草职工移动办公</string>
+    <string name="app_name">职工移动办公</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">用户名/手机号</string>

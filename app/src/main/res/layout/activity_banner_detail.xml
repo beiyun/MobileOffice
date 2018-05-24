@@ -14,7 +14,7 @@
             app:progressBarAutoRotateInterval="2000"
             app:fadeDuration="1000"
             app:actualImageScaleType="fitCenter"
-            app:placeholderImage="@mipmap/banner1"
+            app:placeholderImage="@mipmap/bannerplaceholder"
             app:retryImage="@drawable/ic_replay_black_24dp"
             app:retryImageScaleType="centerInside"
             app:failureImage="@drawable/ic_failed_24dp"

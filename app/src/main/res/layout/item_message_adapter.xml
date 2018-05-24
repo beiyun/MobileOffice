@@ -51,7 +51,8 @@
 
 
     <TextView style="@style/line"
-        android:layout_below="@+id/item_message_date"
+        android:id="@+id/line"
+        android:layout_alignParentBottom="true"
         android:layout_alignStart="@id/item_message_image"
         android:layout_alignLeft="@id/item_message_image" />
 

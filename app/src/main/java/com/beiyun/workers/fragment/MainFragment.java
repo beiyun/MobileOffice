@@ -198,27 +198,7 @@ public class MainFragment extends BaseFragment implements SwipeRefreshLayout.OnR
         List<String> titles = new ArrayList<>();
         for (int i = 0; i < banners.size(); i++) {
             urls.add(banners.get(i).getBannerUrl());
-            switch (i){
-                case 0:
-                    titles.add("风姿绰约的娜扎");
-                    break;
-                case 1:
-                    titles.add("回眸一笑便倾倒众生");
-                    break;
-                case 2:
-                    titles.add("纵是十里桃花盛开");
-                    break;
-                case 3:
-                    titles.add("也不敌这一叶芳华");
-                    break;
-                case 4:
-                    titles.add("片刻绽开的辉煌");
-                    break;
-                case 5:
-                    titles.add("you raise me up angel");
-                    break;
-                default:
-            }
+            titles.add(banners.get(i).getExplain());
         }
 
 
@@ -305,49 +285,15 @@ public class MainFragment extends BaseFragment implements SwipeRefreshLayout.OnR
                 if(mAdapter == null){
                     initRecyclerView();
                     loadListData();
-//                    initLocalData();
                     mainActivity.supportStartPostponedEnterTransition();
                 }else{
                     loadListData();
-//                    initLocalData();
                 }
 
             }
         },500);
     }
 
-    private void initLocalData() {
-        List<News>  news = new ArrayList<>();
-        totalSize = 100;
-        for (int i = 1; i < 10; i++) {
-            News item = new News();
-            item.setPlate(News.getPlateString(i));
-            item.setTitleImage(News.getTitleImageRes(i));
-            if(i%2==0){
-                item.setReadCount(1265);
-                item.setTitle("此前备受关注的“失控奔驰”事件当事车辆在今天接受第三方检测。鉴定机构为北京中机车辆司法鉴定中心，委托鉴定事项和要求包括：涉事奔驰车制动系统是否存在故障、巡航系统是否存在故障、2018年3月14日在连霍高速相关路段行驶过程中是否存在失控情况。");
-                item.setContent("http://mc.vip.qq.com/demo/indexv3");
-
-            }else{
-                item.setTitle("test android with web url int other page, try to update it");
-                item.setReadCount(8546);
-                item.setContent("https://github.com");
-            }
-            news.add(item);
-        }
-
-        refreshLayout.setRefreshing(false);
-        if(page == 1){
-            initAdapter(news);
-            initBannerHeader();
-            mAdapter.setEnableLoadMore(true);
-        }else{
-            mAdapter.addData(news);
-            mAdapter.loadMoreComplete();
-        }
-        page ++;
-
-    }
 
     private int page = 1;
 

@@ -111,30 +111,34 @@ public class UpdateManager {
                 if (checkDialog != null) {
                     checkDialog.dismiss();
                 }
-                VersionInfo info = new Gson().fromJson(response, new TypeToken<VersionInfo>() {
-                }.getType());
+               try {
+                   VersionInfo info = new Gson().fromJson(response, new TypeToken<VersionInfo>() {
+                   }.getType());
 
-                Log.d(TAG, "onResponse: "+info);
-                if (info.getResultCode() == 100) {
-                    if (getVersionCode(Apps.getCurrentActivity()) - info.getVersionCode() < 0) {
-                        apkUrl = AppUrl.get().BASE_IMAGE_URL + info.getUrl();
-                        Log.d(TAG, "onResponse: apkUrl = "+apkUrl);
-                        if (!isFromAboutUi) {
-                            noticeUser(info);
-                        } else {
-                            showNoticeDialog(info);
-                        }
-                    } else {
-                        if (isFromAboutUi) {
-                            toast("当前已是最新版本");
-                        }
+                   Log.d(TAG, "onResponse: "+info);
+                   if (info.getResultCode() == 100) {
+                       if (getVersionCode(Apps.getCurrentActivity()) - info.getVersionCode() < 0) {
+                           apkUrl = AppUrl.get().BASE_IMAGE_URL + info.getUrl();
+                           Log.d(TAG, "onResponse: apkUrl = "+apkUrl);
+                           if (!isFromAboutUi) {
+                               noticeUser(info);
+                           } else {
+                               showNoticeDialog(info);
+                           }
+                       } else {
+                           if (isFromAboutUi) {
+                               toast("当前已是最新版本");
+                           }
 
-                    }
-                } else {
-                    if (isFromAboutUi) {
-                        toast("当前已是最新版本");
-                    }
-                }
+                       }
+                   } else {
+                       if (isFromAboutUi) {
+                           toast("当前已是最新版本");
+                       }
+                   }
+               }catch (Exception e){
+                    e.printStackTrace();
+               }
             }
         });
 

@@ -98,8 +98,8 @@ public class AppUrl {
             BASE_URL = PUBLIC_IP+"tobacco/";
             BASE_IMAGE_URL = PUBLIC_IP+"imageweb/";
         }else{
-            BASE_URL = PRIVATE_IP+"tobacco/";
-            BASE_IMAGE_URL = PRIVATE_IP+"imageweb/";
+            BASE_URL = LOCAL_IP+"tobacco/";
+            BASE_IMAGE_URL = LOCAL_IP+"imageweb/";
         }
 
          UPDATE_PASSWORD_STEP_1 = BASE_URL + "login/login_sendverificationcode.do";

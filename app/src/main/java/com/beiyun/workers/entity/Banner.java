@@ -4,6 +4,15 @@ public class Banner {
 
     private String bannerUrl;
     private String bannerDetailUrl;
+    private String explain;
+
+    public String getExplain() {
+        return explain;
+    }
+
+    public void setExplain(String explain) {
+        this.explain = explain;
+    }
 
     public String getBannerUrl() {
         return bannerUrl;
