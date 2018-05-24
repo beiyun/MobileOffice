@@ -105,6 +105,11 @@ public class PersonFragment extends BaseFragment {
                         @Override
                         public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                             com.beiyun.library.util.AppCaches.clearAllCache();
+                            try {
+                                mainActivity.toast("共清理掉"+ com.beiyun.library.util.AppCaches.getTotalCacheSize()+"缓存文件");
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                             dialog.dismiss();
                         }
                     }).build().show();

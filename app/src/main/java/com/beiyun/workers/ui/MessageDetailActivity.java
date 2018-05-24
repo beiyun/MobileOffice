@@ -57,6 +57,7 @@ public class MessageDetailActivity extends BaseActivity {
         actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle("消息详情");
         }
 
         titleImage = (SimpleDraweeView) findViewById(R.id.message_list_detail_title_image);
@@ -232,7 +233,6 @@ public class MessageDetailActivity extends BaseActivity {
 
     @Subscribe
     public void receive(MessageEntity entity){
-        actionBar.setTitle(entity.getTitle());
         titleImage.setImageURI(Uri.parse(AppUrl.get().BASE_IMAGE_URL + entity.getImg()));
         initWebView(AppUrl.get().BASE_URL+entity.getContent());
 

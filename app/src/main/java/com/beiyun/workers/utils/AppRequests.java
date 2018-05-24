@@ -167,7 +167,7 @@ public class AppRequests {
         params.put("bo.year",year);
         params.put("bo.page",String.valueOf(page));
         User user = (User) Sps.get(User.class);
-        params.put("bo.userId",user.getInstructorId());
+        params.put("bo.userId",user.getInstructorId()== null?"":user.getInstructorId());
         OkHttpUtils.postQuery(AppUrl.get().BASIC_STATION_INFO,params,callBack);
     }
 
@@ -217,7 +217,7 @@ public class AppRequests {
         int type = use.getType();
         params.put("bo.page", String.valueOf(page));
         params.put("bo.courseStatus", String.valueOf(2));
-        params.put("bo.editId",use.getInstructorId());
+        params.put("bo.editId",use.getInstructorId()== null?"":use.getInstructorId());
         OkHttpUtils.postQuery(AppUrl.get().VIDEO,params,callBack);
     }
 
@@ -248,14 +248,14 @@ public class AppRequests {
      */
     public static void workSend(WorkUploadEntity entity,RequestCallBack callBack){
         HashMap<String,String> params = new HashMap<>();
-        params.put("bo.title",entity.getTitle());
-        params.put("bo.degree",entity.getDegree());
-        params.put("bo.endTime",entity.getEndTime());
-        params.put("bo.performRole",entity.getPerformRole());
-        params.put("bo.demand",entity.getDemand());
+        params.put("bo.title",entity.getTitle()== null?"":entity.getTitle());
+        params.put("bo.degree",entity.getDegree()== null?"":entity.getDegree());
+        params.put("bo.endTime",entity.getEndTime()== null?"":entity.getEndTime());
+        params.put("bo.performRole",entity.getPerformRole()== null?"":entity.getPerformRole());
+        params.put("bo.demand",entity.getDemand()== null?"":entity.getDemand());
         User user = (User) Sps.get(User.class);
         params.put("bo.assigner", String.valueOf(user.getType()));
-        params.put("bo.editId",user.getInstructorId());
+        params.put("bo.editId",user.getInstructorId()== null?"":user.getInstructorId());
         OkHttpUtils.postUpload(AppUrl.get().WORK_UPLOAD,params,callBack);
     }
 
@@ -269,8 +269,8 @@ public class AppRequests {
     public static <T> void workNameSearch(String endTime,ResponseTCallBack<T> responseTCallBack){
         HashMap<String,String> params = new HashMap<>();
         User user = (User) Sps.get(User.class);
-        params.put("bo.editId",user.getInstructorId());
-        params.put("bo.endTime",endTime);
+        params.put("bo.editId",user.getInstructorId()== null?"":user.getInstructorId());
+        params.put("bo.endTime",endTime== null?"":endTime);
         OkHttpUtils.postQuery(AppUrl.get().WORK_QUERY1,params,responseTCallBack);
     }
 
@@ -285,9 +285,9 @@ public class AppRequests {
     public static <T> void workSearch(int page, WorkNameSearchEntity entity,ResponseTCallBack<T> callBack){
         HashMap<String,String> params = new HashMap<>();
         params.put("bo.page", String.valueOf(page));
-        params.put("bo.id",entity.getId());
-        params.put("bo.title",entity.getTitle());
-        params.put("bo.performRole",entity.getPerformRole());
+        params.put("bo.id",entity.getId()== null?"":entity.getId());
+        params.put("bo.title",entity.getTitle()== null?"":entity.getTitle());
+        params.put("bo.performRole",entity.getPerformRole()== null?"":entity.getPerformRole());
         OkHttpUtils.postQuery(AppUrl.get().WORK_QUERY2,params,callBack);
 
     }
@@ -301,11 +301,11 @@ public class AppRequests {
     public static void report(String content,RequestCallBack callBack){
         HashMap<String,String> params = new HashMap<>();
         User user = (User) Sps.get(User.class);
-        params.put("bo.types", String.valueOf(user.getType()));
-        params.put("bo.linkTel",user.getTel());
-        params.put("bo.userId",user.getInstructorId());
-        params.put("bo.userName",user.getNickname());
-        params.put("bo.identity",user.getIdentity());
+        params.put("bo.types", "职工APP");
+        params.put("bo.linkTel",user.getTel()== null?"":user.getTel());
+        params.put("bo.userId",user.getInstructorId()== null?"":user.getInstructorId());
+        params.put("bo.userName",user.getNickname()== null?"":user.getNickname());
+        params.put("bo.identity",user.getIdentity()== null?"":user.getIdentity());
         params.put("bo.backContent",content);
         OkHttpUtils.postUpload(AppUrl.get().REPORT,params,callBack);
     }
@@ -314,11 +314,11 @@ public class AppRequests {
     private static void setLocalParams(HashMap<String, String> params) {
         User user = (User) Sps.get(User.class);
         params.put("user.type", String.valueOf(user.getType()));
-        params.put("user.province",user.getProvince());
-        params.put("user.city",user.getCity());
-        params.put("user.county",user.getCounty());
-        params.put("user.uid",user.getUid());
-        params.put("user.id",user.getInstructorId());
+        params.put("user.province",user.getProvince()== null?"":user.getProvince());
+        params.put("user.city",user.getCity()== null?"":user.getCity());
+        params.put("user.county",user.getCounty()== null?"":user.getCounty());
+        params.put("user.uid",user.getUid()== null?"":user.getUid());
+        params.put("user.id",user.getInstructorId()== null?"":user.getInstructorId());
 
         try{
             HashMap<String, Address> addressMap = AddressSelector.getAddressMap();
@@ -337,11 +337,11 @@ public class AppRequests {
     private static void setLocalParams1(HashMap<String, String> params) {
         User user = (User) Sps.get(User.class);
         params.put("user.type", String.valueOf(user.getType()));
-        params.put("user.province",user.getProvince());
-        params.put("user.city",user.getCity());
-        params.put("user.county",user.getCounty());
-        params.put("user.uid",user.getUid());
-        params.put("user.id",user.getInstructorId());
+        params.put("user.province",user.getProvince()== null?"":user.getProvince());
+        params.put("user.city",user.getCity()== null?"":user.getCity());
+        params.put("user.county",user.getCounty()== null?"":user.getCounty());
+        params.put("user.uid",user.getUid()== null?"":user.getUid());
+        params.put("user.id",user.getInstructorId()== null?"":user.getInstructorId());
 
         try{
             HashMap<String, Address> addressMap = AddressSelector.getAddressMap();

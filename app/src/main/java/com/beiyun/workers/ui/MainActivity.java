@@ -225,7 +225,7 @@ public class MainActivity extends BaseActivity implements ViewAnimator.ViewAnima
         final User user = (User) Sps.get(User.class);
         Sps.clear(User.class);
         HashMap<String,String> params = new HashMap<>();
-        params.put("bo.userNumber",user.getUserNumber());
+        params.put("bo.userNumber",user.getUserNumber()== null?"":user.getUserNumber());
         startActivity(new Intent(MainActivity.this,LoginActivity.class));
         finish();
         Logs.e("MainActivity signOut params = "+ params);

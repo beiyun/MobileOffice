@@ -438,7 +438,6 @@ public class LearnFragment extends BaseFragment {
                 .cancelable(false).content("上传中").build();
         uploadDialog.show();
 
-        com.beiyun.library.util.Views.disableControl(video_add_layout);
 
         String courseMode = String.valueOf(selectedIndex + 1);
         User user = (User) Sps.get(User.class);

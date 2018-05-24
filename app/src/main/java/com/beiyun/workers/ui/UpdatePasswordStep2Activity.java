@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.alibaba.fastjson.JSONObject;
 import com.beiyun.library.anot.Receiver;
+import com.beiyun.library.anot.Subscribe;
 import com.beiyun.library.util.Logs;
 import com.beiyun.workers.R;
 import com.beiyun.workers.base.BaseActivity;
@@ -83,8 +84,13 @@ public class UpdatePasswordStep2Activity extends BaseActivity {
                 dialog.dismiss();
                 try {
                     JSONObject object = JSONObject.parseObject(response);
+                    int resultCode = object.getIntValue("resultCode");
                     String reason = object.getString("reason");
-                    toastSuccess(reason);
+                    if(resultCode == 100){
+                        toastSuccess(reason);
+                    }else{
+                        toastError(reason);
+                    }
                 }catch (Exception e){
                     e.printStackTrace();
                 }
@@ -93,6 +99,7 @@ public class UpdatePasswordStep2Activity extends BaseActivity {
         });
     }
 
+    @Subscribe
     public void receive(String userNumber){
         mUserNumber = userNumber;
     }

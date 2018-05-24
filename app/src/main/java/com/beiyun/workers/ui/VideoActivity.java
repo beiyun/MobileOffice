@@ -235,7 +235,7 @@ public class VideoActivity extends BaseActivity {
     @Subscribe
     public void dataForLearnFragPage1(LearnPage1Entity entity) {
         Logs.e("VideoActivity dataForLearnFragPage1:" + "" + entity);
-        videoPlayer.setUp(entity.getVideoUrl(),
+        videoPlayer.setUp(AppUrl.get().BASE_IMAGE_URL +entity.getVideoUrl(),
                 JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL, entity.getTitle());
         Glide.with(this).load(AppUrl.get().BASE_IMAGE_URL + entity.getThumbImageUrl()).into(videoPlayer.thumbImageView);
         videoPlayer.post(new Runnable() {
