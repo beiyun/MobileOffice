@@ -77,7 +77,7 @@ public class TGBasicInfoEntity{
 
     private String password; // 用户密码
 
-    private int type; // 职工类别      1代表烟站站长  2代表烟站职工  3代表辅导员  41代表省领导  42代表省职工  43代表市领导  44代表市职工  45代表县领导  46代表县职工
+    private String type; // 职工类别      1代表烟站站长  2代表烟站职工  3代表辅导员  41代表省领导  42代表省职工  43代表市领导  44代表市职工  45代表县领导  46代表县职工
 
 //    private String identity; // 身份证号
 
@@ -97,7 +97,7 @@ public class TGBasicInfoEntity{
 
     private String remark; // 备注
 
-    private int available; // 状态   1启用  2禁用
+    private String available; // 状态   1启用  2禁用
 
     private String vid; // 村委会
 
@@ -117,7 +117,7 @@ public class TGBasicInfoEntity{
 
     private String county;// 所属县
 
-    private int department;// 所在科室    81代表企管科长  86代表企管科员  82代表办公室主任  83代表办公室科员  84代表生产科长  85代表生产科员
+    private String department;// 所在科室    81代表企管科长  86代表企管科员  82代表办公室主任  83代表办公室科员  84代表生产科长  85代表生产科员
 
     private String gender;// 性别
 
@@ -618,11 +618,11 @@ public class TGBasicInfoEntity{
         this.password = password;
     }
 
-    public int getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -682,11 +682,11 @@ public class TGBasicInfoEntity{
         this.remark = remark;
     }
 
-    public int getAvailable() {
+    public String getAvailable() {
         return available;
     }
 
-    public void setAvailable(int available) {
+    public void setAvailable(String available) {
         this.available = available;
     }
 
@@ -746,11 +746,11 @@ public class TGBasicInfoEntity{
         this.county = county;
     }
 
-    public int getDepartment() {
+    public String getDepartment() {
         return department;
     }
 
-    public void setDepartment(int department) {
+    public void setDepartment(String department) {
         this.department = department;
     }
 
@@ -893,6 +893,7 @@ public class TGBasicInfoEntity{
     @Override
     public String toString() {
         return "TGBasicInfoEntity >>{" +
+                "category='" + category + '\'' +
                 "accountNumber='" + accountNumber + '\'' +
                 ", fid='" + fid + '\'' +
                 ", name='" + name + '\'' +

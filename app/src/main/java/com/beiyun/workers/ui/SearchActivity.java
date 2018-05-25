@@ -63,12 +63,14 @@ import com.beiyun.workers.enums.Plant;
 import com.beiyun.workers.interf.SearchType;
 import com.beiyun.workers.okhttp.callback.BaseInfo;
 import com.beiyun.workers.okhttp.callback.ResponseTCallBack;
+import com.beiyun.workers.okhttp.callback.StringCallBack;
 import com.beiyun.workers.utils.AddressSelector;
 import com.beiyun.workers.utils.AppRequests;
 import com.beiyun.workers.utils.GsonUtil;
 import com.beiyun.workers.utils.TestSimpleDataUtil;
 import com.beiyun.workers.view.DatePikerDialog;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.nightonke.boommenu.BoomButtons.ButtonPlaceEnum;
@@ -424,6 +426,8 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
             infrastructureOneType = infrastructureView.findViewById(R.id.search_infrastructure_oneType);
             infrastructureTwoType = infrastructureView.findViewById(R.id.search_infrastructure_twoType);
             infrastructureUsed = infrastructureView.findViewById(R.id.search_infrastructure_used);
+            infrastructureOneType.setDropdownMaxHeight(Sizes.dp2px(300));
+            infrastructureTwoType.setDropdownMaxHeight(Sizes.dp2px(300));
             /**
              * 一级设施类型(1烟水工程 2机耕路 3烟叶调制设施 4农业机械 5育苗设施)
              */
@@ -904,7 +908,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
         String name = searchName.getText().toString();
 
         final int finalType = type;
-        AppRequests.getPlantInfo(type, Integer.valueOf(s),name,currentPage, new ResponseTCallBack<BaseInfo>() {
+        AppRequests.getPlantInfo(type, Integer.valueOf(s),name,currentPage, new StringCallBack() {
             @Override
             public void onFailure(IOException e) {
                 Logs.e("getplantInfo onFailure >>"+e.getMessage());
@@ -915,11 +919,13 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
             }
 
             @Override
-            protected void onSuccess(BaseInfo data) {
+            public void onResponse(String response) throws IOException {
+
                 if(searchRefreshLayout.isRefreshing()){
                     searchRefreshLayout.setRefreshing(false);
                 }
 
+                BaseInfo data = new Gson().fromJson(response, BaseInfo.class);
                 if(data == null || data.getResultCode() != 100){
                     assert data != null;
                     toastError(data.getReason());
@@ -934,11 +940,10 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
 
                 switch (finalType){
                     case 1:
-                        ArrayList<TGLetterOfCommitmentBean> commitmentBeans = GsonUtil.parseJson(data.getData().getList().toString(), new TypeToken<ArrayList<TGLetterOfCommitmentBean>>() {
-                        });
+                        ArrayList<TGLetterOfCommitmentBean> commitmentBeans = (ArrayList<TGLetterOfCommitmentBean>) GsonUtil.parseJson(response,new TypeToken<BaseInfo<ArrayList<TGLetterOfCommitmentBean>>>(){});
                         if(commitmentBeans != null && commitmentBeans.size() != 0){
                             for (TGLetterOfCommitmentBean bean:
-                                 commitmentBeans) {
+                                    commitmentBeans) {
                                 SearchPlantEntity entity = setUpSearchPlantEntities(bean.getName(), bean.getFarmerTel());
                                 searchPlantEntities.add(entity);
                             }
@@ -956,8 +961,8 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
 
                         break;
                     case 2:
-                        ArrayList<ApplyAcceptEntity> acceptEntities = GsonUtil.parseJson(data.getData().getList().toString(), new TypeToken<ArrayList<ApplyAcceptEntity>>() {
-                        });
+                        ArrayList<ApplyAcceptEntity> acceptEntities =
+                                (ArrayList<ApplyAcceptEntity>) GsonUtil.parseJson(response, new TypeToken<BaseInfo<ArrayList<ApplyAcceptEntity>>>(){});
                         if(acceptEntities != null && acceptEntities.size() != 0){
                             for (ApplyAcceptEntity bean:
                                     acceptEntities) {
@@ -978,8 +983,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
 
                         break;
                     case 3:
-                        ArrayList<CheckQualificationBean> qualificationBeans = GsonUtil.parseJson(data.getData().getList().toString(), new TypeToken<ArrayList<CheckQualificationBean>>() {
-                        });
+                        ArrayList<CheckQualificationBean> qualificationBeans = (ArrayList<CheckQualificationBean>) GsonUtil.parseJson(response,new TypeToken<BaseInfo<ArrayList<CheckQualificationBean>>>(){});
                         if(qualificationBeans != null && qualificationBeans.size() != 0){
                             for (CheckQualificationBean bean:
                                     qualificationBeans) {
@@ -1000,8 +1004,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
 
                         break;
                     case 4:
-                        ArrayList<PreContractBean> preContractBeans = GsonUtil.parseJson(data.getData().getList().toString(), new TypeToken<ArrayList<PreContractBean>>() {
-                        });
+                        ArrayList<PreContractBean> preContractBeans = (ArrayList<PreContractBean>) GsonUtil.parseJson(response,new TypeToken<BaseInfo<ArrayList<PreContractBean>>>(){});
                         if(preContractBeans != null && preContractBeans.size() != 0){
                             for (PreContractBean bean:
                                     preContractBeans) {
@@ -1022,8 +1025,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
 
                         break;
                     case 5:
-                        ArrayList<SortAndCountEntity>  sortAndCountEntities = GsonUtil.parseJson(data.getData().getList().toString(), new TypeToken<ArrayList<SortAndCountEntity>>() {
-                        });
+                        ArrayList<SortAndCountEntity>  sortAndCountEntities = (ArrayList<SortAndCountEntity>) GsonUtil.parseJson(response, new TypeToken<BaseInfo<ArrayList<SortAndCountEntity>>>(){});
                         if(sortAndCountEntities != null && sortAndCountEntities.size() != 0){
                             for (SortAndCountEntity bean:
                                     sortAndCountEntities) {
@@ -1044,8 +1046,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
 
                         break;
                     case 6:
-                        ArrayList<FormalContractBean> formalContractBeans = GsonUtil.parseJson(data.getData().getList().toString(), new TypeToken<ArrayList<FormalContractBean>>() {
-                        });
+                        ArrayList<FormalContractBean> formalContractBeans = (ArrayList<FormalContractBean>) GsonUtil.parseJson(response, new TypeToken<BaseInfo<ArrayList<FormalContractBean>>>(){});
                         if(formalContractBeans != null && formalContractBeans.size() != 0){
                             for (FormalContractBean bean:
                                     formalContractBeans) {
@@ -1066,8 +1067,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
 
                         break;
                     case 7:
-                        ArrayList<CuredPactEntity> curedPactEntities = GsonUtil.parseJson(data.getData().getList().toString(), new TypeToken<ArrayList<CuredPactEntity>>() {
-                        });
+                        ArrayList<CuredPactEntity> curedPactEntities = (ArrayList<CuredPactEntity>) GsonUtil.parseJson(response, new TypeToken<BaseInfo<ArrayList<CuredPactEntity>>>(){});
                         if(curedPactEntities != null && curedPactEntities.size() != 0){
                             for (CuredPactEntity bean:
                                     curedPactEntities) {
@@ -1087,8 +1087,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
                         initPlantAdapter(searchPlantEntities);
                         break;
                     case 8:
-                        ArrayList<NoticeEntity> noticeEntities = GsonUtil.parseJson(data.getData().getList().toString(), new TypeToken<ArrayList<NoticeEntity>>() {
-                        });
+                        ArrayList<NoticeEntity> noticeEntities = (ArrayList<NoticeEntity>) GsonUtil.parseJson(response,new TypeToken<BaseInfo<ArrayList<NoticeEntity>>>(){});
                         if(noticeEntities != null && noticeEntities.size() != 0){
                             for (NoticeEntity bean:
                                     noticeEntities) {
@@ -1107,12 +1106,13 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
 
                         initPlantAdapter(searchPlantEntities);
                         break;
-                        default:
+                    default:
 
                 }
 
-
             }
+
+
         });
         
 

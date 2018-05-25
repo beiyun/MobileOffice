@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 
 import com.beiyun.library.anot.Subscribe;
 import com.beiyun.library.util.Events;
+import com.beiyun.library.util.Times;
 import com.beiyun.library.util.Views;
 import com.beiyun.workers.R;
 import com.beiyun.workers.base.BaseSearchFragment;
@@ -115,12 +116,42 @@ public class PersonInfoFragment extends BaseSearchFragment {
     @BindView(R.id.person_info_root)
     LinearLayout personInfoRoot;
     Unbinder unbinder;
+    @BindView(R.id.zhigongNumber)
+    FormView zhigongNumber;
+    @BindView(R.id.zhigongType)
+    FormView zhigongType;
+    @BindView(R.id.zhigongUserName)
+    FormView zhigongUserName;
+    @BindView(R.id.zhigongStatus)
+    FormView zhigongStatus;
+    @BindView(R.id.ruzhiTime)
+    FormView ruzhiTime;
+    @BindView(R.id.lizhiTime)
+    FormView lizhiTime;
+    @BindView(R.id.zhigongUnit)
+    FormView zhigongUnit;
+    @BindView(R.id.zhigongStation)
+    FormView zhigongStation;
+    @BindView(R.id.zhigongAddress)
+    FormView zhigongAddress;
+    @BindView(R.id.zhigongFamilyAddress)
+    FormView zhigongFamilyAddress;
+    @BindView(R.id.suoxiaVillage)
+    FormView suoxiaVillage;
+    @BindView(R.id.beizhu)
+    CountEditText beizhu;
+    @BindView(R.id.zhigongLayout)
+    LinearLayout zhigongLayout;
+    @BindView(R.id.framerLayout)
+    LinearLayout framerLayout;
+    @BindView(R.id.fudaoyuanGuaPianZhiGong)
+    FormView fudaoyuanGuaPianZhiGong;
+    @BindView(R.id.tobaccoLayout)
+    LinearLayout tobaccoLayout;
 
 
     public PersonInfoFragment() {
     }
-
-
 
 
     @Nullable
@@ -146,11 +177,13 @@ public class PersonInfoFragment extends BaseSearchFragment {
 
 
     @Subscribe
-    public void onReceive(TGBasicInfoEntity entity){
-        if(entity.getCategory() != 1){
+    public void onReceive(TGBasicInfoEntity entity) {
+        if (entity.getCategory() != 1 && entity.getCategory() != 2) {
+            zhigongLayout.setVisibility(View.GONE);
+            tobaccoLayout.setVisibility(View.GONE);
             name.setEditText(entity.getName());
             identity.setEditText(entity.getIdentity());
-            sex.setEditText("1".equals(entity.getSex())?"男":"2".equals(entity.getSex())?"女":"");
+            sex.setEditText("1".equals(entity.getSex()) ? "男" : "2".equals(entity.getSex()) ? "女" : "");
             age.setEditText(entity.getAge());
             headImg.setImageURI(Uri.parse(AppUrl.get().BASE_IMAGE_URL + entity.getHeaderImg()));
             towns.setEditText(entity.getTowns());
@@ -178,7 +211,7 @@ public class PersonInfoFragment extends BaseSearchFragment {
                     years[i] = year;
 
                     //默认显示当年的种烟信息
-                    if (String.valueOf(com.beiyun.library.util.Times.getYear()).equals(year)) {
+                    if (String.valueOf(Times.getYear()).equals(year)) {
                         bindGrowInfo(farmerDetail.get(i));
                         annual.setEditText(year);
                     }
@@ -205,11 +238,29 @@ public class PersonInfoFragment extends BaseSearchFragment {
             cPassword.setEditText(entity.getcPassword());
             cDate.setEditText(entity.getcDate());
             cProxy.setEditText(entity.getcProxy());
-        }else {
+        } else {
+            framerLayout.setVisibility(View.GONE);
+            if(entity.getCategory() == 1){
+                tobaccoLayout.setVisibility(View.GONE);
+            }else{
+                fudaoyuanGuaPianZhiGong.setEditText(entity.getWid());
+                suoxiaVillage.setEditText(entity.getVillageGroup());
+            }
+            zhigongNumber.setEditText(entity.getUserNumber());
+            zhigongType.setEditText(entity.getType());
+            zhigongUserName.setEditText(entity.getUserName());
+            zhigongStatus.setEditText(entity.getAvailable());
+            ruzhiTime.setEditText(entity.getHiredate());
+            lizhiTime.setEditText(entity.getLeavedate());
+            zhigongUnit.setEditText(entity.getUname());
+            zhigongStation.setEditText(entity.getDepartment());
+            zhigongAddress.setEditText(entity.getProvince() + "\t" + entity.getCity() + "\t" + entity.getCounty());
+            zhigongFamilyAddress.setEditText(entity.getAddress());
+            beizhu.setText(entity.getRemark());
             name.setEditText(entity.getNickname());
             identity.setEditText(entity.getIdentity());
             headImg.setImageURI(Uri.parse(AppUrl.get().BASE_IMAGE_URL + entity.getHeaderImg()));
-            sex.setEditText("1".equals(entity.getSex())?"男":"2".equals(entity.getSex())?"女":"");
+            sex.setEditText("1".equals(entity.getSex()) ? "男" : "2".equals(entity.getSex()) ? "女" : "");
             towns.setEditText(entity.getTowns());
             village.setEditText(entity.getVillageCommittee());
             villageGroup.setEditText(entity.getVillageGroup());
@@ -245,7 +296,6 @@ public class PersonInfoFragment extends BaseSearchFragment {
         mandatoryAmount.setEditText(growInfo.getMandatoryAmount());//指令性量
         exportAmount.setEditText(growInfo.getExportAmount());//其中出口备货
     }
-
 
 
     @Override

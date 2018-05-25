@@ -19,6 +19,7 @@ import com.beiyun.workers.okhttp.callback.RequestCallBack;
 import com.beiyun.workers.okhttp.callback.ResponseTCallBack;
 import com.beiyun.library.util.Logs;
 import com.beiyun.library.util.Apps;
+import com.beiyun.workers.okhttp.callback.StringCallBack;
 import com.sdsmdg.tastytoast.TastyToast;
 import com.beiyun.library.util.Sps;
 
@@ -119,7 +120,7 @@ public class AppRequests {
      * user.city 登录人所属市   user.county 登录人所属县   user.uid  登录人烟站
      * @param <T>
      */
-    public static <T> void  getPlantInfo(int type, int year,String name,int page, ResponseTCallBack<T> callBack){
+    public static <T> void  getPlantInfo(int type, int year,String name,int page, StringCallBack callBack){
         HashMap<String,String> params = new HashMap<>();
         setLocalParams(params);
         params.put("bo.types", type == -1?"":String.valueOf(type));
