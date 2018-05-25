@@ -150,7 +150,7 @@ public class PersonInfoFragment extends BaseSearchFragment {
         if(entity.getCategory() != 1){
             name.setEditText(entity.getName());
             identity.setEditText(entity.getIdentity());
-            sex.setEditText(entity.getSex());
+            sex.setEditText("1".equals(entity.getSex())?"男":"2".equals(entity.getSex())?"女":"");
             age.setEditText(entity.getAge());
             headImg.setImageURI(Uri.parse(AppUrl.get().BASE_IMAGE_URL + entity.getHeaderImg()));
             towns.setEditText(entity.getTowns());
@@ -209,6 +209,7 @@ public class PersonInfoFragment extends BaseSearchFragment {
             name.setEditText(entity.getNickname());
             identity.setEditText(entity.getIdentity());
             headImg.setImageURI(Uri.parse(AppUrl.get().BASE_IMAGE_URL + entity.getHeaderImg()));
+            sex.setEditText("1".equals(entity.getSex())?"男":"2".equals(entity.getSex())?"女":"");
             towns.setEditText(entity.getTowns());
             village.setEditText(entity.getVillageCommittee());
             villageGroup.setEditText(entity.getVillageGroup());

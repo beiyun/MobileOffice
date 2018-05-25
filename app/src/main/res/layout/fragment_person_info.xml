@@ -194,6 +194,7 @@
 
 
         <LinearLayout
+            android:id="@+id/bottom_image_layout"
             style="@style/LinearLayout_Normal_Horizontal"
             android:layout_marginTop="@dimen/dp_10"
             android:baselineAligned="false"

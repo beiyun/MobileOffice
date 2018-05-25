@@ -185,8 +185,19 @@ public class WorkFragPage2 extends BaseWorkPageFragment implements SwipeRefreshL
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
+        Logs.e("onHiddenChanged ="+hidden);
         if(!hidden) {
             mainActivity.attachFab(recyclerView);
+        }
+    }
+
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        Logs.e("isvisiabletouser.............."+isVisibleToUser);
+        if(isVisibleToUser){
+            loadWorkNameData();
         }
     }
 

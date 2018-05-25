@@ -1,5 +1,7 @@
 package com.beiyun.workers.utils;
 
+import android.text.TextUtils;
+
 import com.beiyun.workers.R;
 import com.beiyun.workers.constant.AppUrl;
 import com.beiyun.workers.entity.Address;
@@ -60,11 +62,12 @@ public class AppRequests {
      * user.province 登录人所属省   user.city 登录人所属市
      * user.county 登录人所属县   user.uid  登录人烟站
      */
-    public static <T> void getPersonInfo(int page, int type, final CallBackListener<T> listener){
+    public static <T> void getPersonInfo(int page, int type,String name, final CallBackListener<T> listener){
 
         HashMap<String,String> params = new HashMap<>();
         params.put("bo.page", String.valueOf(page));
         params.put("bo.types", String.valueOf(type));
+        params.put("bo.name", TextUtils.isEmpty(name)?"":name);
 
         setLocalParams(params);
 
@@ -116,12 +119,13 @@ public class AppRequests {
      * user.city 登录人所属市   user.county 登录人所属县   user.uid  登录人烟站
      * @param <T>
      */
-    public static <T> void  getPlantInfo(int type, int year,int page, ResponseTCallBack<T> callBack){
+    public static <T> void  getPlantInfo(int type, int year,String name,int page, ResponseTCallBack<T> callBack){
         HashMap<String,String> params = new HashMap<>();
         setLocalParams(params);
         params.put("bo.types", type == -1?"":String.valueOf(type));
         params.put("bo.year",String.valueOf(year));
         params.put("bo.page",String.valueOf(page));
+        params.put("bo.name", TextUtils.isEmpty(name)?"":name);
         OkHttpUtils.postQuery(AppUrl.get().PLANT_INFO, params,callBack);
     }
 

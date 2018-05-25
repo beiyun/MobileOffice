@@ -901,8 +901,10 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
             type = -1;
         }
 
+        String name = searchName.getText().toString();
+
         final int finalType = type;
-        AppRequests.getPlantInfo(type, Integer.valueOf(s),currentPage, new ResponseTCallBack<BaseInfo>() {
+        AppRequests.getPlantInfo(type, Integer.valueOf(s),name,currentPage, new ResponseTCallBack<BaseInfo>() {
             @Override
             public void onFailure(IOException e) {
                 Logs.e("getplantInfo onFailure >>"+e.getMessage());
@@ -1211,14 +1213,19 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
 
     private void setPersonData() {
 
-        final int type = personCategory.getSelectedIndex() + 1;
+        int type = personCategory.getSelectedIndex() + 1;
+        if(TextUtils.isEmpty(personCategory.getText())){
+            type = 0;
+        }
 
 
-        AppRequests.getPersonInfo(currentPage, type, new AppRequests.CallBackListener<TGBasicInfoEntity>() {
+        final int finalType = type;
+        String name = searchName.getText().toString();
+        AppRequests.getPersonInfo(currentPage, type,name, new AppRequests.CallBackListener<TGBasicInfoEntity>() {
             @Override
             public void success(final List<TGBasicInfoEntity> data, final int totalSize) {
                 for (int i = 0; i < data.size(); i++) {
-                    data.get(i).setCategory(type);
+                    data.get(i).setCategory(finalType);
                 }
                 if (currentPage == 1) {
                     if (searchPersonAdapter == null) {
