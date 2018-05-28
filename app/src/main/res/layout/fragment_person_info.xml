@@ -209,6 +209,7 @@
 
           <com.beiyun.workers.view.CountEditText
               android:id="@+id/beizhu"
+              app:CountEditText_hint="备注"
               android:layout_width="match_parent"
               android:layout_height="140dp"
               android:focusable="false"

@@ -5,7 +5,7 @@ import com.beiyun.workers.entity.User;
 
 public class AppUrl {
 
-    static String PUBLIC_IP = "http://220.165.15.41:8081/";
+    static String PUBLIC_IP = "http://220.165.15.41:8080/";
     static String PRIVATE_IP = "http://sdmc.free.ngrok.cc/";
     static String LOCAL_IP = "http://192.168.0.103:8080/";
 
@@ -98,8 +98,8 @@ public class AppUrl {
             BASE_URL = PUBLIC_IP+"tobacco/";
             BASE_IMAGE_URL = PUBLIC_IP+"imageweb/";
         }else{
-            BASE_URL = PRIVATE_IP+"tobacco/";
-            BASE_IMAGE_URL = PRIVATE_IP+"imageweb/";
+            BASE_URL = LOCAL_IP+"tobacco/";
+            BASE_IMAGE_URL = LOCAL_IP+"imageweb/";
         }
 
          UPDATE_PASSWORD_STEP_1 = BASE_URL + "login/login_sendverificationcode.do";

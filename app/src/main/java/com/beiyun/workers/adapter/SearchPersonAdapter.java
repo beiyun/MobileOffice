@@ -21,7 +21,7 @@ public class SearchPersonAdapter extends BaseQuickAdapter<TGBasicInfoEntity,Base
 
     @Override
     protected void convert(BaseViewHolder helper, TGBasicInfoEntity item) {
-        if(item.getCategory() == 1){
+        if(item.getCategory() == 1 || item.getCategory() == 2){
             helper.setText(R.id.item_search_person_companyName,TextUtils.isEmpty(item.getUname())?"无":item.getUname())
                     .setText(R.id.item_search_person_personName,TextUtils.isEmpty(item.getNickname())?"无":item.getNickname())
                     .setText(R.id.item_search_person_call, TextUtils.isEmpty(item.getTel())?"无":item.getTel());

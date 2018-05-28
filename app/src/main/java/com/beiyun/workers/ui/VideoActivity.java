@@ -258,7 +258,7 @@ public class VideoActivity extends BaseActivity {
     @Subscribe
     public void dataForLearnFragPage2(LearnPage2Entity entity) {
         Logs.e("VideoActivity dataForLearnFragPage2:" + "" + entity);
-        videoPlayer.setUp(entity.getVideoUrl(),
+        videoPlayer.setUp(AppUrl.get().BASE_IMAGE_URL +entity.getVideoUrl(),
                 JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL, entity.getTitle());
         videoPlayer.titleTextView.setVisibility(View.GONE);
         videoPlayer.backButton.setImageResource(R.drawable.ic_chevron_left_white_36dp);

@@ -246,6 +246,7 @@ public class PersonInfoFragment extends BaseSearchFragment {
                 fudaoyuanGuaPianZhiGong.setEditText(entity.getWid());
                 suoxiaVillage.setEditText(entity.getVillageGroup());
             }
+            age.setEditText(entity.getAge());
             zhigongNumber.setEditText(entity.getUserNumber());
             zhigongType.setEditText(entity.getType());
             zhigongUserName.setEditText(entity.getUserName());
