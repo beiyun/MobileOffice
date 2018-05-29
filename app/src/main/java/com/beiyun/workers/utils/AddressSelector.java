@@ -12,7 +12,6 @@ import com.beiyun.workers.entity.Address;
 import com.beiyun.workers.okhttp.OkHttpUtils;
 import com.beiyun.workers.okhttp.callback.BaseInfo;
 import com.beiyun.workers.okhttp.callback.ResponseTCallBack;
-import com.beiyun.workers.view.SpinnerLayout;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
 import java.io.IOException;
@@ -27,9 +26,8 @@ public class AddressSelector {
 
     private MaterialSpinner[] spinners;
     private ViewGroup viewGroup;
-    private SpinnerLayout spinnerLayout;
     private static HashMap<String,Address> addressMap = new HashMap<>();
-    private static AddressSelector selector;
+    private static List<Address> villages;
 
     private AddressSelector(ViewGroup viewGroup,MaterialSpinner[] spinners) {
         this.spinners = spinners;
@@ -38,10 +36,7 @@ public class AddressSelector {
 
     }
 
-    private AddressSelector(SpinnerLayout spinnerLayout) {
-        this.spinnerLayout = spinnerLayout;
-        loadAddress(1,"");
-    }
+
 
 
     private void loadAddress(final int type,String parentCode) {
@@ -63,7 +58,12 @@ public class AddressSelector {
                     if(addresses == null || addresses.size() == 0){
                         return;
                     }
-                    setAddressData(addresses,type);
+
+                    if(type == 5 && viewGroup == null){
+                        villages = addresses;
+                    }else{
+                        setAddressData(addresses,type);
+                    }
                 }
 
             }
@@ -77,10 +77,11 @@ public class AddressSelector {
 
     }
 
-    public static void attachSpinners(SpinnerLayout spinnerLayout){
-        new AddressSelector(spinnerLayout);
-    }
+    public static void attachSpinners(MaterialSpinner... spinner){
+        new AddressSelector(null,spinner);
+        clearAddressMap();
 
+    }
 
 
     private void setAddressData(final List<Address> addresses, final int type) {
@@ -91,11 +92,13 @@ public class AddressSelector {
             names.add(address.getName());
         }
         spinners[type-1].setItems(names);
-//        final MaterialSpinner spinner = spinnerLayout.addItem(type, "测试", names);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && viewGroup != null) {
             TransitionManager.beginDelayedTransition(viewGroup);
         }
-        spinners[type-1].setVisibility(View.VISIBLE);
+        if(viewGroup != null){
+            spinners[type-1].setVisibility(View.VISIBLE);
+        }
         spinners[type-1].setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
@@ -103,6 +106,7 @@ public class AddressSelector {
                 Logs.e("AddressSelector item click"+ address);
                 addressMap.put("key"+(type-1),address);
                 clearCaches(type);
+
 
                 if(type == 7){
                     return;
@@ -120,13 +124,17 @@ public class AddressSelector {
         }
 
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && viewGroup != null) {
             TransitionManager.beginDelayedTransition(viewGroup);
         }
         for (int i = type; i < spinners.length; i++) {
             //todo maybe has some idea to clear the bottom spinners
 
-            spinners[i].setVisibility(View.GONE);
+            if(viewGroup != null){
+                spinners[i].setVisibility(View.GONE);
+            }else{
+                spinners[i].setText("");
+            }
 
             Address remove = addressMap.remove("key" + i);
             Logs.e("------------------remove address >>"+remove);
@@ -138,13 +146,15 @@ public class AddressSelector {
 
     public static void clearAddressMap(){
         addressMap.clear();
-        if(selector != null){
-            selector.clearCaches(0);
-        }
-
-
     }
 
+    /**
+     * 获取村委会
+     * @return
+     */
+    public static List<Address> getVillages() {
+        return villages;
+    }
 
     public static HashMap<String, Address> getAddressMap() {
         return addressMap;

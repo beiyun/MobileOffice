@@ -118,7 +118,7 @@ public class TestSimpleDataUtil {
     }
 
     public static String getUserNumber(){
-        return "5301260001";
+        return "5301260101";
     }
 
     public static String getUserPassword(){

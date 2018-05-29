@@ -81,6 +81,8 @@ public class AppUrl {
 
     public String REPORT;
 
+    public String REGISTER;
+
     public static AppUrl get(){
        return User.getNetType() == 1? userPublicNet():usePrivateNet();
     }
@@ -121,6 +123,7 @@ public class AppUrl {
          REPORT = BASE_URL + "feedback/feedback_save.do";
          PUBLIC_INFO = BASE_URL + "dissentdeal/dissentdeal_queryPublicityImage.do";
          BASIC_STATION_INFO = BASE_URL + "facility/facility_search.do";
+         REGISTER = BASE_URL + "login/login_insRegister.do";
 
     }
 

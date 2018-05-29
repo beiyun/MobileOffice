@@ -12,6 +12,7 @@ public class CheckQualificationBean {
     public String identity;
     public String year;
     public boolean status;
+    public String farmerTel;
 
     /**
      * 种植申请单
@@ -62,6 +63,14 @@ public class CheckQualificationBean {
     public String preceding;
     public String evaluationDegree;
 
+
+    public String getFarmerTel() {
+        return farmerTel;
+    }
+
+    public void setFarmerTel(String farmerTel) {
+        this.farmerTel = farmerTel;
+    }
 
     public String getAid() {
         return aid;

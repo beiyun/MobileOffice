@@ -11,7 +11,6 @@
     android:background="@color/bottom_background_color"
     android:paddingRight="@dimen/activity_horizontal_margin"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.beiyun.workers.ui.RegisterActivity">
 
     <ScrollView
@@ -28,11 +27,112 @@
             android:orientation="vertical">
 
 
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/typeName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:ms_arrow_tint="@color/colorPrimary"
+                app:ms_hint_color="@color/text_gray"
+                app:ms_text_color="@color/text_black"
+                android:layout_marginTop="@dimen/dp_10"
+                android:textSize="@dimen/sp_16"
+                app:ms_dropdown_max_height="300dp"
+                app:ms_hint="职工类别"/>
+
+
+
+
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/province"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:ms_arrow_tint="@color/colorPrimary"
+                app:ms_hint_color="@color/text_gray"
+                app:ms_text_color="@color/text_black"
+                android:textSize="@dimen/sp_16"
+                android:layout_marginTop="@dimen/dp_10"
+                app:ms_dropdown_max_height="300dp"
+                android:hint="省"
+                app:ms_hint="省"/>
+
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:ms_arrow_tint="@color/colorPrimary"
+                app:ms_hint_color="@color/text_gray"
+                app:ms_text_color="@color/text_black"
+                android:layout_marginTop="@dimen/dp_10"
+                android:textSize="@dimen/sp_16"
+                app:ms_dropdown_max_height="300dp"
+                android:hint="市"
+                app:ms_hint="市"/>
+
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/county"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:ms_arrow_tint="@color/colorPrimary"
+                app:ms_hint_color="@color/text_gray"
+                app:ms_text_color="@color/text_black"
+                android:textSize="@dimen/sp_16"
+                android:layout_marginTop="@dimen/dp_10"
+                app:ms_dropdown_max_height="300dp"
+                android:hint="县"
+                app:ms_hint="县"/>
+
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/uid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:ms_arrow_tint="@color/colorPrimary"
+                app:ms_hint_color="@color/text_gray"
+                android:layout_marginTop="@dimen/dp_10"
+                app:ms_text_color="@color/text_black"
+                android:textSize="@dimen/sp_16"
+                android:hint="烟站"
+                app:ms_dropdown_max_height="300dp"
+                app:ms_hint="烟站"/>
+
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/departmentName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:ms_arrow_tint="@color/colorPrimary"
+                app:ms_hint_color="@color/text_gray"
+                app:ms_text_color="@color/text_black"
+                android:layout_marginTop="@dimen/dp_10"
+                android:textSize="@dimen/sp_16"
+                app:ms_dropdown_max_height="300dp"
+                app:ms_hint="科室"/>
+
+
+            <TextView
+                android:id="@+id/vid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/dp_48"
+                android:padding="@dimen/dp_10"
+                android:textSize="@dimen/sp_14"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@color/white"
+                android:hint="所辖村委会" />
+
+
+
             <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/nickname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:met_baseColor="@color/colorPrimary"
                 app:met_textColor="@color/text_gray"
+                android:layout_marginTop="@dimen/dp_10"
                 app:met_floatingLabelTextColor="@color/colorPrimaryDark"
                 android:hint="真实姓名"
                 app:met_textColorHint="@color/text_half_gray"
@@ -41,6 +141,7 @@
                 app:met_errorColor="@color/colorError"
                 app:met_autoValidate="true"
                 app:met_clearButton="true"
+                android:textSize="@dimen/sp_14"
                 app:met_maxCharacters="20"
                 app:met_singleLineEllipsis="true"
                 app:met_helperTextColor="@color/colorWarning"/>
@@ -48,24 +149,7 @@
 
 
             <com.rengwuxian.materialedittext.MaterialEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:met_baseColor="@color/colorPrimary"
-                app:met_textColor="@color/text_gray"
-                app:met_floatingLabelTextColor="@color/colorPrimaryDark"
-                android:hint="身份证号"
-                app:met_textColorHint="@color/text_half_gray"
-                app:met_floatingLabel="highlight"
-                app:met_underlineColor="@color/colorPrimary"
-                app:met_errorColor="@color/colorError"
-                app:met_autoValidate="true"
-                app:met_clearButton="true"
-                app:met_maxCharacters="18"
-                app:met_singleLineEllipsis="true"
-                app:met_helperTextColor="@color/colorWarning"/>
-
-
-            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/tel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:met_baseColor="@color/colorPrimary"
@@ -79,67 +163,25 @@
                 app:met_autoValidate="true"
                 android:inputType="phone"
                 app:met_clearButton="true"
+                android:textSize="@dimen/sp_14"
                 app:met_maxCharacters="11"
                 app:met_singleLineEllipsis="true"
                 app:met_helperTextColor="@color/colorWarning"/>
 
 
 
-            <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:orientation="horizontal">
 
-                <com.rengwuxian.materialedittext.MaterialEditText
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    app:met_baseColor="@color/colorPrimary"
-                    app:met_textColor="@color/text_gray"
-                    app:met_floatingLabelTextColor="@color/colorPrimaryDark"
-                    android:hint="验证码"
-                    app:met_textColorHint="@color/text_half_gray"
-                    app:met_floatingLabel="highlight"
-                    app:met_underlineColor="@color/colorPrimary"
-                    app:met_errorColor="@color/colorError"
-                    app:met_autoValidate="true"
-                    app:met_clearButton="true"
-                    android:inputType="number"
-                    app:met_maxCharacters="6"
-                    app:met_singleLineEllipsis="true"
-                    app:met_helperTextColor="@color/colorWarning"/>
-
-
-
-                <com.dd.processbutton.iml.SubmitProcessButton
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   app:pb_cornerRadius="@dimen/dp_6"
-                   android:text="获取验证码"
-                   android:textColor="@color/white"
-                   android:layout_marginLeft="@dimen/dp_10"
-                   app:pb_colorError="@color/colorError"
-                   app:pb_colorNormal="@color/ColorButtonNormal"
-                   app:pb_colorPressed="@color/colorButtonPressed"
-                   app:pb_textComplete="发送成功"
-                   app:pb_colorComplete="@color/colorSuccess"
-                   app:pb_textError="发送失败"
-                   app:pb_textProgress="正在获取..."
-                   app:pb_colorProgress="@color/colorPrimary"/>
-
-
-
-
-           </LinearLayout>
 
 
             <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:met_baseColor="@color/colorPrimary"
                 app:met_textColor="@color/text_gray"
                 app:met_floatingLabelTextColor="@color/colorPrimaryDark"
                 android:hint="登录密码"
+                android:textSize="@dimen/sp_14"
                 android:inputType="textPassword"
                 app:met_textColorHint="@color/text_half_gray"
                 app:met_floatingLabel="highlight"
@@ -155,6 +197,7 @@
 
 
             <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/passwordAgain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:met_baseColor="@color/colorPrimary"
@@ -169,28 +212,9 @@
                 app:met_errorColor="@color/colorError"
                 app:met_checkCharactersCountAtBeginning="false"
                 app:met_clearButton="true"
+                android:textSize="@dimen/sp_14"
                 app:met_maxCharacters="16"
                 app:met_minCharacters="6"
-                app:met_singleLineEllipsis="true"
-                app:met_helperTextColor="@color/colorWarning"/>
-
-
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:met_baseColor="@color/colorPrimary"
-                app:met_textColor="@color/text_gray"
-                app:met_floatingLabelTextColor="@color/colorPrimaryDark"
-                android:hint="家庭住址"
-                android:inputType="text"
-                app:met_textColorHint="@color/text_half_gray"
-                app:met_floatingLabel="highlight"
-                app:met_underlineColor="@color/colorPrimary"
-                app:met_errorColor="@color/colorError"
-                app:met_checkCharactersCountAtBeginning="true"
-                app:met_autoValidate="true"
-                app:met_clearButton="true"
-                app:met_maxCharacters="50"
                 app:met_singleLineEllipsis="true"
                 app:met_helperTextColor="@color/colorWarning"/>
 
@@ -198,6 +222,7 @@
 
 
             <com.dd.processbutton.iml.SubmitProcessButton
+                android:onClick="register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/sp_16"

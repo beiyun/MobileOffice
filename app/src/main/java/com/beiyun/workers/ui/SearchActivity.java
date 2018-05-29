@@ -987,7 +987,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
                         if(qualificationBeans != null && qualificationBeans.size() != 0){
                             for (CheckQualificationBean bean:
                                     qualificationBeans) {
-                                SearchPlantEntity entity = setUpSearchPlantEntities(bean.getName(), "未返回");
+                                SearchPlantEntity entity = setUpSearchPlantEntities(bean.getName(), bean.getFarmerTel());
                                 searchPlantEntities.add(entity);
                             }
                         }else{
@@ -1050,7 +1050,7 @@ public class SearchActivity extends BaseActivity implements SwipeRefreshLayout.O
                         if(formalContractBeans != null && formalContractBeans.size() != 0){
                             for (FormalContractBean bean:
                                     formalContractBeans) {
-                                SearchPlantEntity entity = setUpSearchPlantEntities(bean.getName(), "未返回");
+                                SearchPlantEntity entity = setUpSearchPlantEntities(bean.getName(), bean.getLinkTel());
                                 searchPlantEntities.add(entity);
                             }
                         }else{
