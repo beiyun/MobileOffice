@@ -16,6 +16,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.beiyun.workers.R;
 import com.beiyun.workers.base.BaseActivity;
 import com.beiyun.workers.constant.AppUrl;
+import com.beiyun.workers.entity.Address;
 import com.beiyun.workers.entity.Instructor;
 import com.beiyun.workers.okhttp.OkHttpUtils;
 import com.beiyun.workers.okhttp.callback.RequestCallBack;
@@ -93,11 +94,12 @@ public class RegisterActivity extends BaseActivity {
          return;
         }
 
+        HashMap<String, Address> addressMap = AddressSelector.getAddressMap();
         Instructor instructor = new Instructor();
-        instructor.setProvince(getSpinnerValue(province));
-        instructor.setCity(getSpinnerValue(city));
-        instructor.setCounty(getSpinnerValue(county));
-        instructor.setUid(getSpinnerValue(uid));
+        instructor.setProvince(addressMap.get("key0")==null? "" : addressMap.get("key0").getCode());
+        instructor.setCity(addressMap.get("key1") == null? "" : addressMap.get("key1").getCode());
+        instructor.setCounty(addressMap.get("key2") == null? "" : addressMap.get("key2").getCode());
+        instructor.setUid(addressMap.get("key3") == null? "" : addressMap.get("key3").getCode());
         instructor.setTypeName(getSpinnerValue(typeName));
         instructor.setDepartmentName(getSpinnerValue(departmentName));
         instructor.setNickname(getTextValue(nickname));
@@ -173,7 +175,7 @@ public class RegisterActivity extends BaseActivity {
         }else if(isSpinnerNull(typeName)){
             toastError("职工类别不能为空");
             return true;
-        }else if(getTextValue(passwordAgain).equals(getTextValue(password))){
+        }else if(!getTextValue(passwordAgain).equals(getTextValue(password))){
             toastError("两次密码输入不一致");
             return true;
         }
@@ -214,6 +216,18 @@ public class RegisterActivity extends BaseActivity {
         new MaterialDialog.Builder(this)
                 .title("选择所辖村组")
                 .items(items)
+                .itemsCallbackMultiChoice(null, new MaterialDialog.ListCallbackMultiChoice() {
+                    @Override
+                    public boolean onSelection(MaterialDialog dialog, Integer[] which, CharSequence[] text) {
+                        /**
+                         * If you use alwaysCallMultiChoiceCallback(), which is discussed below,
+                         * returning false here won't allow the newly selected check box to actually be selected
+                         * (or the newly unselected check box to be unchecked).
+                         * See the limited multi choice dialog example in the sample project for details.
+                         **/
+                        return true;
+                    }
+                })
                 .positiveText("确定")
                 .onPositive(new MaterialDialog.SingleButtonCallback() {
                     @Override
@@ -236,7 +250,6 @@ public class RegisterActivity extends BaseActivity {
                         vidCodes = codesBuilder.toString().substring(0,codesBuilder.toString().length()-1);
 
                         vid.setText(vidTexts);
-                        toast(vidCodes);
                     }
                 })
                 .show();
