@@ -217,33 +217,21 @@
       </LinearLayout>
 
 
-        <LinearLayout
-            android:id="@+id/tobaccoLayout"
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/fudaoyuanGuaPianZhiGong"
             android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:focusable="false"
+            app:nullAble="false"
+            app:titleText="挂片职工" />
 
-
-            <com.beiyun.workers.view.FormView
-                android:id="@+id/fudaoyuanGuaPianZhiGong"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:focusable="false"
-                app:nullAble="false"
-                app:titleText="挂片职工" />
-
-
-            <com.beiyun.workers.view.FormView
-                android:id="@+id/suoxiaVillage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:focusable="false"
-                app:nullAble="false"
-                app:titleText="所辖村委会" />
-
-
-
-        </LinearLayout>
+        <com.beiyun.workers.view.FormView
+            android:id="@+id/suoxiaVillage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:focusable="false"
+            app:nullAble="false"
+            app:titleText="所辖村委会" />
 
 
         <LinearLayout

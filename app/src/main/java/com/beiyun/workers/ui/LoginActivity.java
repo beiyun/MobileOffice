@@ -25,6 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.beiyun.library.anot.Receiver;
+import com.beiyun.library.anot.Subscribe;
 import com.beiyun.library.util.Apps;
 import com.beiyun.library.util.Logs;
 import com.beiyun.library.util.Sizes;
@@ -200,6 +201,13 @@ public class LoginActivity extends BaseActivity {
 
     }
 
+
+    @Subscribe
+    public void onReceive(String userNumber){
+        mUserNameView.setText(userNumber);
+    }
+
+
     @SuppressLint("ClickableViewAccessibility")
     private void initPassWordView() {
         mPasswordView = findViewById(R.id.password);
@@ -338,18 +346,8 @@ public class LoginActivity extends BaseActivity {
         if (cancel) {
             focusView.requestFocus();
         } else {
-            //login
-//            mUserNameView.setEnabled(false);
-//            mPasswordView.setEnabled(false);
-//            mSignInButton.setClickable(false);
-
             signIn();
-//            signInLocal();
         }
-    }
-
-    private void signInLocal() {
-        goToMainActivity();
     }
 
     private void signIn() {

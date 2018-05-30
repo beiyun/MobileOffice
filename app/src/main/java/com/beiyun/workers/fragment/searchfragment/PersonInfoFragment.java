@@ -146,8 +146,6 @@ public class PersonInfoFragment extends BaseSearchFragment {
     LinearLayout framerLayout;
     @BindView(R.id.fudaoyuanGuaPianZhiGong)
     FormView fudaoyuanGuaPianZhiGong;
-    @BindView(R.id.tobaccoLayout)
-    LinearLayout tobaccoLayout;
 
 
     public PersonInfoFragment() {
@@ -180,7 +178,7 @@ public class PersonInfoFragment extends BaseSearchFragment {
     public void onReceive(TGBasicInfoEntity entity) {
         if (entity.getCategory() != 1 && entity.getCategory() != 2) {
             zhigongLayout.setVisibility(View.GONE);
-            tobaccoLayout.setVisibility(View.GONE);
+            fudaoyuanGuaPianZhiGong.setVisibility(View.GONE);
             name.setEditText(entity.getName());
             identity.setEditText(entity.getIdentity());
             sex.setEditText("1".equals(entity.getSex()) ? "男" : "2".equals(entity.getSex()) ? "女" : "");
@@ -240,10 +238,17 @@ public class PersonInfoFragment extends BaseSearchFragment {
             cProxy.setEditText(entity.getcProxy());
         } else {
             framerLayout.setVisibility(View.GONE);
+            /**
+             * 职工
+             */
             if(entity.getCategory() == 1){
-                tobaccoLayout.setVisibility(View.GONE);
+                fudaoyuanGuaPianZhiGong.setVisibility(View.GONE);
+                suoxiaVillage.setText("所辖村委会");
+                suoxiaVillage.setEditText(entity.getVid());
             }else{
+                //辅导员
                 fudaoyuanGuaPianZhiGong.setEditText(entity.getWid());
+                suoxiaVillage.setText("所辖村组");
                 suoxiaVillage.setEditText(entity.getVillageGroup());
             }
             age.setEditText(entity.getAge());

@@ -49,6 +49,7 @@ import com.beiyun.workers.okhttp.OkHttpUtils;
 import com.beiyun.workers.okhttp.callback.RequestCallBack;
 import com.beiyun.workers.okhttp.helper.ResultData;
 import com.beiyun.workers.utils.FragmentControl;
+import com.beiyun.workers.utils.UpdateManager;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
 import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
@@ -142,6 +143,7 @@ public class MainActivity extends BaseActivity implements ViewAnimator.ViewAnima
         initExitMenu();
         /* initPermission();
          */
+        UpdateManager.init().checkVersion(false);
         initXY();
 
     }

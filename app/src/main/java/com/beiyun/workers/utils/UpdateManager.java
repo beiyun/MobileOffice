@@ -120,11 +120,7 @@ public class UpdateManager {
                        if (getVersionCode(Apps.getCurrentActivity()) - info.getVersionCode() < 0) {
                            apkUrl = AppUrl.get().BASE_IMAGE_URL + info.getUrl();
                            Log.d(TAG, "onResponse: apkUrl = "+apkUrl);
-                           if (!isFromAboutUi) {
-                               noticeUser(info);
-                           } else {
-                               showNoticeDialog(info);
-                           }
+                           showNoticeDialog(info);
                        } else {
                            if (isFromAboutUi) {
                                toast("当前已是最新版本");
@@ -145,23 +141,7 @@ public class UpdateManager {
         return this;
     }
 
-    private void noticeUser(VersionInfo info) {
-        new MaterialDialog.Builder(Apps.getCurrentActivity())
-                .positiveText("允许下载")
-                .negativeText("以后再说")
-                .content("本次更新内容如下：\n\t\t" +info.getDescription()+
-                        "\n\t\t是否允许系统在后台为您下载最新版本，下载完毕后将提示您安装")
-                .title("最新版本发布 V"+info.getVersionName())
-                .onPositive(new MaterialDialog.SingleButtonCallback() {
-            @Override
-            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                dialog.dismiss();
-                downLoad();
-            }
-        }).build().show();
 
-
-    }
 
     private void toast(String text){
 

@@ -152,12 +152,12 @@ public class PlantContractInfoFragment extends BaseSearchFragment {
          purchasePlace.setEditText(entity.getPurchasePlace());
          purchasePeriod.setEditText(entity.getPurchasePeriod());
          subsidyInfo.setSubsidyInfo(entity.getSubsidyInfo());
-        totalAmount.setText(String.valueOf(Double.valueOf(entity.getMandatoryAmount()) + Double.valueOf(entity.getExportAmount())));
-        totalAmount1.setText(String.valueOf(Double.valueOf(entity.getAdjust1Mandatory()) + Double.valueOf(entity.getAdjust1Export())));
-        totalAmount2.setText(String.valueOf(Double.valueOf(entity.getAdjust2Mandatory()) + Double.valueOf(entity.getAdjust2Export())));
-        term1.setText(entity.getTerm1());
-        term2.setText(entity.getTerm2());
-        term3.setText(entity.getTerm3());
+        totalAmount.setEditText(String.valueOf(Double.valueOf(entity.getMandatoryAmount()) + Double.valueOf(entity.getExportAmount())));
+        totalAmount1.setEditText(String.valueOf(Double.valueOf(entity.getAdjust1Mandatory()) + Double.valueOf(entity.getAdjust1Export())));
+        totalAmount2.setEditText(String.valueOf(Double.valueOf(entity.getAdjust2Mandatory()) + Double.valueOf(entity.getAdjust2Export())));
+        term1.setEditText(entity.getTerm1());
+        term2.setEditText(entity.getTerm2());
+        term3.setEditText(entity.getTerm3());
     }
 
 }
