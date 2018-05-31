@@ -243,12 +243,12 @@ public class PersonInfoFragment extends BaseSearchFragment {
              */
             if(entity.getCategory() == 1){
                 fudaoyuanGuaPianZhiGong.setVisibility(View.GONE);
-                suoxiaVillage.setText("所辖村委会");
+                suoxiaVillage.setTitleText("所辖村委会");
                 suoxiaVillage.setEditText(entity.getVid());
             }else{
                 //辅导员
                 fudaoyuanGuaPianZhiGong.setEditText(entity.getWid());
-                suoxiaVillage.setText("所辖村组");
+                suoxiaVillage.setTitleText("所辖村组");
                 suoxiaVillage.setEditText(entity.getVillageGroup());
             }
             age.setEditText(entity.getAge());
